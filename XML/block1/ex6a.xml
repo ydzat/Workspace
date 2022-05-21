@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE expression [
+  <!ELEMENT expression  (term)>  
+  <!ELEMENT term  (value | (term,addop,term))>  
+  <!ELEMENT value  (#PCDATA)>
+  <!ELEMENT addop  EMPTY>
+  <!ATTLIST addop type (plus|minus) #REQUIRED>
+]>
+<expression>
+  <term>
+    <term>22</term>
+    <addop type="plus"/>
+    <term>17</term>
+    <addop type="minus"/>
+    <term>55</term>
+  </term>
+</expression>

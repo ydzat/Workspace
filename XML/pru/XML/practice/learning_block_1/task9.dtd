@@ -1,0 +1,16 @@
+<!ELEMENT library (shelfs, staff)>
+<!ELEMENT shelfs (shelf+)>
+<!ELEMENT staff (person+)>
+<!ELEMENT shelf (book*)>
+<!ELEMENT book (title, author, pages)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT pages (#PCDATA)>
+<!ELEMENT person (name)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST library name CDATA #REQUIRED>
+<!ATTLIST shelf 
+    alphabetical (yes|no) #REQUIRED
+    begin-at CDATA #IMPLIED
+>
+<!ATTLIST person staff-id CDATA #REQUIRED>

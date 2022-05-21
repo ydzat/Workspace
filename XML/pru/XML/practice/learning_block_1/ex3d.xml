@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE sentence [
+  <!ELEMENT sentence  ((subject,predicate,object)+)>
+  <!ELEMENT subject   (#PCDATA)>
+  <!ELEMENT predicate (#PCDATA)>
+  <!ELEMENT object    (#PCDATA)>
+  <!ATTLIST subject plural (yes|no) "no">
+  <!ENTITY vsr "Professur
+  Verteilte und selbsorganisierende
+  Rechnersysteme">
+  <!ENTITY nbsp "&#160;" >
+]>
+<sentence>
+   <subject>The &vsr;&nbsp;</subject>
+    <predicate>conducts</predicate>
+     <object><![CDATA[ research & education.]]></object>
+   <subject plural="yes">Universities</subject>
+    <predicate><![CDATA[ have <= ]]></predicate>
+     <object>a &vsr;.</object>
+</sentence>

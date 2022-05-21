@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="company_customer" type="company_customer"/>
+
+	<xs:complexType name="company_customer">
+		<xs:complexContent>
+			<xs:extension base="ct_customer">
+				<xs:sequence>
+					<xs:element name="id" type="xs:int" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="ct_customer" type="ct_customer"/>
+
+	<xs:complexType name="ct_customer">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ct_order" type="ct_order" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="ct_order" type="ct_order"/>
+
+	<xs:complexType name="ct_order">
+		<xs:sequence>
+			<xs:element name="daten" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="order_list" type="order_list"/>
+	
+	<xs:complexType name="order_list">
+		<xs:sequence>
+			<xs:element name="ct_order" type="ct_order" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

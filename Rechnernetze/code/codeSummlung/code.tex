@@ -1,0 +1,744 @@
+\documentclass[fleqn]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{listings}
+\usepackage{diagbox}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{fontspec}
+\setmonofont{Consolas}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\lstset{
+ columns=fixed,       
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ %backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=c++,                                        % 设置语言
+ breaklines,                                          % 自动换行
+}
+\begin{document}
+
+%\maketitle
+
+
+
+\newpagestyle{main}{
+    \sethead{}{}{Rechnernetze}
+    \setfoot{}{\thepage}{}
+    \headrule
+    \footrule
+}
+\pagestyle{main}
+\section{邮件客户端(09)}
+
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import poplib
+
+HOST = 'taurus.informatik.tu-chemnitz.de'
+PORT = 110
+
+username = "rot"
+password = "rot"
+
+client = poplib.POP3(HOST, PORT)
+
+usr = client.user(username) #legt den gewünschten Nutzernamen fest
+print(usr.decode())
+
+pas = client.pass_(username) #authentifiziert den Nutzer
+print(pas.decode())
+
+ret = client.list() #gibt als Liste die Nummern und Größen der verfügbaren EMails zurück
+
+print(ret[0].decode())
+
+text = client.retr(1) #liefert die EMail mit der angegebenen Nummer zurück
+
+for i in text[1]:
+    print(i.decode())
+
+client.quit() #beendet die Verbindung
+\end{lstlisting}
+
+
+
+
+\clearpage
+
+\section{服务器验证ip地址(18)}
+\noindent 服务端
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+HOST = 'localhost'
+Port = 26718
+#计算主机134.109.133.128/26所属网络
+#26-8-8-8=2 -> 11111111.11111111.11111111.11000000 -> 255.255.255.192
+#范围为128-191
+valid_low = ipaddress.ip_address("134.109.133.128")
+valid_high = ipaddress.ip_address("134.109.133.191")
+server.bind((HOST, 26718))
+server.listen(5)
+while True:
+    conn, addr = server.accept()
+    usr = ipaddress.ip_address(addr[0])
+    if ( valid_low <= usr <= valid_high):
+        msg = 'Access granted' 
+    else:
+        msg = 'Access denied'
+    conn.send(msg.encode())
+    conn.close()
+server.close()
+\end{lstlisting}
+
+\noindent 客户端
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+HOST = '134.109.133.128'
+client.connect((HOST, 26718))
+data = client.recv(1024)
+print(data.decode())
+client.close()
+\end{lstlisting}
+
+\clearpage
+\section{服务器响应(17)}
+\noindent 通过浏览器访问指定服务器，若存在页面则返回ip地址，若不存在则返回404
+
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket
+HOST = "25.150.140.133"
+Port = 8080
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((HOST, Port))
+server.listen(1)
+conn, addr = server.accept()
+#print("Verbund mit: ", addr[0])
+web = ("""HTTP/1.1 200 OK \n\n<!doctype html>
+<html>
+    <head><title>Hello</title></head>
+    <body>
+        <H2>Hello</H2>
+        your IP address is: """+addr[0]+"""
+    </body>
+</html>
+""" )
+
+errweb = ("""HTTP/1.1 200 OK \n\n <!doctype html>
+<html>
+    <head><title>404</title></head>
+    <body>Site not found on this server!</body>
+</html>
+""" )
+
+while 1:
+    data = conn.recv(1024)
+    datasplit = data.decode().split()
+    if ((datasplit[0] == "GET") and (datasplit[1] == "/" or datasplit[1] == "/index.html") and (datasplit[2] == "HTTP/1.1")):
+        conn.send(web.encode())
+        break
+    else:
+        conn.send(errweb.encode())
+        break
+conn.close()
+server.close()
+    
+\end{lstlisting}
+
+\section{HTML+PY脚本(14)}
+\noindent 用py作服务器，处理来自HTML的数据，并更新HTML
+
+\noindent 脚本部分
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket
+import re
+
+path="C:\\Users\\ydzat\\OneDrive\\Workspace\\Rechnernetze\\code\\ans2014\\new\\index.html"
+
+f = open(path,'r+')
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+host = '25.150.140.133'
+port = 8080
+
+s.bind((host,port))
+s.listen(1)
+
+stock = 0
+
+for line in f.readlines():
+    da = re.search(r'Still (\d+)', line, re.M)
+    if (type(da) == re.Match ):
+        stock = da.group(1)
+        break
+    
+while True:
+    data = ''
+    conn, addr = s.accept()
+    msg = conn.recv(1024)
+    userRequest = msg.decode().split()
+    if userRequest[1] == "/one":
+        stock = int(stock) - 1
+    elif userRequest[1] == "/five":
+        stock = int(stock) - 5
+    elif userRequest[1] == "/ten":
+        stock = int(stock) - 10
+    f.seek(0, 0)
+    for line in f.readlines():
+        if (type(re.search(r'Still (\d+)', line, re.M))==re.Match):
+            line = 'Still ' + str(stock) + " pieces\n" 
+        data += line
+    data = "\"\"\"HTTP/1.1200OK\n\n"+ data
+    #print(data)
+    #f.seek(0,0)
+    #f.writelines(data)
+    conn.send(data.encode())
+    conn.close()
+    
+conn.close()
+s.close()
+\end{lstlisting}
+
+\noindent HTML部分
+
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <table class="abc">
+        <tr><td>Shop<HR></td></tr>
+        <tr><td action="http://25.150.140.133:8080">
+                <a href="http://25.150.140.133:8080/one">One piece</a><br/>
+                <a href="http://25.150.140.133:8080/five">Five piece</a><br/>
+                <a href="http://25.150.140.133:8080/ten">Ten piece</a>
+    </td></tr></table>
+    <table class="abc">
+        <tr><td>Remaining<hr></td></tr>
+        <tr><td>
+                Still 1000 pieces
+    </td></tr></table>
+</body></html>
+\end{lstlisting}
+
+\noindent CSS部分
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+table.abc{
+    border : 2px solid black;
+    border-style:solid;
+    padding:0;
+    margin:10;
+}
+\end{lstlisting}
+
+\section{服务器记录客户端发送某数据的次数(15)}
+\noindent 服务端
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket
+
+def getNum(msg):
+    if (msg in data.keys()):
+        data[msg] = data[msg] + 1
+        print(data[msg])
+    else:
+        data[msg] = 1
+    return data[msg] 
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+host = 'localhost'
+port = 8080
+
+server.bind((host,port))
+
+server.listen(1)
+data = {}
+conn, addr = server.accept()
+while 1:
+    msg = getNum(conn.recv(1024).decode())
+    conn.send(str(msg).encode())
+conn.close()
+server.close()
+\end{lstlisting}
+
+\noindent 客户端
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+host = "localhost"
+port = 8080
+client.connect((host, port))
+while 1:
+    msg = input()
+    client.send(msg.encode())
+    count = client.recv(1024)
+    print(count.decode())
+client.close()
+\end{lstlisting}
+
+\clearpage
+\section{服务器计算(12)}
+\noindent 客户通过浏览器访问服务器，通过直接输入指定地址作为操作符合数字。浏览器计算并返回结果。
+
+$http: //< Rechnername >:< port >/< operation >/< operand1>/< operand2>$
+
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket
+PORT=8080
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.bind(("localhost",PORT))
+s.listen(1)
+data=[]
+count=[]
+def count_num(from_c):
+    index = 0
+    for i in range(len(data)):
+        if data[i]==from_c:
+            index = i
+    if from_c not in data:
+        data.append(from_c)
+        count.append(1)
+        return "1"
+    else:
+        count[index] = count[index] + 1
+        return str(count[index])
+while True:
+    conn,addr = s.accept()
+    msg = conn.recv(1024)
+    sendmsg = count_num(msg.decode())
+    conn.send(sendmsg.encode())
+    conn.close()
+s.close()
+\end{lstlisting}
+
+\clearpage
+\section{交换机Switch(05)}
+
+Der "Switch" besteht aus N Anschlüssen. “交换机”由N个连接组成。
+
+Zur Vereinfachung gibt es maximal 255 Adressen, wobei die Adresse 255 als Broadcast-Adresse verwendet wird.
+为简化起见，最多有255个地址，地址255用作广播地址。
+
+Es wird ein Paketkopf gelesen und entsprechend des Zustandes der Engine entschieden, auf welchen Anschluss das zugehörige Paket geschickt wird.
+读取包头，并确定引擎的哪个状态到相应数据包的端口。
+
+Informationen, die an die Engine geliefert werden, sind Eingangsportnummer (1..N), Absenderadresse (1..255) und Zieladresse (1..255).
+提供给引擎的信息是输入端口号（1..N），发送方地址（1..255）和目标地址（1..255）。
+
+Die Engine bestimmt daraufhin das Ziel und gibt diese Information aus.
+然后引擎确定目的地并输出此信息。
+
+Mit der Eingabe von "\,a" wird die Ausgabe der Adresstabellen ausgelöst.
+输入“a”会触发地址表的输出。
+
+6端口交换机的可能示例会话：
+\begin{center}
+\fbox{
+    \shortstack[l]{
+switch< 1 23 54\\
+switch> Ausgabe auf allen Ports\\
+switch< 4 32 23 \\
+switch> Ausgabe auf Port 1 \\
+switch< 6 35 32 \\
+switch> Ausgabe auf Port 4 \\ 
+switch< 2 32 23 \\
+switch> Ausgabe auf Port 1 \\
+switch< 6 85 32 \\
+switch> Ausgabe auf Port 2\\
+switch< 1 55 35 \\
+switch> Ausgabe auf Port 6 \\
+switch< 6 5 255 \\
+switch> Ausgabe auf allen Ports \\
+switch< a \\
+switch> 
+    }
+}
+\fbox{\shortstack[l]{1: 23 55 \\
+2: 32 \\
+3: \\
+4: \\
+5: \\
+6: 35 85 5}}    
+\end{center}
+
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+data = [int(x) for x in input('switch<').split()]
+port =[[] for i in range(6)]
+print(port)
+def find(a,b):
+    n = len(a)
+    for i in range(0,n):
+        m = len(a[i])
+        for j in range(0,m):
+            if b == a[i][j]:
+                return i+1
+    return -1
+def aging(a,b,c):
+    n = len(a)
+    for i in range(0,n):
+        m = len(a[i])
+        for j in range(0,m):
+            if b == a[i][j] and c != i:
+                a[i].pop(j)
+                return
+while data[0] != 'a':
+    print(data)
+    (port[data[0]-1]).append(data[1])
+    num = find(port,data[2])
+    aging(port,data[1],data[0]-1)
+    if num == -1:
+        print("switch>Ausgabe auf allen Ports")
+    else:
+        print("switch>Ausgabe auf Port",end=" ")
+        print(num)
+    print(port)
+    data = [int(x) for x in input('switch<').split()]
+print("switch>")
+n = len(port)
+for i in range(0,n):
+    print("i+1:",end=" ")
+    m = len(port[i])
+    for j in range(0,m):
+        print(port[i][j],end="")
+    print()
+\end{lstlisting}
+
+\clearpage
+\section{UDP}
+\noindent 面向非连接的，不可靠的，少量数据，快。主流通过UDP发送
+
+\begin{center}
+    Server
+\end{center}
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import sys,socket
+
+HOST = "localhost"
+PORT = 8080
+try:
+    s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    s.bind((HOST, PORT))
+    msg,adr = s.recvfrom(1000)
+    print "Empfange von Host %s, port %d: %s"%(adr[0], adr[1], msg)
+    s.sendto("+++ " + msg + " +++", adr)
+except:
+    print "Netzwerkfehler"
+    sys.exit(1)
+\end{lstlisting}
+
+\begin{center}
+    Client
+\end{center}
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import sys,socket
+
+if len(sys.argv) != 3:
+        print "Benutzung %s  <port>" % sys.argv[0]
+        sys.exit(1)
+prog,host,port = sys.argv
+try:
+    n_port = int(port)
+except:
+    print "%s ist kein gueltiget Port"%port
+    sys.exit(1)
+try:
+    s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    s.sendto("Hallo hallo", (host, n_port))
+    msg,adr = s.recvfrom(1000)
+    print "Empfange von Host %s, port %d: %s"%(adr[0], adr[1], msg)
+except:
+    print "Netzwerkfehler"
+\end{lstlisting}
+
+
+\clearpage
+\section{TCP(常用版)}
+\noindent 面向连接的，可靠，大量数据，慢。发送重要信息
+
+TCP要求在目标计算机成功收到数据时发回一个确认（即 ACK）。如果在某个时限内未收到相应的 ACK，将重新传送数据包。如果网络拥塞，这种重新传送将导致发送的数据包重复。但是，接收计算机可使用数据包的序号来确定它是否为重复数据包，并在必要时丢弃它。
+
+\begin{center}
+    Server
+\end{center}
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket,sys
+
+if len(sys.argv) != 2:
+    print ("Benutzung: python %s <port>"%sys.argv[0])
+    sys.exit(1)
+try:
+    port = int(sys.argv[1])
+except:
+    print ("%s ist keine gueltige Portnummer"%sys.argv[1])
+    sys.exit(1)
+try:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("", port))
+    s.listen(1)
+    while 1:
+    conn, addr = s.accept()
+    print "Verbindung von Host: %s, port %d"%(addr[0], addr[1])
+    data = conn.recv(1024)
+    if not data: break
+    print "empfangen: %s"%data
+    conn.send("+++ " + data + " +++")
+    conn.close()
+    s.close()
+except:
+    print "Server error"
+    sys.exit(1)
+\end{lstlisting}
+
+\begin{center}
+    Client
+\end{center}
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import socket, sys
+
+if len(sys.argv) != 3:
+    print "Benutzung python %s <port>"%sys.argv[0]
+    sys.exit(1)
+try:
+    port = int(sys.argv[2])
+except:
+    print "%s ist keine gueltige Portnummer"%sys.argv[2]
+    sys.exit(1)
+try:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((sys.argv[1], port))
+    s.send('Hello, world')
+    data = s.recv(1024)
+    print "empfangen: %s"%data
+    s.close()
+except:
+    print "Verbindung abgelehnt"
+    sys.exit(1)
+\end{lstlisting}
+
+\clearpage
+\section{网页邮箱客户端}
+\begin{lstlisting}[language = Python, numbers=left, 
+    numberstyle=\tiny,keywordstyle=\color{blue!70},
+    commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import poplib
+import socket
+import re
+
+def akt(client, web):
+    
+    lists = client.list()
+    
+    numOfmail = int(lists[0].decode().split()[1])
+    data = ""
+    
+    for i in range(numOfmail,0,-1):
+
+        resp, lines, octets = client.top(i,0)
+        msg_content = b'\r\n'.join(lines).decode('utf-8')
+        dateT = re.search(r'(^Date:)(.+)', str(msg_content),re.M)
+        date.append(dateT.group(2).rstrip())
+        betreffT = re.search(r'(^Subject:)(.+)', str(msg_content), re.M)
+        betreff.append(betreffT.group(2).rstrip())
+        senderT = re.search(r'(^From:)(.+)', str(msg_content), re.M)
+        senderT = senderT.group(2).rstrip().replace('<','&lt;').replace('>','&gt;')
+        sender.append(senderT)
+
+    i = 0
+    flag = 2
+    for line in web.splitlines():
+        i += 1
+        data = data + line + '\n'
+        if (i == 1):
+            data = data + '\n\n'
+        if (type(re.search("Sender", line)) == re.Match):
+            data = data + "</tr>"
+            for j in range(numOfmail):
+                data = data + "<tr><td><a>" + date[j] + "</a></td><td><a href="">" + betreff[j] + "</a></td><td><a>" + sender[j] + "</a></td></tr><br/>\n"
+                
+            data = data + "</table></body></html>"
+            break
+    return data
+
+date = []
+betreff = []
+sender = []
+
+HOST = 'taurus.informatik.tu-chemnitz.de'
+PORT = 110
+
+sHost = 'localhost'
+sPort = 8080
+
+web = """HTTP/1.1 200 OK\n\n
+<html>
+    <head><h1>Webmailer Uebersicht</h1></head>
+    <body>
+        <table>
+            <tr>
+                <td action="http://localhost:8080">
+                    <a href="http://localhost:8080/aktuallisieren">Aktuallisieren</a></br>
+                    <a href="http://localhost:8080/beenden">Server beenden</a></br>
+                </td>
+            </tr>
+            <tr>
+                <td>Datum</td>
+                <td>Betreff</td>
+                <td>Sender</td>
+            </tr>
+            <tr>
+                None
+            </tr>
+        </table>
+    </body>
+</html>
+"""
+
+client = poplib.POP3(HOST, PORT)
+server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+server.bind((sHost, sPort))
+server.listen(1)
+client.user("rot\r\n")
+client.pass_("rot\r\n")
+conn, addr = server.accept()
+web = akt(client,web)
+conn.send(web.encode())
+conn.close()
+
+while 1:
+    conn, addr = server.accept()
+    msg = conn.recv(1024).decode().split()
+    if (msg[1] == "/aktuallisieren"):
+        web = akt(client, web)
+    if(msg[1]=="beenden"):
+        client.quit()
+        conn.close()
+        server.close()
+        break
+    conn.send(web.encode())
+    conn.close()
+client.quit()  #beendet die Verbindung
+server.close()
+\end{lstlisting}
+% \begin{lstlisting}[language = Python, numbers=left, 
+%     numberstyle=\tiny,keywordstyle=\color{blue!70},
+%     commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+%     rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+
+% \end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

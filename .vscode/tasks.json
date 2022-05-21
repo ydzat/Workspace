@@ -1,0 +1,144 @@
+// {
+//   "version": "2.0.0",
+//   //"command": "g++",
+//   "command":"clang++",
+//   "type": "shell",
+//   "presentation": {
+//     "echo": true,
+//     "reveal": "always",
+//     "focus": false,
+//     "panel": "shared",
+//     "showReuseMessage": true,
+//     "clear": false
+//   },
+//   //"args": ["-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
+//   "args": ["-g","${file}", "--target=i686-w64-windows-gnu", "-std=c99", "-o", "${file}.exe","-Wall"],
+//   "problemMatcher": {
+//     "owner": "cpp",
+//     "fileLocation": ["relative", "${workspaceRoot}"],
+//     "pattern": {
+//       "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+//       "file": 1,
+//       "line": 2,
+//       "column": 3,
+//       "severity": 4,
+//       "message": 5
+//     },
+//     "tasks": [
+//       {
+//         "type": "shell",
+//         "label": "clang.exe build active file",
+//         "command": "D:\\LLVM\\bin\\clang.exe",
+//         "args": [
+//           "-g",
+//           "${file}",
+//           "-o",
+//           "${fileDirname}\\${fileBasenameNoExtension}.exe"
+//         ],
+//         "options": {
+//           "cwd": "D:\\LLVM\\bin"
+//         },
+//         "problemMatcher": [
+//           "$gcc"
+//         ],
+//         "group": "build"
+//       }
+//     ]
+
+//   },
+//   "tasks": [
+//     {
+//       "type": "shell",
+//       "label": "clang.exe build active file",
+//       "command": "D:\\LLVM\\bin\\clang.exe",
+//       "args": [
+//         "-g",
+//         "${file}",
+//         "-o",
+//         "${fileDirname}\\${fileBasenameNoExtension}.exe"
+//       ],
+//       "options": {
+//         "cwd": "D:\\LLVM\\bin"
+//       },
+//       "problemMatcher": [
+//         "$gcc"
+//       ],
+//       "group": "build"
+//     }
+//   ]
+// }
+
+
+
+
+
+//以下为2021年6月7日23:55:27的版本
+// {
+//   "version": "2.0.0",
+//   "tasks": [
+//       {
+//           "type": "shell",
+//           "label": "clang.exe build active file",
+//           "command": "D:\\LLVM\\bin\\clang.exe",
+//           "args": [
+//               "-g",
+//               "${file}",
+//               "-o",
+//               "${fileDirname}\\${fileBasenameNoExtension}.exe",
+//               "--target=x86_64-w64-mingw32",
+//               "-lm"
+//           ],
+//           "options": {
+//               "cwd": "D:\\LLVM\\bin"
+//           },
+//           "problemMatcher": [
+//               "$gcc"
+//           ],
+//           "group": "build"
+//       }
+//   ]
+// }
+//////////////////////////////////////////////////
+{ // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format    //此 json 文件中需要注意的就是 执行makefile的执行文件是 mingw32-make.exe ,如果你使用qmake 或者其他make 执行文件,替换它即可;其他不需要修改
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build", //task的名字,调用方式就是 task build  
+            "command": "mingw32-make.exe", //会在命令行中调用此命令  
+            "args": [ //调用上述 mingw32-make.exe 传递给它的参数  
+                "target=${workspaceRootFolderName}.exe" //${workspaceRootFolderName} 会被替换成 根目录 即:vscode_c_demo            
+            ],
+            "type": "shell",
+            "problemMatcher": []
+        }, //此命令等效展开:mingw32-make.exe target=vscode_c_demo.exe        
+        {
+            "label": "build-debug",
+            "command": "mingw32-make.exe",
+            "args": [
+                "target=${workspaceRootFolderName}.exe",
+                "DEBUG=-g", //添加debug 参数 使gcc 生成调试信息
+                "PREDEF=Debug" //相当于在程序中定义了一个宏定义#define Debug            
+            ],
+            "type": "shell"
+        }, //此命令等效展开为:mingw32-make.exe target=vscode_c_demo.exe DEBUG=-g PREDEF=Debug        
+        {
+            "label": "clean",
+            "command": "mingw32-make.exe",
+            "args": [
+                "clean",
+                "target=${workspaceRootFolderName}.exe"
+            ],
+            "type": "shell",
+            "problemMatcher": []
+        }, //此命令等效展开为:mingw32-make.exe clean target=vscode_c_demo.exe        
+        {
+            "label": "runing",
+            "command": "./runExcute.sh",
+            "args": [
+                "${workspaceRootFolderName}.exe" // 传给脚本的参数            
+            ],
+            "type": "shell"
+        } //此命令等效展开为:mingw32-make.exe target=vscode_c_demo.exe  然后执行 ./vscode_c_demo.exe    
+    ]
+}

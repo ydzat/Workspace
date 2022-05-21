@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<animals xmlns="ws13-task2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="ws13-task2 animal.xsd"
+>
+  <animal name="eagle">
+    <speed>120.0</speed>
+    <flughöhe_oder_so>700.0</flughöhe_oder_so>
+  </animal>
+  <animal name="horse">
+    <speed>45.0</speed>
+  </animal>
+</animals>
+
+<!--
+
+Teilaufgabe 2.2
+
+<animals>
+  <animal name="eagle" xsi:type="ct_bird">
+    <speed>120.0</speed>
+    <flughöhe_oder_so>700.0</flughöhe_oder_so>
+  </animal>
+  <animal name="horse">
+    <speed>45.0</speed>
+  </animal>
+</animals>
+
+-->

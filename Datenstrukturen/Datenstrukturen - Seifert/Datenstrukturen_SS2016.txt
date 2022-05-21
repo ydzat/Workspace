@@ -1,0 +1,135 @@
+Modul:		Datenstrukturen
+Dozent:		Seifert
+Semester:	SS2016
+Prüfungsart:	schriftlich
+
+Prüfungsbericht:
+
+- keine Garantie auf Richtigkeit
+- Bezeichner und Aufgabenreihenfolge waren eventuell anders
+- Punkteverteilung:
+    Auf die Programmieraufgaben, insbesondere die ADT-Aufgabe gab es viele Punkte (ca. 20-40 pro Gesamtaufgabe), auf die übrigen Aufgaben ca. 8-20 Punkte
+
+
+1. Sortieralgorithmen
+Zwei Sortierfunktionen und eine swap-Funktion (wird von den Sortierfunktionen genutzt) gegeben
+- herausfinden um welche Sortieralgorithmen es sich handelt (es waren SelectionSort und BubbleSort)
+- Komplexität der Sortieralgorithmen angeben
+- Ein gegebenes Feld jeweils nach jedem Aufruf der swap-Funktion aufschreiben
+
+
+2. ADT
+ADT intArray schreiben der ein Integerfeld beliebiger Größe simuliert.
+Auf die Elemente wird mittels von nichtnegativen ganzzahligen Indizes zugegriffen, die Zugriffszeit ist egal
+- geeigneten und Destruktor schreiben
+- Funktion void set(int index, int value) schreiben
+    - weist dem Element an der Position index den Wert Value zu
+- Funktion int get(int index) schreiben
+    - gibt den an der Position Index gespeicherten Wert zurück
+    - befindet sich an der Position Index kein Element, wird 0 zurückgegeben
+- Funktion int maxIndex() schreiben
+    - gibt den höchsten verwendeten Index zurück
+- Demonstration des ADT:
+    - Instanz des ADT erzeugen
+    - Element an Index 5 den Wert 10 zuweisen
+    - Im höchsten verwendeten Index soll 20 gespeichert werden
+
+3. AVL-Baum
+- gegebene Folge von Zahlen soll nacheinander in leeren AVL-Baum eingefügt werden
+    - Baum nach jeder Einfügeoperation zeichnen, bei Verletzung des AVL-Kriteriums jeweils den betroffenen Knoten markieren und geeignete Gegenmaßnahmen benennen
+
+4. B-Baum
+a)
+- Wie viele Schlüssel enthält ein minimaler B-Baum 3. Ordnung mit Höhe 3?
+- einen solchen minimalen B-Baum zeichnen und mit Großbuchstaben füllen
+b)
+- größtes Element daraus löschen und Baum erneut zeichnen, getätigte Maßnahmen und auftretende Situationen bei der Wiederherstellung einer gültigen Struktur
+
+
+5. Graph
+Graph mit Knoten A, B , C, D, und E gegeben
+a)
+- kürzeste Wege und deren Kosten von A zu allen anderen Knoten mit Dijkstra-Algorithmus ermitteln
+b)
+- Spannbäume mittels Breiten- und Tiefendurchlauf zeichnen
+
+
+6. Quicksort
+Feld mit Zahlen gegeben
+- Quicksort auf dem Papier durchführen, dabei für alle entstehenden Teilfelder jeweils Pivot-Element, Feldgrenzen und Vertauschungen notieren
+- Feldindizes für Feldgrenzen beginnen bei 0
+
+
+7. Heap (1) 
+Verschiedene Binärbäume gegeben
+- ist der Baum jeweils ein Heap?
+    - ja: Art des Heaps angeben
+    - nein: begründen, warum kein Heap
+
+
+8. Heap (2)
+Heap als int-Feld a der Größe N gegeben
+a)
+- Funktion schrieben, die prüft, ob a ein Heap ist
+b)
+- Funktion schreiben, die den Heap a in Level-Order ausgibt
+    - Zeilenumbruch bei neuer Ebene
+
+
+9. Baum (1)
+Binärbaum nach folgender Struktur gegeben:
+    struct TREE{
+        int value;
+        TREE *left;
+        TREE *right;
+    };
+Es ist jeweils nicht erlaubt, die Funktionsköpfe zu verändern, es dürfen allerdings (wie im Rest der Klausur auch) beliebig viele Hilfsfunktionen verwendet werden.
+a)
+- Funktion int countLeaves(TREE *root) schreiben
+- Gibt die Anzahl der Blattknoten zurück
+b)
+- Funktion double averageLength(TREE *root) schreiben
+- Gibt den durchschnittlichen Weg von der Wurzel zu einem Knoten zurück
+c)
+- Funktion LIST *leavesList(TREE *root) schreiben
+- Gibt Zeiger auf eine einfach verkettete Liste mit den Werten der Blattknoten zurück
+- LIST muss als geeignete Struktur definiert werden
+
+
+10. Baum (2)
+Binärbaum gegeben
+- es soll ein Element (das Wurzelelement) aus dem Baum gelöscht werden
+    - zum Löschen eines Elements gibt es zwei Verfahren, mit je zwei Möglichkeiten
+    - Baum nach Löschung in allen vier Varianten zeichnen und jeweils das Verfahren benennen
+
+
+Lösungsansätze:
+
+2. ADT
+Die Elemente können intern z.B. mit einer einfach verketteten Liste gespeichert werden.
+Die Listenelemente sollten jeweils eine Variable für den Index und den Wert, sowie einen Zeiger auf das nächste Element enthalten, das könnte z.B. so aussehen:
+    struct node
+    {
+        int index;
+        int value;
+        node *next;
+    };
+Diese Struktur sowie der Listenkopf (node *head) können im private-Bereich der Klasse stehen, die restlichen Funktionen müssen public sein.
+
+Die Demonstration könnte folgendermaßen aussehen:
+    intArray demo;
+    demo.set(5, 10);
+    demo.set(demo.maxIndex(), 20);
+
+
+4. B-Baum
+a)
+- Bei einem B-Baum 3. Ordnung kann jeder Knoten maximal 2 Schlüssel und 3 Kindknoten enthalten
+- Bei einem minimalen B-Baum 3. Ordnung mit der Höhe 3 enthält jeder Knoten nur einen Schlüssel und (bis zu den Knoten zweiter Ebene) 2 Kindknoten, es handelt sich also quasi (zumindest in Teilaufgabe a) um einen Binärbaum
+- Ein solcher B-Baum enthält 7 Schlüssel
+
+
+9. Baum (1)
+a)
+- rekursive Realisierung
+- wenn der als root übergebene Knoten ein Kindknoten ist, wird 1 zurückgegeben, sonst die Summe von countLeaves(root->left) und countLeaves(root->right)

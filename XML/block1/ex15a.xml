@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<staffFile xmlns="urn:vsr:xml-werkzeuge:aufgabe2.5"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:vsr:xml-werkzeuge:aufgabe2.5
+http://vsr.informatik.tu-chemnitz.de/edu/2011/xw/public_resources/schema5.xsd">
+  <person>
+    <firstName>Herbert</firstName>
+    <familyName>Kunze</familyName>
+    <psnr>8352</psnr>
+    <gender>male</gender>
+    <grade>3</grade>
+  </person>
+  <person>
+    <firstName>Anita</firstName>
+    <familyName>Liebig</familyName>
+    <psnr>7328</psnr>
+    <gender>female</gender>
+    <grade>6</grade>
+  </person>
+</staffFile>

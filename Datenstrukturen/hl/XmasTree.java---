@@ -1,0 +1,62 @@
+public class XmasTree {
+    public static void main(String[] args) {
+        int n =In.readInt("Please give a number.");
+        Treetop(n);
+        Treebottom(n);
+    }
+    public static void Treetop (int n)
+    {
+        if(n!=0)
+        {
+            Treetop(n-1);
+            space(n);
+            slash(n);
+            backslash(n);
+            System.out.println();
+        }
+    }
+    public static void Treebottom(int  n){   
+            Treebottomspace(2*n-1);
+            vertical();
+            System.out.println();
+
+    }
+    public static void Treebottomspace(int n)
+    {
+        if(n!=0)
+        {
+            Treebottomspace(n-1);
+            System.out.print(" ");
+        }
+        
+    }
+    public static void space(int n)
+    {
+        if(n!=0)
+        {
+            System.out.print(" ");
+            space(n-1);
+        }
+    }
+    public static void slash(int n)
+    {
+        if(n!=0)
+        {
+            slash(n-1);
+            System.out.print("/");
+        }
+    }
+    public static void backslash(int n)
+    {
+        if(n!=0)
+        {
+            backslash(n-1);
+            System.out.print("\\" ) ;
+        }
+    }
+    public static void vertical()
+    {
+        System.out.print("||");
+    }
+
+}

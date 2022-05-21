@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns="task2"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="task2"
+    elementFormDefault="qualified">
+
+    <xs:element name="order_list" type="order_list_type"/>
+    <xs:element name="ct_order" type="ct_order_type"/>
+    <xs:element name="ct_customer" type="ct_customer_type"/>
+    <xs:element name="company_customer" type="company_customer_type"/> 
+    
+    <xs:complexType name="order_list_type">
+        <xs:sequence>
+            <xs:element name="ct_order" type="ct_order_type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ct_order_type">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="daten" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ct_customer_type">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="ct_order" type="ct_order_type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="company_customer_type">
+        <xs:complexContent>
+            <xs:extension base="ct_customer_type">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="id" type="xs:integer"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

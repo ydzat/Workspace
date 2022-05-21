@@ -1,0 +1,31 @@
+stimmap dbb2_08 100-----|00------ Ruecksetzen ?? -> 00
+stimmap dbb2_08 000-----|00------
+stimmap dbb2_08 001-----|00------ Halten 00
+stimmap dbb2_08 000-----|00------
+stimmap dbb2_08 010-----|00------
+stimmap dbb2_08 011-----|01------ Zaehlen 00 -> 01
+stimmap dbb2_08 010-----|01------
+stimmap dbb2_08 000-----|01------
+stimmap dbb2_08 001-----|01------ Halten 01
+stimmap dbb2_08 000-----|01------
+stimmap dbb2_08 010-----|01------
+stimmap dbb2_08 011-----|10------ Zaehlen 01 -> 10
+stimmap dbb2_08 010-----|10------
+stimmap dbb2_08 000-----|10------
+stimmap dbb2_08 001-----|10------ Halten 10
+stimmap dbb2_08 000-----|10------
+stimmap dbb2_08 010-----|10------
+stimmap dbb2_08 011-----|00------ Zaehlen 10 -> 00
+stimmap dbb2_08 010-----|00------
+stimmap dbb2_08 011-----|01------ Zaehlen 00 -> 01
+stimmap dbb2_08 010-----|01------
+stimmap dbb2_08 110-----|00------ Ruecksetzen 01 -> 00
+stimmap dbb2_08 010-----|00------
+stimmap dbb2_08 011-----|01------ Zaehlen 00 -> 01
+stimmap dbb2_08 010-----|01------
+stimmap dbb2_08 011-----|10------ Zaehlen 01 -> 10
+stimmap dbb2_08 010-----|10------
+stimmap dbb2_08 110-----|00------ Ruecksetzen 10 -> 00
+stimmap dbb2_08 010-----|00------
+stimmap dbb2_08 110-----|00------ Ruecksetzen 00 -> 00
+stimmap dbb2_08 010-----|00------

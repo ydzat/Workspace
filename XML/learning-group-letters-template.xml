@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<learning-group-letter>
+  <meta>
+    <learning-block>1</learning-block>
+    <learning-group id="1">
+      <speaker>Bob Tester</speaker>
+      <participant>Bob Tester</participant>
+      <participant>Lisa Tester</participant>
+      <participant>Jimmy Tester</participant>
+    </learning-group>
+  </meta>
+  <results>
+    <tasks>
+      <task id="1" difficulty="medium" solved="yes"/>
+      <task id="2" difficulty="hard" solved="no"/>
+      <task id="3" difficulty="easy" solved="yes"/>
+    </tasks>
+    <issues>{TODO please briefly describe any problems you encountered}</issues>
+    <hints-or-requests>{TODO please fill if required}</hints-or-requests>
+  </results>
+</learning-group-letter>

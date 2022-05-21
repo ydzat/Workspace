@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    xmlns="http://www.w3school.com.cn"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.w3school.com.cn"
+    elementFormDefault="qualified">
+
+<!-- 根元素 -->
+<xs:element name="zoo">
+    <xs:complexType>
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element ref="dwelling"/>
+            <xs:element ref="zooanimal"/>
+            <xs:element ref="zookeeper"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- ref1 -->
+<xs:complexType name="dwellingtype">
+    <xs:sequence>
+        <xs:element name="id" type="xs:ID"/>
+        <xs:element name="name" type="xs:string"/>
+    </xs:sequence>
+</xs:complexType>
+<xs:element name="dwelling" type="dwellingtype"/>
+<!-- ref1的子类1 -->
+<xs:complexType name="building">
+    <xs:complexContent>
+        <xs:extension base="dwellingtype">
+            <xs:choice>
+                <xs:element name="area" type="xs:double"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+<!-- ref1的子类2 -->
+<xs:complexType name="pond">
+    <xs:complexContent>
+        <xs:extension base="dwellingtype">
+            <xs:choice>
+                <xs:element name="depth" type="xs:double"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+
+<!-- ref2 -->
+<xs:complexType name="zooanimaltype">
+    <xs:sequence>
+        <xs:element name="id" type="xs:ID"/>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="age" type="xs:positiveInteger"/>
+    </xs:sequence>
+    <xs:attribute name="zookeeper" type="xs:IDREF" use="required"/>
+    <xs:attribute name="dwelling" type="xs:IDREF" use="required"/>
+</xs:complexType>
+<xs:element name="zooanimal" type="zooanimaltype"/>
+<!-- ref2的子类1 -->
+<xs:complexType name="mammal">
+    <xs:complexContent>
+        <xs:extension base="zooanimaltype">
+            <xs:choice>
+                <xs:element name="gestationperiod" type="xs:positiveInteger"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+<!-- 子类1的子类1 -->
+<xs:complexType name="horse">
+    <xs:complexContent>
+        <xs:extension base="mammal">
+            <xs:choice>
+                <xs:element name="whitehorse" type="xs:boolean"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+<!-- 子类1的子类2 -->
+<xs:complexType name="cat">
+    <xs:complexContent>
+        <xs:extension base="mammal">
+            <xs:choice>
+                <xs:element name="furcolor" type="xs:string"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+
+<!-- ref2的子类2 -->
+<xs:complexType name="bird">
+    <xs:complexContent>
+        <xs:extension base="zooanimaltype">
+            <xs:choice>
+                <xs:element name="canfly" type="xs:boolean"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+<!-- 子类1的子类1 -->
+<xs:complexType name="goose">
+    <xs:complexContent>
+        <xs:extension base="bird">
+            <xs:choice>
+                <xs:element name="slaughtweight" type="xs:positiveInteger"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+<!-- 子类1的子类1 -->
+<xs:complexType name="starling">
+    <xs:complexContent>
+        <xs:extension base="bird">
+            <xs:choice>
+                <xs:element name="ringed" type="xs:boolean"/>
+            </xs:choice>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+
+<!-- ref3 -->
+<xs:complexType name="zookeepertype">
+    <xs:sequence>
+        <xs:element name="id" type="xs:ID"/>
+        <xs:element name="name" type="xs:string"/>
+    </xs:sequence>
+</xs:complexType>
+<xs:element name="zookeeper" type="zookeepertype"/>
+</xs:schema>

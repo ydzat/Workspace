@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zoo xmlns="xsd18"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="xsd18 xsd18.xsd"
+>
+
+    <dwelling xsi:type="building_ct">
+        <id>a1</id>
+        <name>a</name>
+        <area>1.1</area>
+    </dwelling>
+
+    <zoo_keeper>
+        <id>b1</id>
+        <name>b</name>
+    </zoo_keeper>
+
+    <zoo_animal dwelling="a1" zoo_keeper="b1">
+        <id>c1</id>
+        <name>ani1</name>
+        <age>11</age>
+    </zoo_animal>
+
+</zoo>

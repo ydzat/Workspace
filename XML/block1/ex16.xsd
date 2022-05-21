@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:vsr:xml-werkzeuge:aufgabe2.6"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="urn:vsr:xml-werkzeuge:aufgabe2.6"
+elementFormDefault="qualified">
+  <xs:element name="personal">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element ref="person"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="appearance">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="cheerful|sad|sloppy"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="person" type="appearance"/>
+</xs:schema>

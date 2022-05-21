@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personen  xmlns="http://www.w3school.com.cn" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex17.xsd">
+  <person>
+    <firstName>Andreas</firstName>
+    <familyName>Leuter</familyName>
+    <assessment verbal="good">2</assessment>
+  </person>
+  <person>
+    <firstName>Reiner</firstName>
+    <familyName>Luthard</familyName>
+    <assessment verbal="insufficient">5</assessment>
+  </person>
+  <person>
+    <firstName>Martin</firstName>
+    <familyName>Immhoffer</familyName>
+    <assessment verbal="insufficient">5</assessment>
+  </person>
+  <person>
+    <firstName>Herbert</firstName>
+    <familyName>Leisnig</familyName>
+    <assessment verbal="insufficient">5</assessment>
+  </person>
+  <person>
+    <firstName>Herbert</firstName>
+    <familyName>Kunze</familyName>
+    <assessment verbal="insufficient">4</assessment>
+  </person>
+  <person>
+    <firstName>Anita</firstName>
+    <familyName>Liebig</familyName>
+    <assessment verbal="very good">1</assessment>
+  </person>
+</personen>

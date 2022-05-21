@@ -1,0 +1,638 @@
+$date
+  Thu Jun 18 18:08:01 2020
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 8 ! ee_x[7:0] $end
+$var reg 8 " ee_y[23:16] $end
+$scope module u1 $end
+$var reg 8 # x_fghij[20:13] $end
+$var reg 8 $ z_abcde[20:13] $end
+$var reg 1 % eof $end
+$var reg 1 & clock $end
+$var integer 32 ' number $end
+$var reg 8 ( stim_x01[8:1] $end
+$comment stim_char is not handled $end
+$comment soll_char is not handled $end
+$comment comment is not handled $end
+$upscope $end
+$scope module u2 $end
+$var reg 8 ) ee_x[7:0] $end
+$var reg 8 * ee_y[23:16] $end
+$var reg 1 + nk $end
+$var reg 1 , q1 $end
+$var reg 1 - nq1 $end
+$var reg 1 . l6_13 $end
+$var reg 1 / l8_12 $end
+$var reg 1 0 l11_d $end
+$var reg 1 1 nc $end
+$var reg 1 2 q2 $end
+$var reg 1 3 nq2 $end
+$scope module notk $end
+$var reg 2 4 x[1:2] $end
+$var reg 1 5 y $end
+$upscope $end
+$scope module nand1 $end
+$var reg 2 6 x[1:2] $end
+$var reg 1 7 y $end
+$upscope $end
+$scope module nand2 $end
+$var reg 2 8 x[1:2] $end
+$var reg 1 9 y $end
+$upscope $end
+$scope module nand3 $end
+$var reg 2 : x[1:2] $end
+$var reg 1 ; y $end
+$upscope $end
+$scope module d_ff $end
+$var reg 1 < s_b $end
+$var reg 1 = r_b $end
+$var reg 1 > c $end
+$var reg 1 ? d $end
+$var reg 1 @ q $end
+$var reg 1 A q_b $end
+$var reg 6 B l[1:6] $end
+$upscope $end
+$scope module notc $end
+$var reg 2 C x[1:2] $end
+$var reg 1 D y $end
+$upscope $end
+$scope module jk_ff $end
+$var reg 1 E s_b $end
+$var reg 1 F r_b $end
+$var reg 1 G c $end
+$var reg 3 H j[1:3] $end
+$var reg 3 I k[1:3] $end
+$var reg 1 J q $end
+$var reg 1 K q_b $end
+$var reg 9 L l[1:9] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+bXXXXXXXX !
+bXXXXXXXX "
+bXXXXXXXX #
+bXXXXXXXX $
+0%
+0&
+b0 '
+b1000XXXX (
+bXXXXXXXX )
+bXXXXXXXX *
+X+
+X,
+X-
+X.
+X/
+X0
+X1
+X2
+X3
+bXX 4
+X5
+bXX 6
+X7
+bXX 8
+X9
+bXX :
+X;
+1<
+X=
+X>
+X?
+X@
+XA
+bXXXXXX B
+bXX C
+XD
+1E
+XF
+XG
+b1X1 H
+b1X1 I
+XJ
+XK
+bXXXXXXXXX L
+#100000000
+b1000XXXX !
+b1000XXXX #
+1&
+b1 '
+b0000XXXX (
+b1000XXXX )
+1+
+1.
+11
+b00 4
+15
+bX0 6
+17
+b1X 8
+b1X :
+1=
+0>
+bX11XXX B
+b00 C
+1D
+1F
+1G
+b101 H
+b101 I
+b11XX11XX0 L
+#200000000
+0&
+#300000000
+b0000XXXX !
+bXX00XXXX "
+b0000XXXX #
+bXX00XXXX $
+1&
+b10 '
+b1000XXXX (
+b0000XXXX )
+bXX00XXXX *
+0,
+1-
+1/
+00
+02
+13
+b10 6
+b10 8
+19
+b11 :
+0;
+0=
+0?
+0@
+1A
+b011101 B
+0F
+0J
+1K
+b110111010 L
+#400000000
+0&
+#500000000
+b1000XXXX !
+b1000XXXX #
+1&
+b11 '
+b1000XXXX )
+1=
+1F
+#600000000
+0&
+#700000000
+1&
+b100 '
+b1100XXXX (
+#800000000
+0&
+#900000000
+b1100XXXX !
+b1100XXXX #
+1&
+b101 '
+b1000XXXX (
+b1100XXXX )
+01
+1>
+b010101 B
+b11 C
+0D
+0G
+b110110011 L
+#1000000000
+0&
+#1100000000
+b1000XXXX !
+b1000XXXX #
+1&
+b110 '
+b1010XXXX (
+b1000XXXX )
+11
+0>
+b011101 B
+b00 C
+1D
+1G
+b110111010 L
+#1200000000
+0&
+#1300000000
+b1010XXXX !
+b1010XXXX #
+1&
+b111 '
+b1110XXXX (
+b1010XXXX )
+0+
+b11 4
+05
+b00 8
+b111 I
+#1400000000
+0&
+#1500000000
+b1110XXXX !
+b1110XXXX #
+1&
+b1000 '
+b1010XXXX (
+b1110XXXX )
+01
+1>
+b010101 B
+b11 C
+0D
+0G
+b110110011 L
+#1600000000
+0&
+#1700000000
+b1010XXXX !
+b1010XXXX #
+1&
+b1001 '
+b1001XXXX (
+b1010XXXX )
+11
+0>
+b011101 B
+b00 C
+1D
+1G
+b110111010 L
+#1800000000
+0&
+#1900000000
+b1001XXXX !
+b1001XXXX #
+1&
+b1010 '
+b1101XXXX (
+b1001XXXX )
+1+
+0.
+10
+b00 4
+15
+b11 6
+07
+b10 8
+b01 :
+1;
+1?
+b111001 B
+b111 H
+b101 I
+b011011010 L
+#2000000000
+0&
+#2100000000
+b1101XXXX !
+bXX11XXXX "
+b1101XXXX #
+bXX11XXXX $
+1&
+b1011 '
+b1001XXXX (
+b1101XXXX )
+bXX11XXXX *
+1,
+0-
+1.
+0/
+01
+12
+03
+b01 6
+17
+b11 8
+09
+b10 :
+1>
+1@
+0A
+b101010 B
+b11 C
+0D
+0G
+1J
+0K
+b111001101 L
+#2200000000
+0&
+#2300000000
+b1001XXXX !
+b1001XXXX #
+1&
+b1100 '
+b1000XXXX (
+b1001XXXX )
+11
+0>
+b111010 B
+b00 C
+1D
+1G
+b111011100 L
+#2400000000
+0&
+#2500000000
+b1000XXXX !
+b1000XXXX #
+1&
+b1101 '
+b1100XXXX (
+b1000XXXX )
+b00 6
+b101 H
+#2600000000
+0&
+#2700000000
+b1100XXXX !
+b1100XXXX #
+1&
+b1110 '
+b1000XXXX (
+b1100XXXX )
+0-
+01
+b00 6
+1>
+0A
+b101010 B
+b11 C
+0D
+0G
+b111001101 L
+#2800000000
+0&
+#2900000000
+b1000XXXX !
+b1000XXXX #
+1&
+b1111 '
+b1001XXXX (
+b1000XXXX )
+11
+0>
+b111010 B
+b00 C
+1D
+1G
+b111011100 L
+#3000000000
+0&
+#3100000000
+b1001XXXX !
+b1001XXXX #
+1&
+b10000 '
+b1101XXXX (
+b1001XXXX )
+b01 6
+b111 H
+#3200000000
+0&
+#3300000000
+b1101XXXX !
+b1101XXXX #
+1&
+b10001 '
+b1001XXXX (
+b1101XXXX )
+0-
+1.
+01
+b01 6
+17
+b10 :
+1>
+0A
+b101010 B
+b11 C
+0D
+0G
+b111001101 L
+#3400000000
+0&
+#3500000000
+b1001XXXX !
+b1001XXXX #
+1&
+b10010 '
+b1010XXXX (
+b1001XXXX )
+11
+0>
+b111010 B
+b00 C
+1D
+1G
+b111011100 L
+#3600000000
+0&
+#3700000000
+b1010XXXX !
+b1010XXXX #
+1&
+b10011 '
+b1110XXXX (
+b1010XXXX )
+0+
+1/
+00
+b11 4
+05
+b00 6
+b01 8
+19
+b11 :
+0;
+0?
+b011110 B
+b101 H
+b111 I
+b100111100 L
+#3800000000
+0&
+#3900000000
+b1110XXXX !
+bXX00XXXX "
+b1110XXXX #
+bXX00XXXX $
+1&
+b10100 '
+b1010XXXX (
+b1110XXXX )
+bXX00XXXX *
+0,
+1-
+01
+02
+13
+b10 6
+b00 8
+1>
+0@
+1A
+b010101 B
+b11 C
+0D
+0G
+0J
+1K
+b110110011 L
+#4000000000
+0&
+#4100000000
+b1010XXXX !
+b1010XXXX #
+1&
+b10101 '
+b1011XXXX (
+b1010XXXX )
+11
+0>
+b011101 B
+b00 C
+1D
+1G
+b110111010 L
+#4200000000
+0&
+#4300000000
+b1011XXXX !
+b1011XXXX #
+1&
+b10110 '
+b1111XXXX (
+b1011XXXX )
+0.
+10
+b11 6
+07
+b01 :
+1;
+1?
+b111001 B
+b111 H
+b011011010 L
+#4400000000
+0&
+#4500000000
+b1111XXXX !
+bXX11XXXX "
+b1111XXXX #
+bXX11XXXX $
+1&
+b10111 '
+b1011XXXX (
+b1111XXXX )
+bXX11XXXX *
+1,
+0-
+1.
+00
+01
+12
+03
+b01 6
+17
+b01 8
+b11 :
+0;
+1>
+0?
+1@
+0A
+b101110 B
+b11 C
+0D
+0G
+1J
+0K
+b111001101 L
+#4600000000
+0&
+#4700000000
+b1011XXXX !
+b1011XXXX #
+1&
+b11000 '
+b1011XXXX )
+11
+0>
+b011110 B
+b00 C
+1D
+1G
+b100111100 L
+#4800000000
+0&
+#4900000000
+1&
+b11001 '
+b1111XXXX (
+#5000000000
+0&
+#5100000000
+b1111XXXX !
+bXX00XXXX "
+b1111XXXX #
+bXX00XXXX $
+1&
+b11010 '
+b1011XXXX (
+b1111XXXX )
+bXX00XXXX *
+0,
+1-
+0.
+10
+01
+02
+13
+b11 6
+07
+b00 8
+b01 :
+1;
+1>
+1?
+0@
+1A
+b010101 B
+b11 C
+0D
+0G
+0J
+1K
+b110110011 L
+#5200000000
+0&
+#5300000000
+b1011XXXX !
+b1011XXXX #
+1%
+1&
+b11011 '
+b1011XXXX )
+11
+0>
+b111001 B
+b00 C
+1D
+1G
+b011011010 L
+#5400000000
+0&

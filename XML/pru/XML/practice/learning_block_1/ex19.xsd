@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.w3school.com.cn"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ targetNamespace="http://www.w3school.com.cn"
+elementFormDefault="qualified">
+
+    <!-- <xs:element name="learning-group-letter">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="meta" type="meta_type"/>
+                <xs:element name="results" type="result_type"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="meta_type">
+        <xs:all>
+            <xs:element name="learning-block" type="xs:positiveInteger"/>
+            <xs:element name="learning-group" type="group_type"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="group_type">
+        <xs:sequence>
+            <xs:element name="speaker" type="xs:string" maxOccurs="1"/>
+            <xs:element name="participant" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="result_type">
+        <xs:all>
+            <xs:element name="tasks" type="tasks_type"/>
+            <xs:element name="issues" type="xs:string" default="{TODO please briefly describe any problems you encountered}"/>
+            <xs:element name="hints-or-requests" type="xs:string" default="{TODO please fill if required}"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="tasks_type">
+        <xs:sequence>
+            <xs:element name="task" maxOccurs="unbounded" type="task_type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="task_type">
+        <xs:attribute name="id" use="required"/>
+        <xs:attribute name="difficulty" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="easy"/>
+                    <xs:enumeration value="medium"/>
+                    <xs:enumeration value="hard"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="solved" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="yes"/>
+                    <xs:enumeration value="no"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema> -->
+
+<xs:element name="learning-group-letter">
+    <xs:complexType>
+        <xs:all>
+            <xs:element ref = "meta"/>
+            <xs:element ref = "results" />
+        </xs:all>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="meta" type = "meta_type" />
+
+<xs:complexType name="meta_type">
+    <xs:all>
+        <xs:element name = "learning-block"  type = "xs:positiveInteger"/>
+        <xs:element ref = "learning-group"/>
+    </xs:all>
+</xs:complexType>
+
+<xs:element name="learning-group" type = "learning-group_ct" />
+<xs:complexType name="learning-group_ct">
+    <xs:sequence>
+        <xs:element name = "speaker" maxOccurs="1"/>
+        <xs:element name = "participant" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name = "id" type = "xs:positiveInteger" use = "required" />
+</xs:complexType>
+
+
+<xs:element name="results" type = "results_type" />
+<xs:complexType name="results_type">
+    <xs:sequence>
+        <xs:element name = "tasks" >
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name = "task" maxOccurs="18">
+                        <xs:complexType>
+                            <xs:attribute name = "id" type="xs:string" use = "required"/>
+                            <xs:attribute name = "difficulty" type="grade" use = "required" />
+                            <xs:attribute name = "solved" type = "yesOrNo" use = "required" />
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name = "issues" type = "xs:string" minOccurs="0" />
+        <xs:element name = "hints-or-requests" type = "xs:string" minOccurs="0" />
+    </xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="grade">
+    <xs:restriction base = "xs:string">
+        <xs:enumeration value="easy" />
+        <xs:enumeration value="medium" />
+        <xs:enumeration value="hard" />
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="yesOrNo">
+    <xs:restriction base = "xs:string">
+        <xs:enumeration value="yes" />
+        <xs:enumeration value="no" />
+    </xs:restriction>
+</xs:simpleType>
+
+
+
+</xs:schema>

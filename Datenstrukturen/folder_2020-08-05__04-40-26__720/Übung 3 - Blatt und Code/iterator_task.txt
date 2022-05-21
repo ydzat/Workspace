@@ -1,0 +1,75 @@
+import java.util.Iterator;
+
+public class iterator_task {
+
+	public static class List implements Iterable<Integer> {
+
+		private class Node {
+			public int data;
+			public Node next;
+
+			public Node(int element) {
+				this.data = element;
+			}
+		}
+
+		private Node head = null;
+
+		public void insertFront(int element) {
+			if (head == null) {
+				head = new Node(element);
+			} else {
+				Node tmp = new Node(element);
+				tmp.next = head;
+				head = tmp;
+			}
+		}
+
+		//Implementierung des Iterators
+		class MyListIterator implements Iterator<Integer> {
+
+			//TODO
+		
+			@Override
+			public boolean hasNext() {
+				//TODO
+				return false;
+			}
+
+			@Override
+			public Integer next() {
+				//TODO
+				return null;
+			}
+
+		}
+
+		//Erzeugung des Iterators
+		@Override
+		public Iterator<Integer> iterator() {
+			//TODO
+			return null;
+		}
+	}
+
+	public static void main(String[] args) {
+		List list = new List();
+		list.insertFront(3);
+		list.insertFront(5);
+		list.insertFront(10);
+		list.insertFront(3);
+		list.insertFront(1);
+
+		Iterator<Integer> iter = list.iterator();
+		while (iter.hasNext()) {
+			System.out.println(iter.next());
+		}
+
+		for (int i : list) {
+			System.out.println(i);
+
+		}
+
+	}
+
+}

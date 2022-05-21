@@ -1,0 +1,8 @@
+{
+    "name": "helloworld",
+    "main": "index.html",
+    "icon": "img/app.png",
+    "window": {
+        "icon": "img/app.png"
+    }
+}

@@ -1,0 +1,20 @@
+v 3
+file . "UUT.VHD" "20200710034928.000" "20200710183257.969":
+  entity uut at 1( 0) + 0 on 24;
+  architecture structure of uut at 10( 361) + 0 on 25;
+file . "SN7404.VHD" "20200709211814.000" "20200710183257.903":
+  entity sn7404 at 1( 0) + 0 on 20;
+  architecture dataflow of sn7404 at 9( 151) + 0 on 21;
+file . "DBB2_08.VHD" "20200707135950.000" "20200710183257.838":
+  package pack_2 at 1( 0) + 0 on 11 body;
+  package body pack_2 at 10( 246) + 0 on 12;
+  entity dbb2_08 at 49( 1384) + 0 on 14;
+  architecture behavior of dbb2_08 at 59( 1608) + 0 on 15;
+  entity test at 123( 3509) + 0 on 16;
+  architecture test of test at 130( 3607) + 0 on 17;
+file . "SN7400.VHD" "20200709210302.000" "20200710183257.870":
+  entity sn7400 at 1( 0) + 0 on 18;
+  architecture dataflow of sn7400 at 9( 167) + 0 on 19;
+file . "SN7472.VHD" "20160317114432.000" "20200710183257.936":
+  entity sn7472 at 1( 0) + 0 on 22;
+  architecture dataflow of sn7472 at 9( 188) + 0 on 23;

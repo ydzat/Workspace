@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE orders [
+    <!ELEMENT orders (order+)>
+    <!ELEMENT order (item+, delivery_address, billing_address?)>
+    <!ELEMENT item (name, remark?)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT remark (#PCDATA)>
+    <!ELEMENT delivery_address (country?, city, street, number)>
+    <!ELEMENT billing_address (country?, city, street, number)>
+    <!ELEMENT country (#PCDATA)>
+    <!ELEMENT city (#PCDATA)>
+    <!ELEMENT street (#PCDATA)>
+    <!ELEMENT number (#PCDATA)>
+    <!ATTLIST order orderid CDATA #REQUIRED
+                    customerid CDATA #REQUIRED>
+    <!ATTLIST item count CDATA "1">
+
+]>
+<orders>
+    <order orderid="123" customerid="456">
+        <item count="1">
+            <name>thingy</name>
+            <remark>
+                25x other thing, don't squish in mailbox
+            </remark>
+        </item>
+        <delivery_address>
+            <city>Stonetown</city>
+            <street>Orchard Avenue</street>
+            <number>1</number>
+        </delivery_address>
+    </order>
+    <order orderid="234" customerid="457">
+        <item count="2">
+            <name>thingy</name>
+        </item>
+        <delivery_address>
+            <city>Rockville</city>
+            <street>Cherry Street</street>
+            <number>1</number>
+        </delivery_address>
+        <billing_address>
+            <city>Stonetown</city>
+            <street>Wollow Lane</street>
+            <number>13</number>
+        </billing_address>
+    </order>
+</orders>

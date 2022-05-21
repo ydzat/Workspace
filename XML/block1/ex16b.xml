@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personal xmlns="urn:vsr:xml-werkzeuge:aufgabe2.6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:vsr:xml-werkzeuge:aufgabe2.6
+http://vsr.informatik.tu-chemnitz.de/edu/2011/xw/public_resources/schema6.xsd">
+  <person>sloppy</person>
+  <person>cheerful</person>
+  <person>sloppy</person>
+  <person>funny</person>
+</personal>
+

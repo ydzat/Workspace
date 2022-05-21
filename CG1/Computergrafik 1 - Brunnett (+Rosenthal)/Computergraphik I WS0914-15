@@ -1,0 +1,75 @@
+Gedächtnisprotokoll Klausur zu Computergraphik I vom 12.02.2015.
+60 minütige Klausur !!! (nach Studienordnung Master Informatik 2008)
+Hilfsmittel: nichts
+Antworten in Stichpunkten
+Gesamtpunktzahl: 60 (pro Minute ein Punkt)
+
+
+
+1. Aufgabe: CG1framework Pipeline (8 Punkte)
+
+Pipelinestufen: 
+ - fragmentPipeline,
+ - Vertex Pipeline,
+ - PrimitivePipeline
+
+a) Ordnen Sie die die Arbeitsschritte den einzelnen Pipelinestufen zu: 6 Punkte
+	  - zTest/Tiefentest
+	  - Transformation Eyespace -> ClipSpace
+	  - BackfaceCulling
+	  - Beleuchtung/Shading
+	  - Transformation Clipspace -> NormalizedDeviceSpace (?)
+	  - Blending (?)
+
+b) Begründen Sie die Einordnung der Beleuchtung/Shading. (vermutlich weil je nach Shading mode entweder vertices oder Fragmente Belekuchtet werden) 2 Punkte
+
+2. Aufgabe: Affine Transformationen (25 Punkte)
+
+a) 3d-Punkt mit vorgegebenen Werten in homogene koordinaten "wandeln". (Punkt so was wie: (2,1,1) oder so)
+b) Eine Matrix erstellen für Skalierung x = 1/2, y = 1, z = 3/2 und Rotation um Y-Achse um 450°.
+c) ViewMatrix gegeben: etwa 
+1 0 0  4
+0 1 0 -2
+0 0 1 -1
+0 0 0  1
+Geben Sie die Kameraposition an.
+(eine translation der Szene in die eine richtung entspricht der Bewegung der Kamera in die andere richtung entspricht)
+d) projektionsmatrix gegeben, etwa: 
+1/2  0   0   0
+ 0  1/2  0   0
+ 0   0  5/3 8/3
+ 0   0  -1   0
+Ist dies eine perspektivische oder eine orthogonale Projektion?
+e) 10 Punkte
+gegeben: Modelmatrix (vermutlich Lösung für 2b)
+Berechenen Sie für den Punkt aus Aufgabe a) die EyeSpace, ClipSpace und NormalizedDeviceSpace Position.
+f) Liegt der errechnete Punkt im Sichtbereich? Begründen Sie ihre Antwort.
+
+3. Blending 10 Punkte
+a) Was ist Blending, wie geht lineares Blending? 6 Punkte
+b) Zwei Bilder gegeben mit Hintergrundfarbe, Dreieck1 und Dreieck2. Farbwerte zu Hintergrund und Dreiecken gegeben (Ein Dreieck Alpha 0.5, das andere Alpha = 1.0).
+Es wurde etwas am rendervorgang gedreht, aber nciht an den Farben. Einmal wurden die Dreiecke im Überschneidungsbereich farblich gemischt, einmal nicht.  warum? (Tiefensortierung?!?)
+
+4. AntiAliasing 2 Punkte
+Was bedeutet AntiAliasing?
+
+5. Beleuchtung 15 Punkte
+[Phong Beleuchtungsgleichnug gegeben; Spekularen und Diffusen Anteil vertauscht] Etwa:
+k1 * i1 + 		Anteil 1
+k2 * i2 * u * <N,H>^s + Anteil 2 
+k3 * i3 * <N, L>	Anteil 3
+a) Benennen Sie die Anteile und beschreiben Sie, wie Sie das Aussehen beeinflussen.
+b)???
+c) Was ist H? Wie setzt es sich zusammen?
+d) Was ist s? was beeinflusst es?
+e) Zwei Bilder, beleuchtete Kugel; anscheinend einmal mit GouradShading (Vertices stechen hervor beim Glanzfleck) und einmal nach phong.
+Warum sieht das eine "schlechter" aus wie das andere. Warum? Was muss man ändern, damit das schlechtere Bild besser aussieht.
+
+
+
+
+
+
+
+
+

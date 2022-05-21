@@ -1,0 +1,289 @@
+\documentclass[fleqn]{article}
+
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\begin{document}
+
+\newpagestyle{main}{
+    \sethead{Matrikel-Nr.: 574145 Dongze Yang}{}{Grupe: Mi. Dozent: Julian Pape-Lange}
+    \setfoot{}{\thepage}{}
+    \headrule
+    \footrule
+}
+\pagestyle{main}
+\section{Aufgabe}
+
+(a) (s,1,3,2,4,t)
+
+$G_f$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[blue] node[above]{4/16} (1)
+              (1) edge node[left]{0/10}(2)
+              (s) edge node[below]{0/13}(2)
+              (1) edge[blue] node[above]{4/12}(3)
+              (2) edge[bend right] node[right]{0/4}(1)
+              (2) edge[blue] node[below]{4/14}(4)
+              (3) edge[blue] node[below]{4/9}(2)
+              (3) edge node[above]{0/20}(t)
+              (4) edge node[right]{0/7}(3)
+              (4) edge[blue] node[below]{4/4}(t)
+              ;
+\end{tikzpicture}
+
+$G_r$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[blue] node[above]{12/16} (1)
+              (1) edge node[left]{10/10}(2)
+              (s) edge node[below]{13/13}(2)
+              (1) edge[blue] node[above]{8/12}(3)
+              (2) edge[bend right] node[right]{4/4}(1)
+              (2) edge[blue] node[below]{10/14}(4)
+              (3) edge[blue] node[below]{5/9}(2)
+              (3) edge node[above]{20/20}(t)
+              (4) edge node[right]{7/7}(3)
+              (4) edge[red] node[below]{0/4}(t)
+              (t) edge[green,bend left,dashed] node[below]{4/4}(4)
+              (4) edge[green,bend left,dashed] node[below]{4/4}(2)
+              (2) edge[green,bend right,dashed] node[right]{4/4}(3)
+              (3) edge[green,bend right,dashed] node[above]{4/4}(1)
+              (1) edge[green,bend right,dashed] node[above]{4/4}(s)
+              
+              ;
+\end{tikzpicture}
+
+(b)(s,2,4,3,t)
+
+$G_f$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[blue] node[above]{4/16} (1)
+              (1) edge node[left]{0/10}(2)
+              (s) edge[blue] node[below]{7/13}(2)
+              (1) edge[blue] node[above]{4/12}(3)
+              (2) edge[bend right] node[right]{0/4}(1)
+              (2) edge[blue] node[below]{11/14}(4)
+              (3) edge[blue] node[below]{4/9}(2)
+              (3) edge[blue] node[above]{7/20}(t)
+              (4) edge[blue] node[right]{7/7}(3)
+              (4) edge[blue] node[below]{4/4}(t)
+              ;
+\end{tikzpicture}
+
+$G_r$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[blue] node[above]{12/16} (1)
+              (1) edge node[left]{10/10}(2)
+              (s) edge[blue] node[below]{6/13}(2)
+              (1) edge[blue] node[above]{8/12}(3)
+              (2) edge[bend right] node[right]{4/4}(1)
+              (2) edge[blue] node[below]{3/14}(4)
+              (3) edge[blue] node[below]{5/9}(2)
+              (3) edge[blue] node[above]{13/20}(t)
+              (4) edge[red] node[right]{0/7}(3)
+              (4) edge[red] node[below]{0/4}(t)
+              (t) edge[green,bend left,dashed] node[below]{4/4}(4)
+              (4) edge[green,bend left,dashed] node[below]{7/11}(2)
+              (2) edge[green,bend right,dashed] node[right]{4/4}(3)
+              (3) edge[green,bend right,dashed] node[above]{4/4}(1)
+              (1) edge[green,bend right,dashed] node[above]{4/4}(s)
+              (t) edge[green,bend right,dashed] node[above]{7/7}(3)
+              (3) edge[green,bend left,dashed] node[right]{7/7}(4)
+              (2) edge[green,bend left,dashed] node[left]{7/7}(s)
+              
+              ;
+\end{tikzpicture}
+
+(c)(s,1,3,t)
+
+$G_f$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[blue] node[above]{12/16} (1)
+              (1) edge node[left]{0/10}(2)
+              (s) edge[blue] node[below]{7/13}(2)
+              (1) edge[blue] node[above]{12/12}(3)
+              (2) edge[bend right] node[right]{0/4}(1)
+              (2) edge[blue] node[below]{11/14}(4)
+              (3) edge[blue] node[below]{4/9}(2)
+              (3) edge[blue] node[above]{15/20}(t)
+              (4) edge[blue] node[right]{7/7}(3)
+              (4) edge[blue] node[below]{4/4}(t)
+            
+              ;
+\end{tikzpicture}
+
+$G_r$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[blue] node[above]{4/16} (1)
+              (1) edge node[left]{10/10}(2)
+              (s) edge[blue] node[below]{6/13}(2)
+              (1) edge[red] node[above]{0/12}(3)
+              (2) edge[bend right] node[right]{4/4}(1)
+              (2) edge[blue] node[below]{3/14}(4)
+              (3) edge[blue] node[below]{5/9}(2)
+              (3) edge[blue] node[above]{5/20}(t)
+              (4) edge[red] node[right]{0/7}(3)
+              (4) edge[red] node[below]{0/4}(t)
+              (t) edge[green,bend left,dashed] node[below]{4/4}(4)
+              (4) edge[green,bend left,dashed] node[below]{7/11}(2)
+              (2) edge[green,bend right,dashed] node[right]{4/4}(3)
+              (3) edge[green,bend right,dashed] node[above]{8/12}(1)
+              (1) edge[green,bend right,dashed] node[above]{8/12}(s)
+              (t) edge[green,bend right,dashed] node[above]{8/15}(3)
+              (3) edge[green,bend left,dashed] node[right]{7/7}(4)
+              (2) edge[green,bend left,dashed] node[left]{7/7}(s)
+              ;
+\end{tikzpicture}
+
+(d)(s,1,2,3,t)
+
+$G_f$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[blue] node[above]{16/16} (1)
+              (1) edge[blue] node[left]{4/10}(2)
+              (s) edge[blue] node[below]{7/13}(2)
+              (1) edge[blue] node[above]{12/12}(3)
+              (2) edge[blue,bend right] node[right]{0/4}(1)
+              (2) edge[blue] node[below]{11/14}(4)
+              (3) edge[blue] node[below]{0/9}(2)
+              (3) edge[blue] node[above]{19/20}(t)
+              (4) edge[blue] node[right]{7/7}(3)
+              (4) edge[blue] node[below]{4/4}(t)
+            
+              ;
+\end{tikzpicture}
+
+$G_r$
+
+\begin{tikzpicture}
+    \node(s) at (0,0) [circle, draw]{s};
+    \node(1) at (3,2) [circle, draw]{1};
+    \node(2) at (3,-2)[circle, draw]{2};
+    \node(3) at (7,2) [circle, draw]{3};
+    \node(4) at (7,-2)[circle, draw]{4};
+    \node(t) at (10,0) [circle, draw]{t};
+    \path[->] (s) edge[red] node[above]{0/16} (1)
+              (1) edge[blue] node[left]{6/10}(2)
+              (s) edge[blue] node[below]{6/13}(2)
+              (1) edge[red] node[above]{0/12}(3)
+              (2) edge[red,bend right,dashed] node[right]{0/4}(1)
+              (2) edge[blue] node[below]{3/14}(4)
+              (3) edge[blue] node[below]{9/9}(2)
+              (3) edge[blue] node[above]{1/20}(t)
+              (4) edge[red] node[right]{0/7}(3)
+              (4) edge[red] node[below]{0/4}(t)
+              (t) edge[green,bend left,dashed] node[below]{4/4}(4)
+              (4) edge[green,bend left,dashed] node[below]{7/14}(2)
+              (2) edge[green,bend right,dashed] node[right]{0/4}(3)
+              (3) edge[green,bend right,dashed] node[above]{8/12}(1)
+              (1) edge[green,bend right,dashed] node[above]{4/16}(s)
+              (t) edge[green,bend right,dashed] node[above]{4/19}(3)
+              (3) edge[green,bend left,dashed] node[right]{7/7}(4)
+              (2) edge[green,bend left,dashed] node[left]{7/7}(s)
+            
+
+              ;
+\end{tikzpicture}
+
+maximalen Fluss = 23
+
+\section{Aufgabe}
+
+% (a) $f$ ist der maximalen Fluss vom G.
+% \\
+% (b) Im Restnetzwerk $G_f$ kann keine Augmenting Path gefunden werden.
+% \\
+% (c) Eine Cut von G --$(S, T)$, gibt es $|f| = c(S, T)$
+% \\
+% Wenn (a)$\Leftrightarrow$(b)$\Leftrightarrow$(c) ist, kann Ford-Fulkerson korrekt sein.
+% \\
+% Begündung:
+
+% Kapazitäten von irgendeine Kante muss $c(u,v)\geq 0 $ sein.  
+
+% maximize:$|f| = \sum_{v \in V}f(s,v)-\sum_{v \in V}f(v,s)$, wobei $f(u,v)$ reelle Kapazitäten ist. Dann gilt $0 \leq f(u,v) \leq c(u,v)$.
+
+% Aufgrund der Difinition der Kapazität jeder Kante des Restnetzwerk:
+
+% $$c_f(u,v) = \begin{cases} c(u,v)-f(u,v) ,\ (u,v)\in E \\ f(v,u) ,\ (y,v)\in E \\ 0 ,\ otherwise \end{cases}$$
+
+% Nur diejenigen, die die Kapazität größer als 0 erfüllen, werden in den Kantensatz des Restflussnetzwerks einbezoge.
+
+% $$E_f = \left\{(u,v)\in V \times V: c_f(u,v)>0 \right\}$$
+
+Bsp.
+
+\begin{tikzpicture}
+    \node(s) at (0,0)[circle, draw]{s};
+    \node(1) at (2,1)[circle, draw]{1};
+    \node(2) at (2,-1)[circle, draw]{2};
+    \node(t) at (4,0)[circle, draw]{t};
+    \path[->]
+        (s) edge node[left]{2333333333}(1)
+        (s) edge node[left]{2333333333}(2)
+        (1) edge node[left]{1}(2)
+        (1) edge node[right]{2333333333}(t)
+        (2) edge node[right]{2333333333}(t)
+        ;
+\end{tikzpicture}
+
+Die tatsächliche Betriebseffizienz der Ford-Fulkerson-Methode hängt davon ab, wie der Augmentationspfad bestimmt wird, Wenn die Pfadauswahl nicht gut ist, werden möglicherweise jedes Mal sehr wenige Flüsse hinzugefügt, und die Laufzeit des Algorithmus ist sehr lang oder kann sogar nicht beendet werden.
+Wie oben gezeigt, wenn der Augmentationspfad bei (1,2) ausgewählt wurde, dieser Algorithmus wird in eine faste Endlosschleife geraten.
+
+(Tatsächlich wird der Algorithmus für den Augmentationspfad jedoch definitiv enden, da jedes Mal, wenn ein Augmentationspfad gefunden wird, die Fluss-Kapazität zunimmt. Schließlich wird der maximale Fluss erreicht.)
+\end{document}

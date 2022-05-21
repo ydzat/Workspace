@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE staff_file [
+  <!ELEMENT staff_file (person+)>
+  <!ELEMENT person (surname,firstname,position?)>
+  <!ELEMENT firstname (#PCDATA)>
+  <!ELEMENT surname (#PCDATA)>
+  <!ELEMENT position (company,street,ceo?)>
+  <!ELEMENT company (companyname)>
+  <!ELEMENT street (#PCDATA)>
+  <!ELEMENT ceo EMPTY>
+  <!ELEMENT companyname (#PCDATA)>
+  <!ATTLIST company personid CDATA #REQUIRED>
+  <!ATTLIST ceo department CDATA #IMPLIED>
+]>
+<staff_file>
+  <person>
+    <surname>Mertens</surname>
+    <firstname>Klaus</firstname>
+  </person>
+  <person>
+    <surname>Andreas</surname>
+    <firstname>Klopke</firstname>
+    <position>
+      <company personid="1526">
+        <companyname>Lockere Schraube</companyname>
+      </company>
+      <street>Karl-Helbig-street 22</street>
+    </position>
+  </person>
+  <person>
+    <surname>Albrich</surname>
+    <firstname>Liesel</firstname>
+    <position>
+      <company personid="637">
+        <companyname>Miss Formung</companyname>
+      </company>
+      <street>Unterer Raum 56</street>
+      <ceo />
+    </position>
+  </person>
+  <person>
+    <surname>Roger</surname>
+    <firstname>Hunter</firstname>
+    <position>
+      <company personid="7238">
+        <companyname>Pfanne GmbH</companyname>
+      </company>
+      <street>Lohnstreet 25</street>
+      <ceo department="sales"></ceo>
+    </position>
+  </person>
+</staff_file>

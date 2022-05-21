@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Producers.rdf
+
+      könnte statt
+      
+      http://example.org/sup# productX
+      
+      auch
+      
+      http://example.org/sup# articelX
+      
+      sein
+-->
+
+<rdf:RDF
+    xmlns:sup="http://example.org/sup#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" > 
+  <rdf:Description rdf:about="http://example.org/sup#producer0">
+    <sup:hasProduced rdf:resource="http://example.org/sup#product0"/>
+    <sup:producerName>Producer 1</sup:producerName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/sup#producer1">
+    <sup:hasProduced rdf:resource="http://example.org/sup#product1"/>
+    <sup:producerName>Producer 1</sup:producerName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/sup#producer2">
+    <sup:hasProduced rdf:resource="http://example.org/sup#product2"/>
+    <sup:hasProduced rdf:resource="http://example.org/sup#product3"/>
+    <sup:producerName>Producer 2</sup:producerName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/sup#producer3">
+    <sup:hasProduced rdf:resource="http://example.org/sup#product3"/>
+    <sup:producerName>Producer 3</sup:producerName>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Products.rdf 
+
+      könnte statt
+      
+      http://example.org/sup# productX
+      
+      auch
+      
+      http://example.org/sup# articelX
+      
+      sein;
+      
+      und nochmal der Hinweis: vielleicht fehlt noch was
+      
+-->
+
+<rdf:RDF
+    xmlns:sup="http://example.org/sup#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" > 
+  <rdf:Description rdf:about="http://example.org/sup#product0">
+    <sup:productName>Product 0</sup:productName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/sup#product1">
+    <sup:productName>Product 1</sup:productName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/sup#product2">
+    <sup:productName>Product 2</sup:productName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/sup#product3">
+    <sup:productName>Product 3</sup:productName>
+  </rdf:Description>
+</rdf:RDF>

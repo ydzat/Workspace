@@ -1,0 +1,183 @@
+Modul:		XML
+Dozent:		Prof_Gaedke
+Semester:	WS2016-2017
+Prüfungsart:	schriftlich
+
+Prüfungsbericht:
+
+Aufgabe 1 (4 Punkte)
+
+DTD gegeben, welche XML Files sind valide? Falls nicht valide, welche Fehler existieren? Gibt es logische Fehler im ersten XML Dokument? Falls ja was?
+
+Lösungsvorschlag: 	- einmal war ein Attribut in einem Element, welches nicht definiert war
+					- statt = zwischen Attribut und Wert stand ein :
+					- ein Attribut wurde defniert, dessen Element aber nicht im DTD vorkam (logischer Fehler)
+
+
+Aufgabe 2 (10 Punkte)
+
+UML Diagramm gegeben und ein XSD welche noch zusätzlich ergänzt werden sollte.
+
+> Bild extra zur Aufgabe 2.
+> Bemerkung: über die einzelnen Attribute/Objekt-Bezeichnungen bin ich mir aber nicht mehr 100% sicher.
+
+
+Aufgabe 3 (5 Punkte)
+
+Ein XML Dokument gegeben wozu ein passendes XSD erstellt werden sollte mit noch zusätzlichen Forderungen:
+  - location soll nur die Werte Chemnitz, Berlin und Paris annehmen 
+  - project muss eine eindeutige ID haben
+  - es muss mindestens ein project geben
+
+Das XML File:
+
+	<projects>
+		<project id="asd2" status="in work" group="">
+			<name>Test</name>
+			<location>Berlin</location>
+			<budget>274.12</budget>
+			<conductor>
+				<name>Thomas</name>
+			</conductor>
+		</project>
+	</projects> 
+
+Die Reihenfolge der Element innerhalb von project kann variieren. Die Attribute status und group von project waren nicht immer vorhanden. 
+
+
+Aufgabe 4 (8 Punkte?)
+
+XML Dokument gegeben, eine XSLT mit Lücken und die gewünschte Ausgabe. Dabei sollten E-Mails nach Priorität gruppiert werden und nur E-Mails die einen Absender von einem Dr. haben empfangen werden. Als Tipp verwenden sie starts-with( XPath, "Pattern").
+
+Gegebenes XML:
+
+<emails>
+	<inbox type="sent">
+		<mail prioritaet="1">
+			<absender>Dr. xy</absender>
+			<datum>23-05-2000</datum>
+			<betreff>xyxcyxc</betreff>
+		</mail>
+		<mail prioritaet="2">
+			<absender>Dr. w</absender>
+			<datum>21-05-2000</datum>
+			<betreff>xyxcyxc</betreff>
+		</mail>
+	</inbox>
+
+	<inbox type="received">
+		<mail prioritaet="1">
+			<absender>Dr. z</absender>
+			<datum>25-05-2000</datum>
+			<betreff>xyxcyxc</betreff>
+		</mail>
+		
+		<mail prioritaet="1">
+			<absender>Horst</absender>
+			<datum>25-05-2000</datum>
+			<betreff>xyxcyxc</betreff>
+		</mail>
+	</inbox>
+</emails>
+
+
+Ausgabe:
+
+E-Mails Priorität 1
+Inbox		Absender	Datum			Betreff
+sent		Dr. xy		23-05-2000		xyxcyxc
+received	Dr. z		25-05-2000		xyxcyxc
+
+E-Mails Priorität 2
+Inbox		Absender	Datum			Betreff
+sent		Dr. w		21-05-2000		xyxcyxc
+
+
+Aufgabe 5 (6 Punkte?)
+
+SAX Parser erweitern, Grundgerüst gegeben und die gewünschte Ausgabe falls folgendes XML geparst wird:
+
+<collection shelf="blabla">
+	<book title="t1">
+		<author>a1</author>
+	</book>
+	<book title="t2">
+		<author>a1</author>
+	</book>
+	<book title="t3">
+		<author>a1</author>
+	</book>
+	
+</collection>
+
+Gewünschte Ausgabe:
+
+	Collection blablabla:
+
+	***Book***
+	Title: t1
+	Author: a1
+	1 of 3
+	***Book***
+	Title: t2
+	Author: a1
+	1 of 3
+	***Book***
+	Title: t3
+	Author: a1
+	1 of 3
+
+
+Aufgabe 6 (14 Punkte)
+
+RDF Klassen: course, student, lecturer, city
+course: courseName
+student: takesCourse, name, livesIn
+lecturer: teaches, name, livesIn
+city: cityName
+
+SPARQL Abfragen die 
+  a alle Kurse ermitteln, die von Studenten besucht und von Lehrern unterrichtet werden, die aus der gleichen Stadt kommen
+  b alle Kurse ermitteln, die von Lehrern aus der Stadt Berlin unterrichtet werden oder deren Kursname das Wort "Engineering" enthält
+  
+  Lösungsvorschlag 
+  a)
+  PREFIX stud : <"http://example.org/stud#">
+  
+  SELECT ?courseName
+  FROM ...
+  WHERE
+  {
+	?course stud:courseName ?courseName.
+	?teacher stud:teaches ?course.
+	?student stud:takesCourse ?course.
+	?student stud:livesIn ?city.
+	?teacher stud:livesIn ?city.
+  }
+  
+  b)
+  
+  PREFIX stud : <"http://example.org/stud#">
+  
+  SELECT ?courseName
+  FROM ...
+  WHERE
+  {
+	{
+		?course stud:courseName ?courseName.
+		?teacher stud:teaches ?course.
+		?student stud:livesIn stud:Berlin.
+	}
+	UNION
+	{
+		?course stud:courseName ?courseName.
+		?teacher stud:teaches ?course.
+		FILTER regex(?course_name, "Engineering")
+	}
+  }
+
+  Insgesamt 47 Punkte
+  
+ 
+Insgesamt war die Prüfung sehr umfangreich und auch vom Schwierigkeitsniveau ähnlich und teilweise höher als die Übungsaufgaben. Daher hatte man nicht viel Zeit für Korrektur und musste alle Lösungen ohne große Bedenkzeit aufschreiben können. Der Lückentext zur XSLT war auch schwierig, da man sich in die Lösungsstrategie der einarbeiten musste. Man sollte daher verschiedene Befehle und Möglichkeiten mit XSLT zu arbeiten kennen und sich nicht nur einen Lösungsweg merken. Bestehen sollte mit ca. 40-50% der Punkte möglich sein. 
+

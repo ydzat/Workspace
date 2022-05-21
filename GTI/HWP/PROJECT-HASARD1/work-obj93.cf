@@ -1,0 +1,22 @@
+v 3
+file . "DBB2_08.VHD" "20150326090030.000" "20150416165140.657":
+  package pack_2 at 1( 0) + 0 on 30 body;
+  package body pack_2 at 10( 246) + 0 on 31;
+  entity uut at 40( 1197) + 0 on 32;
+  entity dbb2_08 at 49( 1384) + 0 on 33;
+  architecture behavior of dbb2_08 at 59( 1608) + 0 on 34;
+  entity testx at 123( 3509) + 0 on 35;
+  architecture testx of testx at 130( 3609) + 0 on 36;
+file . "test_1.vhd" "20150326103150.000" "20150416165140.659":
+  package pack_1 at 1( 0) + 0 on 37;
+  entity sn7432 at 8( 137) + 0 on 38;
+  architecture dataflow of sn7432 at 17( 310) + 0 on 39;
+  entity sn7474 at 22( 396) + 0 on 40;
+  architecture dataflow of sn7474 at 31( 571) + 0 on 41;
+  entity uut1 at 44( 945) + 0 on 42;
+  architecture structure of uut1 at 53( 1125) + 0 on 43;
+  entity test at 69( 1552) + 0 on 44;
+  architecture test1 of test at 76( 1658) + 0 on 45;
+  architecture test2 of test at 92( 2084) + 0 on 46;
+  architecture test3 of test at 108( 2558) + 0 on 47;
+  architecture test4 of test at 124( 2984) + 0 on 48;

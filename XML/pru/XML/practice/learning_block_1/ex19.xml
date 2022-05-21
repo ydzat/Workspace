@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<learning-group-letter 
+xmlns="http://www.w3school.com.cn" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex19.xsd">
+    <meta>
+        <learning-block>1</learning-block>
+        <learning-group id="1">
+          <speaker>Bob Tester</speaker>
+          <participant>Bob Tester</participant>
+          <participant>Lisa Tester</participant>
+          <participant>Jimmy Tester</participant>
+        </learning-group>
+      </meta>
+      <results>
+        <tasks>
+          <task id="1" difficulty="medium" solved="yes"/>
+          <task id="2" difficulty="hard" solved="no"/>
+          <task id="3" difficulty="easy" solved="yes"/>
+        </tasks>
+        <issues>{TODO please briefly describe any problems you encountered}</issues>
+        <hints-or-requests>{TODO please fill if required}</hints-or-requests>
+      </results>
+</learning-group-letter>

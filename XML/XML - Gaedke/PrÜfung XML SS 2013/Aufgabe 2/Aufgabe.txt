@@ -1,0 +1,12 @@
+2.) 
+
+2.1) Ist das XML-File gegen das gegebene Schema valid?  (2 Punkte)
+
+
+2.2)  (4 Punkte)
+wenn ja: machen sie irgendwas (weis ich nicht, war nicht der Fall)
+
+
+wenn nein: Wie kann das XML-File durch einfügen eines einzigen Attributes valid gemacht werden?
+
+(siehe animals.xml ->Kommentar)

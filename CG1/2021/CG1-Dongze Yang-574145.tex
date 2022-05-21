@@ -1,0 +1,313 @@
+\documentclass[fleqn]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{color}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{dashrule}
+\usepackage{diagbox}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\lstset{
+ columns=fixed,       
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=c++,                                        % 设置语言
+ breaklines,                                          % 自动换行
+}
+
+%\title{CG1 Zusammenfassung WS20/21}
+
+% \author{Dongze Yang}
+
+\begin{document}
+
+%\maketitle
+
+%\tableofcontents
+
+\newpagestyle{main}{
+    \sethead{}{}{Dongze Yang 574145}
+    \setfoot{}{\thepage}{}
+    \headrule
+    \footrule
+}
+\pagestyle{main}
+
+\newpage
+
+\section{Aufgabe 1}
+
+\noindent\textbf{a) and b)}
+\\
+\\
+\noindent Vertex Verarbeitung:
+
+Vertex Shader:
+
+$\circ$ Transformation Object Space $\rightarrow$ Clip Space
+
+$\circ$ Transformation Positionen und Normalen für Beleuchtung
+
+$\circ$ Gouraud Shading
+
+\noindent Primitiv Verarbeitung:
+
+$\circ$ Clipping im Clip Space
+
+$\circ$ Transformation Clip Space $\rightarrow$ Windows space
+
+$\circ$ Backface Culling
+
+\noindent Rasterisierung
+
+$\circ$ Punkt-/Linien-/Dreiecks-Rasterisierung im Windows Space
+
+\noindent Fragment Verarbeitung:
+
+$\circ$ Depth Test
+
+$\circ$ Fragment Shader
+
+$\circ$ Blending
+\\
+\\
+\noindent\textbf{c)}
+
+Rasterisierung
+
+\section{Aufagbe 2}
+
+\noindent\textbf{a)}
+
+$1920\times 1280\times (32+16) = 117964800$ Bit
+
+\noindent\textbf{b)}
+
+Single-Buffering kann Bildschirmrissen kommen, 
+
+Single-Buffering synchronisiert nicht mit dem Renderablauf $\Rightarrow$ Ausgabe von unfertigen Bildern während des Rendervorgangs.
+
+Double-Buffering kann diese Problem lösen.
+
+Doppelte Framebuffergröße gegenüber einfacher Pufferung, weil sie zwei Color Buffers verwendet:
+
+\noindent\textbf{c)}
+
+Die dreifache Pufferung behebt den Fehler "Wenn die Zeichengeschwindigkeit zu langsam ist, wird derselbe Rahmen mindestens zweimal auf dem Bildschirm angezeigt"
+
+Der erforderliche Speicher ist dreimal so groß wie Single-Buffering.
+
+\noindent\textbf{d)}
+
+geringfügig (bis zur Dauer eines Frames) steigende und stärker fluktuierende Latenz
+
+\noindent\textbf{e)}
+
+$$Single-Bufferin$$
+
+$$f_1+f_2+f_3+f_4+f_5=85ms$$
+
+$$Double-Buffering\, ohne ,,VSync''$$
+
+$$f_1+f_2+f_3+f_4+f_5=85ms$$
+
+$$Double-Buffering\, mit ,,VSync''$$
+
+$$\sum^5_{i=1}20ms\cdot \left\lceil\frac{20ms}{f_i}\right\rceil=160ms$$
+
+\section{Aufgabe 3}
+
+\noindent\textbf{a)}
+
+$S_1$: Object Space
+
+$S_2$: World Space
+
+$S_3$: Eye Space
+
+$S_4$: Clip Space
+
+$S_5$: Normal Device Space
+
+$S_6$: Window Space
+
+M: Model Matrix
+
+V: View Matrix
+
+P: Projektions Matrix
+
+A: Abbildung Matrix
+
+1. Abbildung des Sichtvolumens auf achsparellelen Quader: M
+
+2.  Position des Objektes auf dem Bildschirm: V
+
+3.  Ausdehnung des Sichtvolumens entlang der Blickrichtung: P
+
+4.  Ergebnis des Tiefenvergleichs beim Tiefentest: A
+
+5.  Anzahl der Ausführungen des Vertex-Shaders im Draw Call: M V P
+
+6.  Position der Kamera in der Welt: V
+\\
+\\
+\noindent\textbf{b)}
+
+$A_{-1}$ und $A'$
+
+Verwenden Sie $A_{-1}$, um die vorhandenen Bildkoordinaten in NDC-Koordinaten zu ändern,
+ und übergeben Sie dann ein neues $A$, damit es der neuen Auflösung entspricht.
+
+$A=\begin{pmatrix}
+    \frac{1}{2}\cdot 2400&0&0&\frac{1}{2}\cdot 2400+0\\
+    0&\frac{1}{2}\cdot 1800&0& \frac{1}{2}\cdot 1800+0\\
+    0&0&\frac{1}{2}\cdot(1-0)&\frac{1}{2}\\
+    0&0&0&1
+\end{pmatrix}\Rightarrow A^{-1}=\begin{pmatrix}
+    \frac{1}{1200}&0&0&-1\\
+    0&\frac{1}{900}&0&-1\\
+    0&0&2&-1\\
+    0&0&0&1
+\end{pmatrix}$
+
+$A'=\begin{pmatrix}
+    \frac{1}{2}\cdot 5600&0&0&\frac{1}{2}\cdot 5600+0\\
+    0&\frac{1}{2}\cdot 2400&0& \frac{1}{2}\cdot 2400+0\\
+    0&0&\frac{1}{2}\cdot(1-0)&\frac{1}{2}\\
+    0&0&0&1
+\end{pmatrix}=\begin{pmatrix}
+    2800&0&0&2800\\
+    0&1200&0& 1200\\
+    0&0&\frac{1}{2}&\frac{1}{2}\\
+    0&0&0&1
+\end{pmatrix}$
+
+\noindent\textbf{c)}
+
+1 mal M: Es gibt nur eine Szene, deshalb brauchen wir nur 1 Modell Matrix
+
+4 mal V: Es gibt 4 Würfel unterschiedlicher Größe, d. h. haben wir 4 verschiedene Viewpoint.
+
+4 mal P: verschiedene Viewpoint haben verschiedene Projection Matrix
+
+1 mal A: Wenn wir nur 1 Anzeigegerät haben, brauchen wir nur 1 A Matrix.
+
+\section{Aufgabe 4}
+
+\noindent\textbf{a)}
+
+Symmetrisierung, Skalier mit den Faktoren (1,2,1),  dreh um $90^\circ$, Transformation mit Vektor (-2,4,1)
+
+$M_{Symm}=\begin{pmatrix}
+    -1&0&0&0\\
+    0&1&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix},\,
+R=\begin{pmatrix}
+    cos90^\circ&-sin90^\circ&0&0\\
+    sin90^\circ&cos90^\circ&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix},\,
+M_{Skl}=\begin{pmatrix}
+    1&0&0&0\\
+    0&2&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix},\,$ $
+T=\begin{pmatrix}
+    1&0&0&-2\\
+    0&1&0&4\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix},\,
+M=T\cdot R\cdot M_{Skl}\cdot M_{Symm}=\begin{pmatrix}
+    0&-2&0&-2\\
+    -1&0&0&4\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix},\,$
+
+\noindent\textbf{b)}
+
+$P=M^{-1}\cdot P=\begin{pmatrix}
+    5\\0\\0\\1
+\end{pmatrix}$
+
+\section{Aufgabe 5}
+
+\noindent\textbf{a)}
+
+(b) $v_1$=(0,1),$v_2$=(0,0),$v_3$=(1,0),$v_4$=(1,1)
+
+(c) $v_1$=(0.5,0.25),$v_2$=(1,0.25),$v_3$=(1,0.75),$v_4$=(0.5,0.75)
+
+(d) $v_1$=(0,0),$v_2$=(2,0),$v_3$=(2,0.5),$v_4$=(0,2)
+
+\noindent\textbf{c)}
+
+\noindent Prinzip: 
+
+statt einem Sample in der höchstmöglichen Stufelog $log_2\lceil \rho\rceil$ gew. Mittel von $n$ Samples in der niedrigeren Stufe $log_2\lceil \frac{\rho}{n}\rceil$.
+
+Wahl vonnanhand des Verhältnisses längerer zu kürzerer Kante $\rightarrow$
+hohe Bildqualität, sehr hoher Aufwand
+
+\section{Aufgabe 6}
+
+\noindent\textbf{b)}
+
+\noindent left is Flat Shading
+
+\noindent right isVertex Shader.$c=c_0\cdot\alpha+c_1\cdot\beta+c_2\cdot\gamma$
+
+Auswertung der Beleuchtungsgleichung an allen Eckpunkten des Primitivs ,,per-Vertex Lighting''
+
+\section{Aufgabe 8}
+
+\noindent\textbf{c)}
+
+a)es ist unmöglich, wenn y3 == y2 und y3 == y2 + 1 ist.
+
+
+b)ähnlich wie (b). Es ist nicht möglich, wenn y5 == y4 und y5 == y4 + 1 ist.
+
+c)Die Linie ist im Bresenham-Algorithmus immer steigend. D.h. gibt es keine sinkende Möglichkeit.
+
+\section{Aufgabe 9}
+
+Vorlesung folie: 07\_clipping (teil1).pdf Seite: 9
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

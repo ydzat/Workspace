@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="projects" type="projects_ct" />
+<xs:element name="project" type="project_ct"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="location" type="location_ct"/>
+<xs:element name="budget" type="xs:double"/>
+<xs:element name="conductor" type="conductor_ct"/>
+
+<xs:complexType name="projects_ct">
+    <xs:sequence>
+        <xs:element ref="project" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="project_ct">
+    <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="location"/>
+        <xs:element ref="budget"/>
+        <xs:element ref="conductor"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID"/>
+    <xs:attribute name="status" type="xs:string"/>
+    <xs:attribute name="group" type="xs:string"/>
+</xs:complexType>
+
+<xs:simpleType name="location_ct">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="Chemnitz"/>
+        <xs:enumeration value="Berlin"/>
+        <xs:enumeration value="Paris"/>
+    </xs:restriction>
+</xs:simpleType>
+        
+<xs:complexType name="conductor_ct">
+    <xs:sequence>
+        <xs:element ref="name"/>
+    </xs:sequence>
+</xs:complexType>
+
+</xs:schema>

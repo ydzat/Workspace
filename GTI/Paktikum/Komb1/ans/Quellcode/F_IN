@@ -1,0 +1,16 @@
+stimmap dbb2_08 0000----|11-----
+stimmap dbb2_08 0001----|00-----
+stimmap dbb2_08 0010----|00-----
+stimmap dbb2_08 0011----|00-----
+stimmap dbb2_08 0100----|11-----
+stimmap dbb2_08 0101----|00-----
+stimmap dbb2_08 0110----|11-----
+stimmap dbb2_08 0111----|11-----
+stimmap dbb2_08 1000----|11-----
+stimmap dbb2_08 1001----|11-----
+stimmap dbb2_08 1010----|11-----
+stimmap dbb2_08 1011----|00-----
+stimmap dbb2_08 1100----|11-----
+stimmap dbb2_08 1101----|00-----
+stimmap dbb2_08 1110----|11-----
+stimmap dbb2_08 1111----|00-----

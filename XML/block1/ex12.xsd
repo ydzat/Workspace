@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:vsr:xml-werkzeuge:aufgabe2.4"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ targetNamespace="urn:vsr:xml-werkzeuge:aufgabe2.4"
+elementFormDefault="qualified">
+  <xs:element name="staffFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="person" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="firstName" type="xs:string"/>
+              <xs:element name="familyName" type="xs:string"/>
+              <xs:element name="psnr" type="xs:positiveInteger"/>
+              <xs:element ref="comment" minOccurs="0"/>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="comment">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="verbal" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

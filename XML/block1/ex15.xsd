@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:vsr:xml-werkzeuge:aufgabe2.5"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="urn:vsr:xml-werkzeuge:aufgabe2.5"
+elementFormDefault="qualified">
+  <xs:element name="staffFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="person" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="firstName" type="xs:string"/>
+              <xs:element name="familyName" type="xs:string"/>
+              <xs:element name="psnr">
+                <xs:simpleType>
+                  <xs:restriction base="xs:positiveInteger">
+                    <xs:minInclusive value="100"/>
+                    <xs:maxInclusive value="10000"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gender">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="male"/>
+                    <xs:enumeration value="female"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element ref="grade" minOccurs="0"/>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="grade">
+    <xs:simpleType>
+      <xs:restriction base="xs:positiveInteger">
+        <xs:pattern value="[1-5]{1}"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+</xs:schema>

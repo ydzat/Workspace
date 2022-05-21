@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:vsr:xml-werkzeuge:aufgabe15"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="urn:vsr:xml-werkzeuge:aufgabe15"
+elementFormDefault="qualified">
+  <xs:element name="course-registration">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="course" type="available_courses_st"/>
+        <xs:element name="student">
+          <xs:complexType>
+            <xs:attribute name="matrikelnr" type="matrikel_st"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tutorial-day" type="tutorial_day_st"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="available_courses_st">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="XML"/>
+      <xs:enumeration value="SSE"/>
+      <xs:enumeration value="CTWE"/>
+      <xs:enumeration value="DDS"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="matrikel_st">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="100000"/>
+      <xs:maxInclusive value="999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tutorial_day_st">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][a-z]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

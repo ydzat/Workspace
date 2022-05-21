@@ -1,0 +1,11 @@
+<collection shelf="blabla">
+	<book title="t1">
+		<author>a1</author>
+	</book>
+	<book title="t2">
+		<author>a1</author>
+	</book>
+	<book title="t3">
+		<author>a1</author>
+	</book>
+</collection>

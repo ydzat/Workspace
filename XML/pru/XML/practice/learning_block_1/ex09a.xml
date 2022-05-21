@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library SYSTEM "task9.dtd">
+<library name="National Library">
+ <shelfs>
+   <shelf alphabetical="no">
+     <book>
+       <title>About the importance of alphabetical ordering</title>
+       <author>Helen I. Bartlett</author>
+       <pages>431</pages>
+     </book>
+     <book>
+       <title>The Book</title>
+       <author>Yvette J. Coady</author>
+       <pages>286</pages>
+     </book>
+   </shelf>
+   <shelf alphabetical="yes" begin-at="A">
+     <book>
+       <title>All about Steam Locomotives</title>
+       <author>Thomas C. Hill</author>
+       <pages>161</pages>
+     </book>
+   </shelf>
+   <shelf alphabetical="yes" begin-at="F">
+     <book>
+       <title>Garry's Grandious Cooking Recipes</title>
+       <author>Garry J. Griggs</author>
+       <pages>965</pages>
+     </book>
+     <book>
+       <title>Kitchen Utilities: The Full Guide</title>
+       <author>Maria F. Fluellen</author>
+       <pages>216</pages>
+     </book>
+   </shelf>
+   <shelf alphabetical="yes" begin-at="L">
+   </shelf>
+   <shelf alphabetical="yes" begin-at="R">
+     <book>
+       <title>Rise of Rome: a historical Timeline</title>
+       <author>Alan G. Sheppard</author>
+       <pages>753</pages>
+     </book>
+   </shelf>
+   <shelf alphabetical="yes" begin-at="U">
+     <book>
+       <title>Xylphone Playing Made Easy</title>
+       <author>Eleanor W. Hall</author>
+       <pages>154</pages>
+     </book>
+   </shelf>
+ </shelfs>
+ <staff>
+   <person staff-id="123">
+     <name>Richard Doyle</name>
+   </person>
+   <person staff-id="124">
+     <name>Dana Smart</name>
+   </person>
+   <person staff-id="125">
+     <name>Terry Seawright</name>
+   </person>
+ </staff>
+</library>

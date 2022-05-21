@@ -1,0 +1,57 @@
+package com.company;
+
+import java.lang.reflect.Array;
+
+public class ExceptionExerciseTask {
+    public interface Stack<T>{
+        void push(T value);
+        T pop();
+        boolean isEmpty();
+    }
+
+    public static class Exception_Stack<T> implements Stack<T>{
+        private T[] dataArray;
+        private int top = -1;
+        private int capacity;
+
+        public Exception_Stack(int capacity){
+            this.capacity = capacity;
+            this.dataArray = (T[]) new Object[capacity];
+        }
+
+        @Override
+        public void push(T value) {
+            exceptional_push(value);
+        }
+
+        @Override
+        public T pop() {
+            return exceptional_pop();
+        }
+
+
+        //solution in here
+        public void exceptional_push(T value){
+            top += 1;
+            dataArray[top] = value;
+        }
+
+        public T exceptional_pop(){
+            top = top-1;
+            return dataArray[top+1];
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return top == -1;
+        }
+    }
+
+    public static void main(String[] args){
+        Exception_Stack<Integer> S = new Exception_Stack<>(1);
+        S.push(123);
+        S.push(124);
+        S.pop();
+        S.pop();
+    }
+}

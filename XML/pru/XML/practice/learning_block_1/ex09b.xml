@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library SYSTEM "task9.dtd">
+<library name="Rockville Public Library">
+ <shelfs>
+   <shelf alphabetical="yes" begin-at="A">
+     <book>
+       <title>Dragons: Childish Fantasy of Shocking Reality?</title>
+       <author>Kristen S. Newsome</author>
+       <pages>407</pages>
+     </book>
+   </shelf>
+   <shelf alphabetical="yes" begin-at="N">
+     <book>
+       <title>The One Book to Rule them all</title>
+       <author>Josephine A. Gill</author>
+       <pages>313</pages>
+     </book>
+   </shelf>
+ </shelfs>
+  <staff>
+   <person staff-id="3">
+     <name>Edgar Henderson</name>
+   </person>
+  </staff>
+</library>

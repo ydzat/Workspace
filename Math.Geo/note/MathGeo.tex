@@ -1,0 +1,537 @@
+\documentclass[fleqn]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{listings}
+\usepackage{diagbox}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{extarrows}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\lstset{
+ columns=fixed,       
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=c++,                                        % 设置语言
+ breaklines,                                          % 自动换行
+}
+
+%\title{TU Chemnitz \\ Praktikum Grundlagen Technische Informatik \\ Versuch Sequ1}
+
+%\author{Gruppe 5 - Team 5: \\ Dongze Yang \\Xiangyu Tong \\ Treshchun Kateryna}
+
+\begin{document}
+
+%\maketitle
+
+\newpagestyle{main}{
+    \sethead{}{}{Math.Geo}
+    \setfoot{}{\thepage}{}
+    \headrule
+    \footrule
+}
+\pagestyle{main}
+
+\section{K 1}
+
+\noindent 1. $R^3$中两点距离(可推导至$R^n$)：$|AB|=\sqrt{(x_1^2-x_2^2)^2+(y_1^2-y_2^2)^2+(z_1^2-z_2^2)}$
+
+\noindent 2. 已知3点求三角形面积：$S=\sqrt{P(P-A)(P-B)(P-C)}$，其中$P=(A+B+C)/2$，A/B/C为边长。边长用两点距离公式算。或：$S=\frac{1}{2}|\overrightarrow{AB}\times\overrightarrow{AC}|$。
+
+\noindent 3. 数量积/内积/点积 Skalatprodukt: $\vec{a}\circ\vec{b}=a_1b_1+a_2b_2+\dots+a_nb_n$。是标量。
+
+几何定义：$\vec{a}\cdot\vec{b}=|\vec{a}|\cdot|\vec{b}|\cdot \cos\theta,\,0\leq \theta\leq \pi$
+\\
+\\
+\noindent 4. 叉积/向量积 Kreuzprodukt
+
+$\vec{a}\times\vec{b}=\begin{pmatrix}
+    a_1 \\ a_2\\a_3
+\end{pmatrix}\times\begin{pmatrix}
+    b_1 \\ b_2\\b_3
+\end{pmatrix}=\begin{pmatrix}
+    v_1 \\ v_2\\v_3
+\end{pmatrix}=\begin{pmatrix}
+    a_2b_3-a_3b_2 \\ a_3b_1-a_1b_3\\a_1b_2-a_2b_1
+\end{pmatrix}$
+\\
+\\
+\noindent 5.线性相关/无关 linear (un)abhängig (不)在一条线上或平行。
+
+Bsp. 有$\vec{a}=(x_1,y_1,z_1),\vec{b}=(x_2,y_2,z_2)\vec{c}=(x_3,y_3,z_3)$。
+
+则：$\begin{pmatrix}
+    \vec{a}\\\vec{b}\\\vec{c}
+\end{pmatrix}=\begin{pmatrix}
+    x_1&y_1&z_1\\x_2&y_2&z_2\\x_3&y_3&z_3
+\end{pmatrix}$, 通过线性变换(行列相加减)$\rightarrow\begin{pmatrix}
+    x&x&x\\x&x&x\\0&0&0
+\end{pmatrix}$则线性相关，意味着任意向量都可以由另外两个向量表示。
+\\
+\\
+\noindent 6. 三重积/混合积 Spatprodukt $\rightarrow$三个向量相乘
+
+$\vec{a}\cdot(\vec{b}\times\vec{c}) = \begin{bmatrix}
+    a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3
+\end{bmatrix}=-\vec{b}\cdot(\vec{a}\times\vec{c})=-\vec{c}\cdot(\vec{a}\times\vec{b})=[a\,b\,c]$。若任意两个向量相等，则=0。
+
+由此推导出体积公式$V_{Spat}=|\vec{a}\cdot(\vec{b}\times\vec{c})|=\left| det\begin{pmatrix}
+    a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3
+\end{pmatrix}\right|$,四面体体积$V_{Tetraeders}=\frac{1}{6}V$
+
+\noindent 7. 已知$\vec{a}=(x_1,y_1,z_1),\vec{b}=(x_2,y_2,z_2)$，判断两个向量的空间关系：
+
+$\vec{a}\parallel\vec{b}\Rightarrow c=\frac{x_2}{x_1}=\frac{y_2}{y_1}=\frac{z_2}{z_1}$
+
+$\vec{a}\perp\vec{b}\Rightarrow \vec{a}\cdot\vec{b}=x_1x_2+y_1y_2+z_1z_2=0$
+
+Windschief异面: 既不相交也不平行。
+
+\noindent 8. 2个向量函数距离：
+
+首先，判断两个函数是否$\parallel$，若是，则：在函数上取变量值相同的两点$P_1,P_2,P\in x_1(t),P_2\in x_2(s)$，求$\overrightarrow{P_1P_2}$。
+将$x_1(t)$求导，取得其导函数，其为这个原函数的切向量，即方向向量$\vec{r}$。随后可求$d(g_1,g_2)=d(P_2,g_1)=\frac{|\overrightarrow{P_1P_2}\times\vec{r}|}{|\vec{r}|}$。
+其中$|\overrightarrow{P_1P_2}\times\vec{r}|$表示$\vec{r}$与$\overrightarrow{P_1P_2}$组成的平行四边形面积。
+
+若两向量异面，则：求$g_1,g_2$的垂直向量/法向量Lotvektor $\vec{n}=\vec{r_1}\times\vec{r_2}$。在函数上取变量值相同的两点$P_1,P_2,P\in x_1(t),P_2\in x_2(s)$，求$\overrightarrow{P_1P_2}$。
+则有$d(g_1,g_2)=\frac{|\overrightarrow{P_1P_2}\times\vec{n}|}{|\vec{n}|}$。
+\\
+\\
+\noindent 9. 点到向量函数距离 
+
+在函数上取一点S，求$\overrightarrow{SP}$，则$d(P,g)=\frac{|\overrightarrow{SP}\times\vec{r}|}{|\vec{r}|}$
+
+\noindent 10. 三元一次方程组$ax+by+cz=d$的法向量Normalenvektor $\vec{n} = \begin{pmatrix}
+    a\\b\\c
+\end{pmatrix}$
+
+\noindent 11. 过指定点的平面E与向量函数$g: \begin{pmatrix}
+    x(t)\\y(t)\\z(t)
+\end{pmatrix}=t\cdot\begin{pmatrix}
+    a\\b\\c
+\end{pmatrix}$垂直，求E。
+
+$\because E\parallel g \therefore E: ax+by+cz=d$。将g的数值代入E即可求得d。
+
+其中$\begin{pmatrix}
+    a\\b\\c
+\end{pmatrix}$为g的方向向量。
+
+\noindent 12. 向量函数与E的交点：
+
+将$g: \begin{pmatrix}
+    x(t)\\y(t)\\z(t)
+\end{pmatrix}$带入平面方程函数，即可求得t,将t带入g即可。
+
+\noindent 13. 求两平面相交线的线性方程(用矩阵)
+
+已知$E_1: -2x+4y-2z=-6,\,E_2: x+7y+z=21$
+
+解：$\begin{matrix}
+    a:\\b:
+\end{matrix}\begin{vmatrix}
+    -2&4&-2&-6\\1&7&1&21
+\end{vmatrix}(1)\xlongequal[]{a-(-2)b}=\begin{vmatrix}
+    -2&4&-2&-6\\0&18&0&36
+\end{vmatrix}\Rightarrow y=2$
+
+$(1)\xlongequal[]{7a-4b}=\begin{vmatrix}
+    -14&28&-14&-42\\4&28&4&84
+\end{vmatrix}\xlongequal[]{b=a-b}=\begin{vmatrix}
+    -14&28&-14&-42\\-18&0&-18&-126
+\end{vmatrix}\Rightarrow z=7-x$
+
+设$x=0$，则$z=7$，可知向量方程一定过点(0,2,7)，即$\vec{S}=\begin{pmatrix}
+    0\\2\\7
+\end{pmatrix}$。
+
+直线方向向量 = 两平面法向量叉积$\vec{r}=\vec{n_1}\times\vec{n_2}$，可得$\vec{r}$，即$g: x(t)=\vec{S}+t\cdot\vec{r}$。
+
+\noindent 14. 平面向量方程$\rightarrow$一般平面方程
+
+已知：$\begin{pmatrix}
+    x(s,t)\\y(s,t)\\z(s,t)
+\end{pmatrix}=\begin{pmatrix}
+    1\\3\\-3
+\end{pmatrix}+t\cdot\begin{pmatrix}
+    1\\-4\\0
+\end{pmatrix}+s\cdot\begin{pmatrix}
+    -5\\0\\3
+\end{pmatrix}$
+
+则：$\begin{pmatrix}
+    1\\-4\\0
+\end{pmatrix}\times\begin{pmatrix}
+    -5\\0\\3
+\end{pmatrix}=\begin{pmatrix}
+    a\\b\\c
+\end{pmatrix}\Rightarrow ax+by+cz=d$，代入$\begin{pmatrix}
+    1\\3\\-3
+\end{pmatrix}$即可。
+
+\section{K 2}
+
+\noindent 1. Homogenen Koordinaten 齐次坐标/投影坐标(Projktion Koordinaten)
+
+功能：可以让无穷远的坐标以有限坐标表示。
+
+使用齐次坐标可以进行仿射变换(线性变换+平移)，其投影变换可以用矩阵表示。
+
+\noindent 2. 给定Euklidische Geometrie(欧几里得平面)上一点(x,y)，对于任意非零实数z，三元组(xz,yz,z)即为该点的齐次坐标。
+
+\noindent 3. 一条过原点的线: nx+my=0，其中n和m不同时为0，以参数表示可写成$\left\{\begin{aligned}
+    x=mt\\y=-nt
+\end{aligned}\right.$，另$z=1$，则线上的Kartesischen Koordinaten(笛卡尔坐标)为$(m/z,-n/z)$，在齐次坐标下为$(m,-n,z)$。当$t\rightarrow\infty$时，齐次坐标会变成$(m,-n,0)$。
+注：原点为$(0,0,1)$
+        
+\noindent 4. 在n维中的投影可表示为n+1元组，例如在$R^3$中的点$P(x,y,z)$的齐次坐标为$(wx,wy,wz,w)$。
+\\
+\\
+\noindent 5. 仿射变换 Affine Abbildung
+
+$R^2:\vec{y}=A\vec{x}+\vec{b}\Rightarrow\begin{bmatrix}
+    \vec{y}\\1
+\end{bmatrix}=\begin{bmatrix}
+    A&\vec{b}\\0&1
+\end{bmatrix}\cdot\begin{bmatrix}
+    \vec{x}\\1
+\end{bmatrix}$
+
+假设$\vec{x}$是$R^2$上正方形任意一点的坐标，则$\begin{bmatrix}
+    \vec{x}\\1
+\end{bmatrix}$表示把正方形投影到了$R^3$中$z=1$的平面上。
+
+即：增加一个维度后，可以再高维通过线性变换完成低维度的仿射变换。
+
+\noindent 6. 通过齐次坐标，可以用矩阵乘法来描述位移或平移。
+
+如：已知$M=\begin{pmatrix}
+    \tilde{x}\\\tilde{y}\\\tilde{z}
+\end{pmatrix}:=\begin{pmatrix}
+    x+2\\y+7\\z+1
+\end{pmatrix}$，求其平移矩阵A。
+
+则有$\begin{pmatrix}
+    \tilde{x}\\\tilde{y}\\\tilde{z}\\1
+\end{pmatrix}=A\begin{pmatrix}
+    x\\y\\z\\1
+\end{pmatrix}\Rightarrow A=\begin{pmatrix}
+    1&0&0&2\\
+    0&1&0&7\\
+    0&0&1&1\\
+    0&0&0&1
+\end{pmatrix}$
+
+即平移矩阵为$\begin{pmatrix}
+    I&Verschiebung\\
+    0&1
+\end{pmatrix}$
+\\
+\\
+\noindent 7. Baryzentrischen Kooridinaten 重心坐标
+
+若$A,B,C,D \in R^3$，则$P_{ABCD}=(\alpha,\beta,\theta,\gamma)$，求P的笛卡尔坐标。($\alpha+\beta+\theta+\gamma=1$)
+
+则：$\alpha\cdot A+\beta\cdot B + \theta\cdot C + \gamma\cdot D = P$，其中ABCD的坐标以向量形式表示。
+
+判断重心位置：(1)若$\alpha,\beta,\theta,\gamma\in(0,1)$，则在内。(2)若$\notin (0,1)$，则需要根据其越域参数来判断：如$\alpha<0$，则重心位于bcd平面之下，若$\alpha>0$，则位于bcd平面的上方。若为0，则置于平面中。
+
+\noindent 8. 求Transformationsmatrix。
+
+已知Quader长方体：$\{\begin{pmatrix}
+    x\\y\\z
+\end{pmatrix}:2\leq x\leq6;1\leq y\leq 2;10\leq z\leq 40\}$，要把它投影成Einheitswürfel单位方块$\{\begin{pmatrix}
+    x_i\\y_i\\z_i
+\end{pmatrix}:0\leq x\leq 1, 1\leq y\leq 1, 0\leq z \leq 1\}$
+
+解：先平移再缩放。
+
+$x_i \rightarrow \frac{x-2}{6-2} = \frac{1}{4}x-\frac{1}{2}$
+
+$y_i \rightarrow \frac{y-1}{2-1} = y-1$
+
+$z_u \rightarrow \frac{z-10}{40-10}=\frac{1}{30}z-\frac{1}{3}$
+
+$\begin{pmatrix}
+    x_i\\y_i\\z_i\\1
+\end{pmatrix}=T\cdot\begin{pmatrix}
+    x\\y\\z\\1
+\end{pmatrix}\Rightarrow T=\begin{pmatrix}
+    skaliert M&Verschiebung\\
+    0&1
+\end{pmatrix}=\begin{pmatrix}
+    \frac{1}{4}&0&0&-\frac{1}{2}\\
+    0&1&0&-1\\
+    0&0&\frac{1}{30}&-\frac{1}{3}
+    0&0&0&1
+\end{pmatrix}$
+\\
+\\
+\noindent 9. Skalierung 缩放：把一个向量/点/方向，沿各自方向放大/缩小。$T_{R^3}=\begin{bmatrix}
+    x&0&0&0\\
+    0&y&0&0\\
+    0&0&z&0\\
+    0&0&0&1
+\end{bmatrix}$
+
+\noindent 10. Rotationsmatrix 旋转矩阵
+
+$R^2$，
+关于原点逆时针旋转$\theta$°：$\begin{pmatrix}
+    \cos\theta&-\sin\theta\\
+    \sin\theta&\cos\theta
+\end{pmatrix}$
+
+$R^3$:右手坐标系，大拇指指向某轴正方向，四指弯曲方向为正。
+
+(1)关于$x$轴:$\begin{pmatrix}
+    1&0&0\\
+    0&\cos\theta&-\sin\theta\\
+    0&\sin\theta&\cos\theta
+\end{pmatrix}$;
+(2)y:$\begin{pmatrix}
+    \cos\theta&0&-\sin\theta\\
+    0&1&0\\
+    \sin\theta&0&\cos\theta
+\end{pmatrix}$;
+(3)z:$\begin{pmatrix}
+    \cos\theta&-\sin\theta&0\\
+    \sin\theta&\cos\theta&0\\
+    0&0&1
+\end{pmatrix}$
+\\
+\\
+\noindent \textbf{累积变换(Kumulative Transformation): 当需要执行不同动作时：先缩放，中旋转，后平移。}
+\\
+\\
+\noindent 11. 求T：(1)先平移，使点$(4,9,2)^T$成为新的原点。(2)然后将其沿着x,y,z方向以5,3,2为单位延伸(streckt)。(3)最后沿z轴正方向旋转30°。
+
+$\left\{\begin{aligned}
+    x'&=5(x-4)=5x-20\\
+    y'&=3(y-9)=3y-27\\
+    z'&=2(z-2)=2z-4
+\end{aligned}\right.\quad\Rightarrow T'=\begin{pmatrix}
+    5&0&0&-20\\
+    0&3&0&-27\\
+    0&0&2&-4\\
+    0&0&0&1
+\end{pmatrix}\quad\Rightarrow\begin{pmatrix}
+    x_{new}\\y_{new}\\z_{new}
+\end{pmatrix}=T_{z30°}\cdot T' \cdot \begin{pmatrix}
+    x\\y\\z
+\end{pmatrix}$
+
+$\therefore T=T_{30°}\cdot T'=\begin{pmatrix}
+    \cos30°&-\sin30°&0&0\\
+    \sin30°&\cos30°&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix}\cdot\begin{pmatrix}
+    5&0&0&-20\\
+    0&3&0&-27\\
+    0&0&2&-4\\
+    0&0&0&1
+\end{pmatrix}=\begin{pmatrix}
+    \frac{5\sqrt{3}}{2}&-\frac{3}{2}&0&\frac{27-20\sqrt{3}}{2}\\
+    \frac{5}{2}&\frac{3\sqrt{3}}{2}&0&\frac{-27\sqrt{3}-20}{2}\\
+    0&0&2&-4\\
+    0&0&0&1
+\end{pmatrix}$
+
+\noindent 12. 特殊矩阵
+
+关于x轴的镜像$\begin{pmatrix}
+    1&0\\0&-1
+\end{pmatrix}$；关于y轴的镜像$\begin{pmatrix}
+    -1&0\\0&1
+\end{pmatrix}$；关于y=x轴的镜像/翻转$\begin{pmatrix}
+    0&1\\1&0
+\end{pmatrix}$；
+缩小至$\frac{1}{2}:\begin{pmatrix}
+    \frac{1}{2}&0\\0&\frac{1}{2}
+\end{pmatrix}$；
+
+在y=x上的投影$\begin{pmatrix}
+    \frac{1}{2}&\frac{1}{2}\\\frac{1}{2}&\frac{1}{2}
+\end{pmatrix}$；剪切，每个坐标向每个其他坐标移动1倍$\begin{pmatrix}
+    1&1&1&0\\
+    1&1&1&0\\
+    1&1&1&0\\
+    0&0&0&1
+\end{pmatrix}$；
+
+$R^2$关于某线的镜像矩阵：$\begin{pmatrix}
+    1-2x^2&-2xy\\-2xy&1-2y^2
+\end{pmatrix}$;$R^3$关于某面的镜像：$\begin{pmatrix}
+    1-2x^2&-2xy&-2xz\\
+    -2xy&1-2y^2&-2yz\\
+    -2xz&-2yz&1-2z^2
+\end{pmatrix}$;
+
+向任意过原点的直线或平面投影：$R^2:\begin{pmatrix}
+    1-n_x^2&-n_xn_y\\-n_x&1-n_y^2
+\end{pmatrix};R^3:\begin{pmatrix}
+    1-2n_x^2&-2n_xn_y&-2n_xn_z\\
+    -2n_xn_y&1-2n_y^2&-2n_yn_z\\
+    -2n_xn_z&-2n_yn_z&1-2n_z^2
+\end{pmatrix}$
+
+上述的$x,y,z$或$n_x,n_y,n_z$皆为法向量/方向向量的单位向量，例如$\vec{n}=(5,-3,3)^T$，则$n_x=\frac{5}{\sqrt{5^2+(-3)^2+3^2}}$。
+
+即$Spieglungsmatrix:I-2\vec{n}\vec{n}^T$.
+
+\noindent 13. 正交 Orthogonal
+
+旋转矩阵R是正交的:$<R_1,R_2>=0$，即任意两行的点积为0。任一行的平方=1。（每一行都是基向量）。$R\cdot R^T = I$。
+
+通过原点的平面处镜像反射矩阵也是正交和对称的。这样的反射矩阵$S=I-2\cdot\vec{n}\cdot\vec{n}^T$，其中$\vec{n}$为镜面的法向量。
+
+\noindent 14. 已知Parallelogramm(平行四边形)四点$\widetilde{A}(1,2),\widetilde{B}(5,3),\widetilde{C}(6,11),\widetilde{D}(2,10)$，
+将其投影到单位正方形上，求转换矩阵T。
+
+任选3点变成齐次坐标，则有$T\cdot A = \begin{pmatrix}
+    0\\0\\1
+\end{pmatrix}, T\cdot B = \begin{pmatrix}
+    1\\0\\1
+\end{pmatrix},T\cdot C=\begin{pmatrix}
+    1\\1\\1
+\end{pmatrix}\Rightarrow T\cdot \begin{pmatrix}
+    A&B&C
+\end{pmatrix}=\begin{pmatrix}
+    0&1&1\\
+    0&0&1\\
+    1&1&1
+\end{pmatrix}$，其中有$M=\begin{pmatrix}
+    A&B&C
+\end{pmatrix}=\begin{pmatrix}
+    1&5&6\\
+    2&3&11\\
+    1&1&1
+\end{pmatrix}\Rightarrow T\cdot M\cdot M^{-1}=T=\begin{pmatrix}
+    0&1&1\\
+    0&0&1\\
+    1&1&1
+\end{pmatrix}\cdot M^{-1}$。求出$M^{-1}$带入即可。
+\\
+\\
+\noindent 15. 有Zylinder(圆柱体)，两点$P_1,P_2$在它的轴(Achse)上，并且半径r=1。有平面E，其法向量为$\vec{n}$，该平面过点$P_0$。
+E切开了Zylinder，通过T，切面变成了新的x-y平面的单位圆，平面得到法向量$\vec{n}$作为新的z轴$e_3=(0,0,1)^T$。
+
+这个转换应该是可逆的(kehrbar),且无投影(keine Projektion)。
+
+已知：$P_1=\begin{pmatrix}
+    0\\0\\0
+\end{pmatrix},P_2=\begin{pmatrix}
+    0\\0\\1
+\end{pmatrix},P_0=\begin{pmatrix}
+    -1\\-1\\3
+\end{pmatrix},\vec{n}=\frac{1}{5}\begin{pmatrix}
+    -3\\0\\4
+\end{pmatrix},E:\vec{x}=\begin{pmatrix}
+    0\\0\\\frac{15}{4}
+\end{pmatrix}+\begin{pmatrix}
+    1\\0\\\frac{3}{4}
+\end{pmatrix}\cdot t+\begin{pmatrix}
+    0\\1\\0
+\end{pmatrix}\cdot s$
+
+则：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

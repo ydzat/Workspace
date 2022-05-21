@@ -1,0 +1,7 @@
+1. Befehle auf MIPS32 sind 32 Byte lang. falsch
+
+2. J-Typ-Befehle besitzen ein zusätzliches Feld für den „Function Code“, da gewisse J-Typ-Befehle den gleichen OP-Code haben. falsch
+
+3. Eine Pipeline ermöglicht, Teile der Befehle parallel zu einander auszuführen. richtig
+
+4. Der synchrone Bus hat keinen globalen Taktgeber. Falsch

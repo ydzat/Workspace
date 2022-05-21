@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<learning-group-letter>
+  <meta>
+    <learning-block>2</learning-block>
+    <learning-group id="05">
+      <speaker>Jiahao Cao</speaker>
+      <participant>Dongze Yang</participant>
+      <participant>Yifan Du</participant>
+    </learning-group>
+  </meta>
+  <results>
+    <tasks>
+      <task id="1" difficulty="easy" solved="yes"/>
+      <task id="2" difficulty="medium" solved="yes"/>
+      <task id="3" difficulty="easy" solved="yes"/>
+      <task id="4" difficulty="medium" solved="yes"/>
+      <task id="5" difficulty="easy" solved="yes"/>
+      <task id="6" difficulty="medium" solved="yes"/>
+    </tasks>
+    <issues>Q1: For task 2, what is the main purpose of this task? What does arbitrary mean here? The requirement of the outputs is unclear, please restate it.</issues>
+    <issues>Q2: For task 3, does the consistency here mean no repeated id in the xml files? We are confused that the xsd file constrain the XML file, including the consitency. Why have we to write codes to judge the consistency?</issues>
+    <issues>Q3: For task 4, we are confused with the requirement of xs:all here. Dose it mean that we use 'if' to control the number of times the subelements appear.</issues>
+    <issues>Q4: For task 6, We modified the repeated IDs just in the outputs not in the XML files. Is it correct? If not, what is the correct answer?</issues>
+    <issues>Q6: For task 6, We modified the repeated IDs by continuously plus 1 until there are no repeated IDs. But we think that it is not a good solution because it may modify too many original data. Could you tell us a better solution?</issues>
+    <hints-or-requests>We are not sure whether the work we do is correct or not especially 18. Is it possible to send your answers of ths tasks as the reference?</hints-or-requests>
+  </results>
+</learning-group-letter>

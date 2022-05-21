@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:vsr:xml-werkzeuge:aufgabe2.9"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="urn:vsr:xml-werkzeuge:aufgabe2.9"
+elementFormDefault="qualified">
+  <xs:element name="vehicleList">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element ref="vehicle"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="vehicletyp">
+    <xs:sequence>
+      <xs:element name="speed" type="xs:double"/>
+      <xs:element name="price" type="xs:double"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:element name="vehicle" type="vehicletyp"/>
+  <xs:complexType name="watercraft">
+    <xs:complexContent>
+      <xs:extension base="vehicletyp">
+        <xs:choice>
+          <xs:element name="draft" type="xs:double"/>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="landVehicle">
+    <xs:complexContent>
+      <xs:extension base="vehicletyp">
+        <xs:choice>
+          <xs:element name="fordability" type="xs:double"/>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

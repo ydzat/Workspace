@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?xml-stylesheet type="text/xsl" href="task2.xsl"?>
+
+<offers xmlns="urn:vsr:xml-pruefung:pflanzen" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:vsr:xml-pruefung:pflanzen task2.xsd"> 
+	<product name="nuts"> 
+		<harvest>Oct</harvest> 
+		<price>2.10</price> 
+		<supplier>Company1</supplier>
+	</product> 
+	<product name="apples" xsi:type="ct_fruit_planttype"> 
+		<harvest>May</harvest> 
+		<price>27.90</price> 
+		<supplier>Company2</supplier> 
+		<stone>true</stone>
+	</product> 
+	<product name="cabbage" xsi:type="ct_vegtype"> 
+		<harvest>Sep</harvest> 
+		<price>17.20</price> 
+		<supplier>Company1</supplier> 
+		<root>false</root>
+	</product> 
+</offers>

@@ -1,0 +1,84 @@
+library ieee;
+use ieee.std_logic_1164.all;                               
+use work.pack_2.all;                                       
+                                                         
+entity uut is                                            
+  port (EE_X : in  X01_vector(7 downto 0);
+        EE_Y : out X01_vector(23 downto 16));       
+end uut;                                                 
+                                                       
+architecture structure of uut is
+    component sn7400 -- 2er-nand 
+        port (x : in X01_vector (1 to 2); 
+            y : out X01); 
+    end component; 
+
+    component sn7404 is -- not 
+        port (x : in X01; y : out X01); 
+    end component; 
+
+    component sn7472 is -- JK-MS-Flipflop 
+        port (s_b,r_b,c : in X01; 
+            j,k : in X01_vector(1 to 3); 
+            q,q_b : out X01); 
+    end component;
+  alias sl : x01 is EE_X(7);
+  alias cb : x01 is EE_X(6);
+  alias c : x01 is EE_X(5);
+  alias d0    : x01 is EE_X(3);
+  alias e     : x01 is EE_X(4);
+  alias d1    : x01 is EE_X(2);
+  alias load  : x01 is EE_X(1);
+  alias reset : x01 is EE_X(0);
+  
+  alias q0    : x01 is EE_Y(16);
+  alias q1    : x01 is EE_Y(17);
+  
+  signal nreset, nsl, ncb,ne: X01; -- not reset, not sl, not cb 
+  signal s1, s0 : X01; -- ergebnis für stat. s eingänge 
+  signal r1, r0 : X01; -- zwischenergebis für stat. r eingänge 
+  signal j1, k1, j0, k0 : X01; -- zwischenergebnis für dyn. jk-eingänge 
+  signal sig11, sig12, sig13, nsig13, sig14, sig15, nsig15,sig16,sig17,sig18 : X01; -- zwischenerg. für 1. ff (Q1) 
+  signal sig01, sig02, sig03, sig04 : X01; -- zwischenerg. für 2. ff (Q0) 
+  signal z_q0 : X01; -- ergebnis 2. ff (Q0) 
+  signal nz_q0: X01;
+begin -- not: reset, sl => nreset, nsl 
+  b11: sn7404 port map (x=>reset, y=>nreset); 
+  b12: sn7404 port map (x=>sl, y=>nsl);
+  b13: sn7404 port map (x=>cb, y=>ncb);
+  b14: sn7404 port map (x=>e, y=>ne);
+  -- not s1 <= load nand d1 
+  b15: sn7400 port map (x(1)=>load, x(2)=>d1, y=>sig11);
+  b16: sn7400 port map (x(1)=>sig11, x(2)=>nreset, y=>sig12); 
+  b17: sn7400 port map (x(1)=>sig12, x(2)=>sig12, y=>s1); 
+  -- not r1 <= not ((ns1 nand load) nand nreset) 
+  b18: sn7400 port map (x(1)=>s1, x(2)=>load, y=>r1); 
+  -- j1=k1 <= (cb nand q0) nand nsl
+  b19: sn7400 port map (x(1)=>cb, x(2)=>nsl, y=>sig13); 
+  b191: sn7404 port map (x=>sig13, y=>nsig13);
+  b192: sn7400 port map (x(1)=>nsig13, x(2)=>nz_q0, y=>sig14);
+  b193: sn7400 port map (x(1)=>ncb, x(2)=>sl, y=>sig15);
+  b194: sn7404 port map (x=>sig15, y=>nsig15);
+  b195: sn7400 port map (x(1)=>nsig15, x(2)=>z_q0, y=>sig16);
+  b196: sn7400 port map (x(1)=>sig14, x(2)=>sig16, y=>j1);
+
+  b197: sn7400 port map (x(1)=>sig13, x(2)=>sig15, y=>sig17);
+  b198: sn7400 port map (x(1)=>sig17, x(2)=>nz_q0, y=>sig18);
+  b199: sn7400 port map (x(1)=>sig18, x(2)=>sig18, y=>k1);
+  -- not s0 <= load nand d0
+  b21: sn7400 port map (x(1)=>load, x(2)=>d0, y=>sig01);
+  b22: sn7400 port map (x(1)=>sig01, x(2)=>nreset, y=>sig02);
+  b23: sn7400 port map (x(1)=>sig02, x(2)=>sig02, y=>s0);
+  -- not r0 <= not ((ns0 nand load) nand nreset) 
+  b24: sn7400 port map (x(1)=>s0, x(2)=>load, y=>r0);
+  -- j0=k0 <= (not cb nand nsl) 
+  b25: sn7400 port map (x(1)=>e, x(2)=>nsig15, y=>sig03); 
+  b26: sn7400 port map (x(1)=>ne, x(2)=>nsig15, y=>sig04);
+  b27: sn7400 port map (x(1)=>sig03, x(2)=>sig13, y=>j0);
+  b28: sn7400 port map (x(1)=>sig04, x(2)=>sig13, y=>k0);
+  -- 1. ff (q1) 
+  ff1: sn7472 port map (s_b=>s1, r_b=>r1, c=>c, j(1)=>j1, j(2)=>'1', j(3)=>'1', k(1)=>k1, k(2)=>'1', k(3)=>'1', q=>q1);
+  -- 2. ff (q0) 
+  ff2: sn7472 port map (s_b=>s0, r_b=>r0, c=>c, j(1)=>j0, j(2)=>'1', j(3)=>'1', k(1)=>k0, k(2)=>'1', k(3)=>'1', q=>z_q0, q_b=>nz_q0); 
+  q0 <= z_q0; 
+end structure;

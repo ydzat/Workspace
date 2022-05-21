@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vehicleList xmlns="http://www.w3school.com.cn" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex14.xsd">
+  <vehicle xsi:type="landVehicle" name="LKW">
+    <speed>57.2</speed>
+    <price>89483.10</price>
+    <fordability>2.0</fordability>
+  </vehicle>
+  <vehicle  name="Schiff" xsi:type="watercraft" >
+    <speed>22.0</speed>
+    <price>728292.90</price>
+    <draft>1.2</draft>
+  </vehicle>
+</vehicleList>

@@ -1,0 +1,54 @@
+多重缓冲：
+如果我们再增加缓冲区数目，不仅内存占用会成倍增加，且缓冲区交换功能实现的难度会不断上升，而绘制效率的提升空间却可能微乎其微，因此我们很难看到诸如四缓冲、五缓冲之类的实现。
+
+cube mapping
+Zusamenfassung von 6 2D-Texturen, die auf die Seiten eines Einheitswürfels abgebildet werden.
+Zugriff über 3D-Texturkoordinaten:
+- interpretiert als Richtungsvektor ausgehend vom Zentrum 
+- Schnitt mit dem Würfel liefert 2D-Koordinaten innerhalb einer Seitenfläche
+
+Anwendungen: Skyboxen (als Szenenhintergründe), Environment Mapping, Image-based lighting . . .
+
+
+ Gouraud-Shade:
+俩图，左边方块多，右边平滑
+Links: mit geringerer Polygonzahl(Dreiecke)
+Approximiert die polygonale Fläche eine tangenten- oder krümmungsstetige Oberfläche, so sind die Intensitätssprünge von Polygon zu Polygon besonders störend. Und Mach-Band-Effekt verursacht.
+Rechts:ist der Effekt der Erhöhung der Anzahl von Polygonen(Dreiecke)
+
+Links ist für den praktischen Einsatz im Echtzeitrendering besser geeignet. Verfeinerung der polygonalen Approximation ist wenig hilfreich. Rechts: die Triangulierung ist so hoch, das jedes Polygon nur noch maximal ein Pixel überdeckt→ ineffizient
+
+
+
+伪码：
+Bresenham算法，绘制一条宽度为n的线
+while x /= x_1 + xstep do
+	if swapxy = true then
+		for i <- -n/2 to n/2 do
+			Setze Pixel (y+i,x,c_1)
+		endfor
+	else
+		for i <- -n/2 to n/2 do
+			Setze Pixel(x,y+i,c_1)
+		endfor
+	...
+
+for i <- -n/2 to n/2
+
+b) 对颜色c进行线性插值
+while x /= x_1 + xstep do
+	c_s = (x-x_0)*(c_1-c_0)/(x_1-x_0)
+	if swapxy = true then
+		Setze Pixel (y+i,x,c_0+c_s)
+	else
+		Setze Pixel(x,y+i,c_0+c_s)
+
+	...
+
+
+
+通过看点A，B的code，得到需要运行的次数？
+可以。见材料25页
+
+RGBA中的A的作用：A Kanal ist der Opazitätsparameter des Bildes
+Wenn beispielsweise ein Pixel Kanal A = 0 % ist, ist es vollständig transparent und kann nicht gesehen werden; und Kanal A = 100 % bedeutet, dass das Pixel vollständig undurchsichtig ist, also ein herkömmliches digitales Bild

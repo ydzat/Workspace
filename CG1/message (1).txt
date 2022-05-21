@@ -1,0 +1,56 @@
+ //Transformation mouse position in den Normalized Device Space
+        float x = (2.0f * mouse_pos.x) / context.viewport.width() - 1.0f;
+        float y = 1.0f - (2.0f * mouse_pos.y) / context.viewport.height();
+
+        //Konstruktion eines Strahls, der im NDS von z = -1 bis z = 1 verläuft.
+        CGVec4 strahl_ndc_n = CGVec4(x, y, -1.0f, 1.0f);
+        CGVec4 strahl_ndc_f = CGVec4(x, y, 1.0f, 1.0f);
+
+        //Transformation des Strahls in den Eye Space
+        CGMatrix4x4 invertPmatrix = prog_lit_tex.uniform.projectionMatrix ;
+        invertPmatrix.invert();
+
+        CGVec4 strahl_eye_n = invertPmatrix * strahl_ndc_n;
+        CGVec4 strahl_eye_f = invertPmatrix * strahl_ndc_f;
+
+        if (strahl_eye_n.w != 0) {
+            strahl_eye_n.x /= strahl_eye_n.w;
+            strahl_eye_n.y /= strahl_eye_n.w;
+            strahl_eye_n.z /= strahl_eye_n.w;
+            strahl_eye_n.w /= strahl_eye_n.w;
+        }
+            
+        if(strahl_eye_f.w != 0){
+            strahl_eye_f.x /= strahl_eye_f.w;
+            strahl_eye_f.y /= strahl_eye_f.w;
+            strahl_eye_f.z /= strahl_eye_f.w;
+            strahl_eye_f.w /= strahl_eye_f.w;
+        }
+
+        //Transformation des Strahls in den World Space
+        CGMatrix4x4 invertVmatrix = view_matrix;
+        invertVmatrix.invert();
+
+        CGVec4 strahl_world_n = invertVmatrix * strahl_eye_n;
+        CGVec4 strahl_world_f = invertVmatrix * strahl_eye_f;
+            
+        CGVec4 strahl_dir = CGMath::normalize(strahl_world_f- strahl_world_n);
+        
+
+        //Schnitttest im Object Space
+        for (int i = 0; i < num_objects; i++) {
+            if (objects[i].shape) {
+                CGMatrix4x4 modelmatrix = objects[i].model_matrix;
+                modelmatrix.invert();
+                CGVec4 origin = modelmatrix * strahl_world_n;
+                CGVec4 dir = modelmatrix * strahl_dir;
+
+                float d = objects[i].shape->intersect(origin, dir);
+                if (d > 0 && d < closest_hit_distance) {
+                    closest_hit_index = i;
+                    closest_hit_distance = d * sqrt(strahl_dir.x * strahl_dir.x + strahl_dir.y * strahl_dir.y + strahl_dir.z * strahl_dir.z) ;
+                }
+
+            }
+        }
+        

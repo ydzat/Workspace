@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns="xsd18" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="xsd18"
+    elementFormDefault="qualified"
+>
+    <!-- 根元素 -->
+    <xs:element name = "zoo">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="dwelling"/>
+                <xs:element ref="zoo_animal"/>
+                <xs:element ref="zoo_keeper"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- 根的子元素 -->
+    <xs:element name="dwelling" type = "dwelling_ct"></xs:element>
+    <xs:element name="zoo_animal" type = "zoo_animal_ct"></xs:element>
+    <xs:element name="zoo_keeper" type = "zoo_keeper_ct"></xs:element>
+
+    <!-- 根的子元素类型1 -->
+    <xs:complexType name="dwelling_ct">
+        <xs:sequence>
+            <xs:element name="id" type = "xs:ID" />
+            <xs:element name="name" type = "xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- 根的子元素类型1 的 子元素类型1 -->
+    <xs:complexType name="building_ct">
+        <xs:complexContent>
+            <xs:extension base = "dwelling_ct">
+                <xs:choice>
+                    <xs:element name="area" type = "xs:double" />
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- 根的子元素类型1 的 子元素类型2 -->
+    <xs:complexType name="pond_ct">
+        <xs:complexContent>
+            <xs:extension base = "dwelling_ct">
+                <xs:choice>
+                    <xs:element name="depth" type = "xs:double" />
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- 根子元素类型2 -->
+    <xs:complexType name="zoo_animal_ct">
+        <xs:sequence>
+            <xs:element name="id" type = "xs:ID" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="age" type="xs:positiveInteger" />
+        </xs:sequence>
+        <xs:attribute name="dwelling" type = "xs:IDREF" use = "required"/>
+        <xs:attribute name="zoo_keeper" type = "xs:IDREF" use = "required"/>
+    </xs:complexType>
+    <!-- 根子元素类型2 的 子元素类型1 -->
+    <xs:complexType name="mammal_ct">
+        <xs:sequence>
+            <xs:element name="gestation_period" type = "xs:positiveInteger" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- 根子元素类型2 的 子元素类型1 的 子元素类型1 -->
+    <xs:complexType name="horse_ct">
+        <xs:complexContent>
+            <xs:extension base="mammal_ct">
+                <xs:choice>
+                    <xs:element name="white_horse" type="xs:boolean" />
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- 根子元素类型2 的 子元素类型1 的 子元素类型2 -->
+    <xs:complexType name="cat_ct">
+        <xs:complexContent>
+            <xs:extension base="mammal_ct">
+                <xs:choice>
+                    <xs:element name="fur_color" type="xs:string" />
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- 根子元素类型2 的 子元素类型2 -->
+    <xs:complexType name="bird_ct">
+        <xs:sequence>
+            <xs:element name="can_fly" type = "xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- 根子元素类型2 的 子元素类型2 的 子元素类型1 -->
+    <xs:complexType name="goose_ct">
+        <xs:complexContent>
+            <xs:extension base="bird_ct">
+                <xs:choice>
+                    <xs:element name="slaughter_weight" type="xs:positiveInteger" />
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- 根子元素类型2 的 子元素类型2 的 子元素类型2 -->
+    <xs:complexType name="starling_ct">
+        <xs:complexContent>
+            <xs:extension base="bird_ct">
+                <xs:choice>
+                    <xs:element name="ringed" type="xs:boolean" />
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- 根子元素类型3 -->
+    <xs:complexType name="zoo_keeper_ct">
+        <xs:sequence>
+            <xs:element name="id" type = "xs:ID" />
+            <xs:element name = "name" type = "xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</xs:schema>

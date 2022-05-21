@@ -1,0 +1,116 @@
+\documentclass[fleqn]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{color}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{dashrule}
+\usepackage{diagbox}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{secnumdepth}{0}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\lstset{
+ columns=fixed,       
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=c++,                                        % 设置语言
+ breaklines,                                          % 自动换行
+}
+
+% \title{TU Chemnitz}
+
+% \author{Dongze Yang}
+
+\begin{document}
+
+\section{Ue 10 - IMP}
+
+\noindent\textbf{Aufgabe 1}
+
+\noindent \textbf{a)} $X:=(Y+1)*(Z-2)$
+
+$$\frac{<Y,\sigma_0>\rightarrow0\,<1,\sigma_0>\rightarrow1}{<Y+1,\sigma_0>\rightarrow1}$$
+$$\frac{<Z,\sigma_0>\rightarrow0\,<2,\sigma_0>\rightarrow2}{<Z-2,\sigma_0>\rightarrow-2}$$
+$$\frac{<(Y+1)*(Z-2),\sigma_0>\rightarrow-2}{<X:=(Y+1)*(Z-2),\sigma_0>\rightarrow[-2/X]}$$
+\\
+\noindent \textbf{b)} 
+
+\begin{center} (0)\qquad\textbf{if} $(2\leq 3) \wedge \,\neg$ \textbf{false then} $X:=1$ \textbf{else} $Y:=1$
+\end{center}
+
+$$(1)\qquad\frac{<2,\sigma_0>\rightarrow2\,<3,\sigma_0>\rightarrow3}{<2\leq 3,\sigma_0>\rightarrow true}$$
+$$(2)\qquad\frac{<false,\sigma_0>\rightarrow false}{<\neg false,\sigma_0>\rightarrow true}$$
+$$(3)\qquad\frac{(1)\qquad(2)}{<(2\leq 3)\wedge \neg false,\sigma_0>\rightarrow true}$$
+$$(4)\qquad\frac{<1,\sigma_0>\rightarrow 1}{<X:=1,\sigma_0>\rightarrow[1/X]}$$
+$$(5)\qquad\frac{<1,\sigma_0>\rightarrow 1}{<Y:=1,\sigma_0>\rightarrow[1/Y]}$$
+$$(6)\qquad\frac{(3)\qquad(4)\qquad(5)}{<(0),\sigma_0>\rightarrow[1/X]}$$
+\\
+\noindent \textbf{c)} 
+
+\begin{center}
+    (0)\qquad    $X:=1;$ \textbf{while} $\neg (X = 2)$ \textbf{do} $X:=X+1$
+\end{center}
+
+$$(1)\qquad \frac{<1,\sigma_0>\rightarrow1}{<X:=1,\sigma_0>\rightarrow[1/X]}$$
+$$(2)\qquad\frac{<X,\sigma_1>\rightarrow1\,<2,\sigma_1>\rightarrow2}{<(X=2),\sigma_1>\rightarrow false}$$
+$$(3)\qquad\frac{(2)}{<\neg (X=2),\sigma_1>\rightarrow false}$$
+$$(4)\qquad\frac{<X,\sigma_1>\rightarrow1\,<1,\sigma_1>\rightarrow1}{<X:=X+1,\sigma_1>\rightarrow[2/X]}$$
+$$(5)\qquad\frac{(1)\qquad(3)\qquad(4)}{<while\neg(X=2)\,do\,X:=X+1,\sigma_1>\rightarrow\sigma_2}$$
+
+$$(6)\qquad\frac{<X,\sigma_2>\rightarrow2\,<2,\sigma_2>\rightarrow2}{<(X=2),\sigma_2>\rightarrow true}$$
+$$(7)\qquad\frac{(6)}{<while\neg(X=2)\,do\,X:=X+1,\sigma_2>\rightarrow\sigma_2}$$
+\\
+\noindent\textbf{Aufgabe 2}
+
+\noindent\textbf{a)}
+
+(I)\qquad\textbf{if} $b$ \textbf{then} $c_0$ \textbf{else} $c_1;c_2$
+
+$$(1)\qquad\frac{\frac{\vdots}{<b,\sigma_0>\rightarrow true}\qquad\frac{\vdots}{<c_0,\sigma_0>\rightarrow\sigma_1}}{<(I),\sigma_0>\rightarrow\sigma_1}$$
+
+$$(2)\qquad\frac{\frac{\vdots}{<b,\sigma_0>\rightarrow false}\qquad\frac{\vdots}{<c1;c2,\sigma_0>\rightarrow\sigma_2}}{<(I),\sigma_0>\rightarrow\sigma_2}$$
+
+
+
+
+(II)\qquad\textbf{if} $b$ \textbf{then} $(c_0,c_2)$ \textbf{else} $(c_1;c_2)$
+
+$$(1)\qquad\frac{\frac{\vdots}{<b,\sigma_0>\rightarrow true}\qquad\frac{\vdots}{<c_0;c_2,\sigma_0>\rightarrow\sigma_1}}{<(II),\sigma_0>\rightarrow\sigma_1}$$
+
+$$(2)\qquad\frac{\frac{\vdots}{<b,\sigma_0>\rightarrow false}\qquad\frac{\vdots}{<c1;c2,\sigma_0>\rightarrow\sigma_2}}{<(II),\sigma_0>\rightarrow\sigma_2}$$
+
+denn gilt: (I) (II) Äquivalenz ist. Weil (I)(1) und (II)(1) $\rightarrow\,\sigma_1$, (I)(2) und (II)(2) $\rightarrow\,\sigma_2$
+
+\noindent\textbf{b)}
+
+(III)\qquad\textbf{while} (n = 0) \textbf{do} (c; n ∶= 1) 
+
+$$(1)\qquad\frac{\frac{\vdots}{<n=0,\sigma_0>\rightarrow true}\qquad\frac{\vdots}{<skip,\sigma_0>\rightarrow \sigma_0}}{<(III),\sigma_0>\rightarrow\sigma_0}$$
+
+$$(2)\qquad\frac{\frac{\vdots}{<n=0,\sigma_0>\rightarrow false}\qquad\frac{\vdots}{<c;n=1,\sigma_0>\rightarrow\sigma_1}}{<(III),\sigma_0>\rightarrow\sigma_1}$$
+
+(IV)\qquad\textbf{if} $¬(n = 0)$ \textbf{then} skip \textbf{else} (c; n ∶= 1)
+
+$$(1)\qquad\frac{\frac{\vdots}{<\neg(n=0),\sigma_0>\rightarrow true}\qquad\frac{\vdots}{<skip,\sigma_0>\rightarrow \sigma_0}}{<(IV),\sigma_0>\rightarrow\sigma_0}$$
+
+$$(2)\qquad\frac{\frac{\vdots}{<\neg(n=0),\sigma_0>\rightarrow false}\qquad\frac{\vdots}{<c;n=1,\sigma_0>\rightarrow \sigma_1}}{<(IV),\sigma_0>\rightarrow\sigma_1}$$
+
+denn gilt: (III) (IV) Äquivalenz ist. Weil (III)(1) und (IV)(1) $\rightarrow\,\sigma_0$, (III)(2) und (IV)(2) $\rightarrow\,\sigma_1$
+
+\end{document}

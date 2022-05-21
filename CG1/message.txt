@@ -1,0 +1,53 @@
+ //blauer Würfel
+    objects[4].shape = new CGCubeShape();
+    objects[4].shape->create();
+    objects[4].model_matrix = CGMatrix4x4::getTranslationMatrix(0.0f, 0.866, 0.0f) * CGMatrix4x4::getRotationMatrixY(45) *  CGMatrix4x4::getRotationMatrix(54.73561,1,0,1) ;
+    objects[4].texture = nullptr;
+    objects[4].material_ambient = CGVec4(0.0, 0.0, 1.0, 1.0);
+    objects[4].material_diffuse = CGVec4(0.0, 0.0, 1.0, 1.0);
+    objects[4].material_specular = CGVec4(0.0, 0.0, 1.0, 1.0);
+
+    //halbtransparente (a = 0:5) rote Fläche
+    objects[5].shape = new CGPlaneShape();
+    objects[5].shape->create();
+    objects[5].model_matrix = CGMatrix4x4::getTranslationMatrix(0.0f, 1.5f, 4.5f) * CGMatrix4x4::getRotationMatrixX(90) * CGMatrix4x4::getScaleMatrix(2.0f, 1.0f, 3.0f);
+    objects[5].texture = nullptr;
+    objects[5].material_ambient = CGVec4(1.0, 0.0, 0.0, 0.5);
+    objects[5].material_diffuse = CGVec4(1.0, 0.0, 0.0, 0.5);
+    objects[5].material_specular = CGVec4(1.0, 0.0, 0.0, 0.5);
+
+    //halbtransparente(a = 0:5) grüne Fläche
+    objects[6].shape = new CGPlaneShape();
+    objects[6].shape->create();
+    objects[6].model_matrix = CGMatrix4x4::getTranslationMatrix(0.0f, 1.5f, 5.5f) * CGMatrix4x4::getRotationMatrixX(90) * CGMatrix4x4::getScaleMatrix(2.0f, 1.0f, 3.0f);
+    objects[6].texture = nullptr;
+    objects[6].material_ambient = CGVec4(0.0, 1.0, 0.0, 0.5);
+    objects[6].material_diffuse = CGVec4(0.0, 1.0, 0.0, 0.5);
+    objects[6].material_specular = CGVec4(0.0, 1.0, 0.0, 0.5);
+
+    //weiße “Wände”links (-X),
+    objects[7].shape = new CGCubeShape();
+    objects[7].shape->create();
+    objects[7].model_matrix = CGMatrix4x4::getTranslationMatrix(-10.5f, 2.0, 0.0f) * CGMatrix4x4::getScaleMatrix(1.0f, 4.0f, 20.0f);
+    objects[7].texture = nullptr;
+    objects[7].material_ambient = CGVec4(1.0, 1.0, 1.0, 1.0);
+    objects[7].material_diffuse = CGVec4(1.0, 1.0, 1.0, 1.0);
+    objects[7].material_specular = CGVec4(1.0, 1.0, 1.0, 1.0);
+
+    //weiße “Wände”rechts (+X)
+    objects[8].shape = new CGCubeShape();
+    objects[8].shape->create();
+    objects[8].model_matrix = CGMatrix4x4::getTranslationMatrix(10.5f, 2.0, 0.0f) * CGMatrix4x4::getScaleMatrix(1.0f, 4.0f, 20.0f);
+    objects[8].texture = nullptr;
+    objects[8].material_ambient = CGVec4(1.0, 1.0, 1.0, 1.0);
+    objects[8].material_diffuse = CGVec4(1.0, 1.0, 1.0, 1.0);
+    objects[8].material_specular = CGVec4(1.0, 1.0, 1.0, 1.0);
+
+    //weiße “Wände”hinten (-Z)
+    objects[9].shape = new CGCubeShape();
+    objects[9].shape->create();
+    objects[9].model_matrix = CGMatrix4x4::getTranslationMatrix(0.0f, 2.0, -10.5f) * CGMatrix4x4::getScaleMatrix(20.0f, 4.0f, 1.0f);
+    objects[9].texture = nullptr;
+    objects[9].material_ambient = CGVec4(1.0, 1.0, 1.0, 1.0);
+    objects[9].material_diffuse = CGVec4(1.0, 1.0, 1.0, 1.0);
+    objects[9].material_specular = CGVec4(1.0, 1.0, 1.0, 1.0);

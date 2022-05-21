@@ -1,0 +1,207 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><style>.trR{ text-align:right;}
+#wraper{width:1190px; margin:0 auto; margin-bottom:10px;text-align:left;}
+#left{ float:left;width:250px; text-align:left;}
+#right{float:right;width:930px;text-align:left;border-top:2px solid #619bc0; padding-bottom:10px;}
+.border_w{ border:1px solid #d3d3d3;border-top:2px solid #619bc0;}
+.t01{height:30px;line-height:30px;border:1px solid #dddddd;padding-left:10px;background:url(../images/tbg01.jpg) repeat-x bottom; color:#1183c1; font-size:14px;}
+.con_01{ padding:10px;}
+.con_cbg{ background:url(../images/con_cbg.gif) repeat-y;}
+.con_bbg{ background:url(../images/con_bbg.gif) no-repeat left bottom; height:1px; line-height:1px; font-size:0;}
+
+.source{margin:15px;background:url(../images/linex.gif) repeat-x bottom; padding-bottom:30px; margin-bottom:30px;}
+.source .source-img{border:1px solid #d3d3d3; text-align:center; padding:5px;margin-bottom:10px; }
+.source p{color:#666666; font-weight:bold; font-size:12px;}
+.source .fblue{ color:#236bac; font-weight:normal;}
+
+.t_tj{ height:27px;padding-top:2px;margin:15px; background:url(../images/con_t_tj.gif) no-repeat left top; padding-left:10px; color:#FFFFFF; font-size:14px;}
+.c12_01{ margin-left:15px; margin-right:15px; margin-bottom:15px;}
+.c12_01 li{font-size:12px; line-height:24px; background: url(../images/dot.gif) no-repeat 2px 10px; padding-left:15px;}
+
+#artibodyTitle{color:#236bac;font-family:"宋体";font-size:20px;font-weight: normal;line-height:35px;text-align:center;margin-top:10px;	text-align:center;}
+#artisubTitle{font-family:"宋体";font-size:16px;font-weight: normal;line-height:28px;text-align:center;}
+.articl_info{margin-left:30px; margin-right:30px; position:relative;border-bottom:1px solid #e1e1e1;padding-bottom:20px; margin-bottom:20px;}
+.btn-img{
+	background-image:url(../images/allbg.png);
+	background-repeat:no-repeat;
+	font-size:12px;		
+	cursor:pointer;
+	border: 0px none;
+	display: inline-block;
+	vertical-align:middle;
+	text-align:center;}
+
+.artInfo{height:22px;border-top:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;padding:5px;margin:20px;}
+.artInfo li{float:left;width:33%;height:22px; line-height:22px; color:#666666;}
+
+.artInfo li .collectionPage_link{
+	background-position:-509px -80px;
+	padding-left:10px;
+	margin-top:-2px;
+	_margin-top:0px;
+	margin-left:10px;
+	width:51px;
+	height:22px; 
+	line-height:22px;		
+	color:#1183c1;	}
+.artInfo li .printPage_link{
+	background-position:-570px -80px;
+	padding-left:10px;
+	margin-top:-2px;
+	_margin-top:0px;
+	margin-left:10px;
+	width:51px;
+	height:22px; 
+	line-height:22px;	
+	color:#1183c1;}
+.artInfo li .downloadPage_link{
+	background-position:-631px -80px;
+	margin-top:-2px;
+	_margin-top:0px;
+	margin-left:10px;
+	width:51px;
+	padding-left:10px;
+	height:22px; 
+	line-height:22px;	
+	color:#1183c1;}
+
+
+.artBaseInfo{line-height:24px; margin-bottom:5px;}
+.artBaseInfo .info_left{float:left;width:80px;}
+.artBaseInfo .info_right{float:left;width:790px;}
+
+.artBaseInfo dt{float:left;width:80px; color:#666666;line-height:20px; display:inline-block;}
+.artBaseInfo dd{color:#666666;line-height:20px;display:inline-block;}
+.artBaseInfo .col li{ float:left;width:210px; height:20px; line-height:20px;color:#666666;}
+
+.artBaseInfo .item{ float:left;width:50%;}
+.artBaseInfo .notice{
+	margin-left:10px;
+	width:61px;
+	padding-left:10px;
+	height:22px; 
+	line-height:22px;
+	background-position:-448px -80px;	
+	color:#1183c1;}
+
+.artInfo{height:30px;border-top:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;margin:20px 10px;}
+.artInfo div{ float:left;width:30%;height:30px; line-height:30px; text-align:center;}
+.artInfo div a{ margin-left:20px; margin-right:20px;}
+.artInfo li{float:left;width:33%;height:22px; line-height:22px; color:#666666;}
+
+.articl_info{margin-left:30px;margin-right:30px; position:relative;border-bottom:1px solid #e1e1e1;padding-bottom:20px; margin-bottom:20px;}
+.artBaseInfo{margin-bottom:5px;}
+.articl_info_t{float:left;width:80px;margin-right: -100%;font-weight:bold;line-height:24px;}
+.articl_info_c{float: left;width: 100%;}
+.articl_info_c .info_c{margin-left:80px; line-height:24px;}
+.artBaseInfo .marL{ margin-left:20PX;}
+.artBaseInfo .col_info{ float:left;width:30%;line-height:20px;}
+
+.fontSize{position: relative;right:0px;top:0px;font-size:12px; height:30px; line-height:30px; text-align:right;}
+.fontSize a{border:1px solid #c2c2c2;margin-right:10px;padding:4px 1px;*padding:1px; cursor:pointer;font-size:12px;}
+.fontSize a span{background:url(../images/page_a_36.png) repeat-x;padding:3px;}
+
+.fontSize a.now{border: #f9ad75 1px solid;padding:4px 1px;*padding:1px;}
+.fontSize a.now span{color:#ff7d27;background:url(../images/current_34.png) repeat-x bottom;padding:3px;}
+.artibody{margin-left:20px;margin-right:20px;font: 18px/180% "Microsoft YaHei","微软雅黑"; color:#666666;}
+.artibody p{margin-bottom:20px;}
+
+.fontSize A:link{ color:#000000;text-decoration:none;}
+.fontSize A:visited{ color:#000000;text-decoration:none;}
+.fontSize A:hover{ color:#FF0000;text-decoration:none;}
+.fontSize a.now:link{color:#ff7d27;text-decoration:none;}
+#Zoom img {max-width:600px; max-height:600px; scale:expression((this.offsetWidth > this.offsetHeight)?(this.style.width = this.offsetWidth >= 600 ? "600px" : "auto"):(this.style.height = this.offsetHeight >= 600 ? "600px" : "auto")); display:inline !important;}
+
+.t_artiInfo{font-size:14px; padding-left:20px;background:url(../images/linex.gif) repeat-x top; line-height:30px; margin-top:10px;}
+.li_artiInfo{margin-left:30px; margin-right:30px;padding-bottom:10px; }
+.li_artiInfo ul li{float:left;width:100%;padding:3px 0;}
+.li_artiInfo ul li .title{ float:left;width:65%;}
+.li_artiInfo ul li .author{ float:left;width:15%;}
+.li_artiInfo ul li .come{ float:right;width:20%;color:#999999; text-align:right;}
+
+
+.index_artInfo{height:36px; line-height:36px; border-top:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1; margin-top:20px; padding-left:20px;  padding-right:20px;padding-right:10px; margin-bottom:10px; margin-left:10px;text-align:center;}
+.index_artInfo a.collectionPage_link{ background:url(../images/icon.gif) no-repeat 0 1px; padding-left:15px;}
+.index_artInfo a.printPage_link{background:url(../images/icon.gif) no-repeat 0 -55px; padding-left:15px;}
+.index_artInfo a.downloadPage_link{background:url(../images/icon.gif) no-repeat 0 -108px; padding-left:13px;}
+
+.index_body .main{margin-left:100px; line-height:28px;color:#000000; padding-bottom:30px; padding-top:20px;}</style></head><body><div id="wraper">
+			<div id="artTitles">
+				<h1 id="artibodyTitle">网络化时代的权力结构变迁</h1>
+				<h2 id="artisubTitle"></h2>
+			</div>
+			
+			<div class="articl_info">
+				<div class="artBaseInfo" id="autInfo">
+					<div class="articl_info_t">作 者：</div>
+					<div class="articl_info_c">
+						<div class="info_c">
+								<a target="_blank" href="/qw?s0=4&amp;s1=%e5%88%98%e5%b0%91%e6%9d%b0">刘少杰</a>&nbsp;
+						</div>
+					</div>
+					<br class="cls">
+				</div>
+				<div class="artBaseInfo" id="autDescription">
+					<div class="articl_info_t">作者简介：</div>
+					<div class="articl_info_c">
+						<div class="info_c">刘少杰，中国人民大学社会学理论与方法研究中心教授、博士生导师，北京  100872</div>
+					</div>
+					<br class="cls">
+				</div>
+				<div class="artBaseInfo" id="tAutInfo"></div>
+				<div class="artBaseInfo" id="orgInfo">
+					<div class="articl_info_t">原文出处：</div>
+					<div class="articl_info_c">
+						<div class="info_c">江淮论坛</div>
+					</div>
+					<br class="cls">
+				</div>
+				<div class="artBaseInfo" id="astInfo">
+					<div class="articl_info_t">内容提要：</div>
+					<div class="articl_info_c">
+						<div class="info_c">
+							<p>中国社会生活网络化正在快速推进，微博等网络活动迅速发展，在社会生活中彰显了强大的生命力和广阔的发展前途。网络社会的崛起，引起社会生活十分复杂的变化，其中最突出的变化是社会权力结构的变化。来自基层社会以社会认同构成的信息权力，成为最有活力、影响最广泛的新型权力。信息权力的地位凸显、作用放大、横向传递及其特有的运行机制，对于传统的政治、经济和思想文化权力，既是挑战也是机遇。积极参与和正确对待网络活动，可以化解党在新形势下面临的脱离群众、消极腐败、精神懈怠和能力不足等危险。</p>
+						</div>
+					</div>
+					<br class="cls">
+				</div>
+				<div id="artPdcInfo" class="artBaseInfo">
+					<div class="col_info"><b>期刊代号：</b>C4 </div>
+					<div class="col_info"><b>分类名称：</b>社会学 </div>
+					<div class="col_info"><b>复印期号：</b>2012 年 01 期 </div>
+					<br class="cls">
+				</div>
+				<div class="artBaseInfo" id="artKeyword">
+					<div class="articl_info_t">关 键 词：</div>
+					<div class="articl_info_c">
+						<div class="info_c">
+								<a target="_blank" href="/qw?s0=7&amp;s1=%e7%bd%91%e7%bb%9c%e7%a4%be%e4%bc%9a">网络社会</a>&nbsp;
+								<a target="_blank" href="/qw?s0=7&amp;s1=%e6%9d%83%e5%8a%9b%e7%bb%93%e6%9e%84">权力结构</a>&nbsp;
+								<a target="_blank" href="/qw?s0=7&amp;s1=%e7%a4%be%e4%bc%9a%e8%ae%a4%e5%90%8c">社会认同</a>&nbsp;
+								<a target="_blank" href="/qw?s0=7&amp;s1=%e4%bf%a1%e6%81%af%e6%9d%83%e5%8a%9b">信息权力</a>&nbsp;
+
+						</div>
+					</div>
+					<br class="cls">
+				</div>
+				<div class="artBaseInfo" id="artTitleNote"></div>
+				<a id="readArea" name="readArea"></a>
+				
+			</div>
+			<div id="artText"><div class="artibody" id="Zoom" style="font-size: 14px;">
+    <p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中图分类号：G210.7；C934  文献标志码：A  文章编号：1001-862X(2011)05-0015-005<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中国社会生活网络化正在以惊人的速度向前推进，前几年还被很多人作为虚拟空间看待的网络空间，现在已经清楚地向人们展示，这是一个每时每刻都有难以计数的人们积极参与其中的真实社会，是一个充满活力且迅速扩展着的崭新领域。一向以关注社会变迁为己任的社会学，责无旁贷地应当对这个崭新的社会现象作出新的思考。本文试图对正在快速展开的社会生活网络化中的权力关系作些初步讨论，以期引起学界同仁开展更深入的研究。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、迅速扩展的中国社会网络化<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中国社会生活网络化开始于20世纪90年代中期，至今不过十几年的时间，互联网已经进入中国社会生活的各种层面，其发展速度和扩展空间实在难以预料。据中国互联网络信息中心(CNNIC)发布的《第1次中国互联网络发展状况统计报告》，1997年10月，中国网民人数为62万人。2011年7月19日，中国互联网络信息中心发布的《第28次中国互联网络发展状况统计报告》则显示：至2011年6月底，中国宽带网民已达48,500万人，手机网民31,800万人。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中国网民人数迅速增长<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img onerror="this.src='/images/err.png'" src="/jpg/C4/2012/C4W106.jpg"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据源自中国互联网络信息中心2011年7月19日发布的《第28次中国互联网络发展状况统计报告》<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另据美国咨询公司麦肯锡发布的报告显示，中国60个大中城市的居民70%的业余时间在上网，小型城镇居民的这一比例为50%。虽然人们可以质疑麦肯锡的调查结果未必准确，但就我们自己的实际生活而言，每天上网确实占用了很长时间。人们不仅通过互联网了解不断更新的新闻时事，而且越来越多的人通过互联网沟通信息、表达观点甚至评论时事。近两年，一个最令人们兴奋的网络现象是微博的迅速发展。新浪微博于2009年8月14日开始内测，9月25日，新浪微博正式添加了@功能以及私信功能，此外还提供“评论”和“转发”功能，供用户交流。据《第28次中国互联网络发展状况统计报告》显示，2011年上半年，我国微博用户数量从6311万增长到1.95亿，半年增幅达208.9%，微博用户数量呈爆发式增长。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面对微博的快速发展，《半月谈》记者闫鹃和俞菀兴奋地报道：“忽如一夜春风来，千户万户微博开。”他们指出，网络是社会事件的“放大器”和社会情绪的“发泄器”，而微博则能将这两大功能无限放大。微博这种放大效应在于：“微博传播不是点对点、点对面的传播，而是裂变式的广泛传播，一个人的微博可以被其‘粉丝’转发、再被‘粉丝’的‘粉丝’转发，不断蔓延。有关实验表明，一条微博在半天之内可以传到国内各地及十多个国家和地区。”[1]他们还引述了网上很流行的一段话：“当你的粉丝超过100，你就好像是一本内刊；超过1000，你就是个布告栏；超过1万，你就像一本杂志；超过10万，你就是一份都市报；超过100万，你就是一份全国性报纸；超过1000万，你就是电视台。”[1]<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;广大社会成员踊跃参与网络活动，网络行为的社会效应引起了各级政府的高度重视。中央和各省一些领导同网友热情对话，大力提倡官员开微博，亲自同网民座谈、接受“拍砖”。各级领导积极参与网络活动，在中国引领了一场网络亲民、网络执政的新潮。据中国新闻网报道，大量的政府机构、官员纷纷入驻微博。截至2011年7月6日，仅新浪微博中就有政府机构的微博4920个，政府官员微博数达3949个。2011年上半年，广东省政府和公安系统等十大政府机构微博的“粉丝”已达500多万。利用微博同百姓开展积极有效的沟通对话，已经成为政府官员是否具有现代执政能力的一个象征。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络行为的快速发展还表现在经济生活上，一方面，卡斯特在《网络社会的崛起》中描述的公司企业网络化现象已在中国经济领域普遍发生，越来越多的企业家懂得网络技术、网络营销和网络管理在企业管理和市场竞争中的重要作用，越来越多的网络企业、网络公司像雨后春笋般地成长起来；另一方面，越来越多的消费者通过网络开展消费行为。2011年7月1日，中国互联网信息中心发布《2010年中国网络购物市场研究报告》的数据显示：“截至2010年12月，网络购物用户规模达到1.61亿人，网购渗透率达到35.1%。‘十一五’期间，我国网络购物用户数增长了4.8倍，网络购物用户渗透率提升了10.6个百分点。网络购物金额达到5231亿元，占全年社会消费品零售总额3.3%；2010年，我国网络购物服务更加完善，向各个领域的渗透不断加深，继续保持了近年来快速发展的势头。全年市场交易金额较2009年增长109.2%。”[2]<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总之，仅用十几年的时间，中国社会网络化已经深入社会生活各种领域，不仅社会成员的交流沟通，而且官员执政和企业家经商，都已经在越来越大的规模上更加紧密地同网络交织在一起。这确实是中国社会一个空前广泛且空前深刻的变化，这个变化最明显的表现是：各种层次或各种类型的社会活动在迅速扩大的规模上表现为缺场活动，而这种过去被很多人贬义地称之为虚拟社会的缺场活动，却是一个比在场活动还要真实的现实社会。因为社会的本质不仅仅在于人及其群体形式的存在，更重要的在于人及其群体的交往活动，只有进入实际的交往关系中，社会才是现实的社会。如果人们承认这个被马克思、齐美尔和韦伯等经典社会学家充分论述的观点，那么就应当承认网络行为所展开的社会空间是一个比在场存在表现出来的社会空间更真实的社会，而且是更具活力、更能真实表达人们的愿望、意志乃至本性的社会。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、网络化推进的权力结构变迁<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;社会生活网络化展现在人们面前的新事物可谓层出不穷、接踵而来，但在难以枚举的变化中，最醒目的莫过于权力结构的变迁。这里的权力不是仅指政治权力，而是泛指社会生活中具有支配作用的各种力量。在传统观念中，提到权力，人们首先想到的是政府的行政权、市场的资源配置权，以及资本的产权、官员的领导权和军事霸权等，概言之，这些权力都是有形实体的支配权，或曰实体权力。而在社会生活网络化过程中得到快速提升的却是与实体权力不同的信息权力。网络空间中的信息权力，是不在场的网民通过观点发布、消息传递、时事评论等行为在交流沟通中展现的权力。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信息具有权力作用，这并非仅在网络社会中才存在，农业社会和工业社会中的信息也具有权力作用，但它同网络社会中的信息权力是不同的。因为在农业社会和工业社会中具有权力作用的信息，主要是由各种政治、军事、工业企业和意识形态机构发出的信息，这些信息所具有的权力的基础不在信息本身，而在于这些政治、经济、军事和意识形态实体。而在网络社会中，表现最活跃、作用最广泛的信息权力的基础，并不在政治、经济、军事和意识形态实体，而在于广大社会成员的思想观念或价值信念。[3]蔡文之对网络社会中的权力变迁做了比较深入的考察，他通过对彼得·巴克莱奇、摩尔顿·拜拉茨和肯尼斯·鲍尔丁等人关于权力论述的分析，把权力概括为“物质性的、组织性的(或称系统性的)和非物质性的。这三分法适用于政治、经济和军事等一切领域，因为这些个别领域在观念上都是以物质、组织和非物质为基础的”。[4]可见，蔡文之试图通过权力的存在基础对权力加以分类，而以信念、意志、知识和评价这些非物质因素为基础的权力就是信息权力。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;卡斯特对网络社会的信息权力作了更为明确的论述，他直截了当地把信息权力称之为精神或心灵的权力，是通过符码影像直接呈现出来的社会认同的权力。卡斯特说：“新的权力存在于信息的符码中，存在于再现的影像中；围绕着这种新的权力，社会组织起了它的制度，人们建立了自己的生活，并决定着自己的所作所为。这种权力的部位是人们的心灵。”[5]416可见，卡斯特所谓信息权力就是存在于人们的心灵中的观念的力量，是可以表现为象征符号的信息力量，它的基础并不在于某种实体机构，而在于人们的价值认同和意义接受。正是在这个意义上，卡斯特对信息权力充满了信心，他兴奋地指出：“不管是谁，也不管是什么，赢得了人心就能赢得统治，因为在任何合理的时间跨度内，对于那些围绕着灵活的、另类的网络的权力而动员起来的心灵来说，强大而顽固的统治机器并不是什么对手。”[5]416<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;并且，尤为重要的是，在网络社会中，信息权力的主体已不再仅是传统社会中的意识形态的控制者和政治权力的控制者，而是在人数上占绝对优势的广大普通社会成员。因为计算机和现代通信技术的普及应用，每一个社会成员都具备了发布信息、表达观点和抨击时弊的条件与能力，都成为信息权力的掌握者和施行者。于是，处于基层甚至底层的社会成员拥有了信息权力，并且拥有了表达和发挥信息权力的有效形式和便捷途径，例如微博、QQ群和上网跟帖等。而当基层社会成员拥有并能有效表达信息权力时，权力的运行机制也发生了变化。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帕森斯在论述社会系统的结构功能时，曾谈及社会系统中的信息控制权力与物质制约力量。在帕森斯看来，信息控制权力来自于上层思想文化机构，而劳动者置身其中的物质力量则来自于社会底层。[6]进一步说，信息控制权力是自上而下运行的，而劳动者或基层社会成员作为物质力量则自下而上地发挥作用。帕森斯概括的这种权力的社会运行机制，在今天发生了深刻变化，一方面，信息权力不再仅仅掌握在政治领袖、思想家或神职人员手中，百姓也有了信息权力，并且，由于百姓人数众多，他们通过快捷的网络形式发出的信息权力，常常显得阵容庞大甚至气吞山河；另一方面，由于信息权力的主体发生了变化，信息权力也不再仅是自上而下地运行，相反，基层百姓表现的信息权力却直接影响社会上层，形成了自下而上的信息力量。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络传播是一种典型的大众传播，而大众传播的一个本质特点是信息在大众之间形成了广泛的传播效应，亦即大众传播是具有平面化效应的横向信息传播。因此，网络的大众传播是不同于某种政治机构或意识形态机构开展的自上而下的纵向的宣传教育，其中大量的信息传播是在网民中或在广大社会成员中横向的信息交流、沟通与评价。这种横向的平面化信息传播，一个最突出的作用是增强了处于社会生活不同层面上的沟通效应，并由此而容易达成对某种社会现象的共识或社会认同。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络社会中的认同是一种最具社会性的真正的社会认同。卡斯特对网络社会崛起中的社会认同作了充分论述，在他看来，在社会生活网络化背景下的认同，已经不同于传统社会学和个体心理学界定的个体认同或身份认同。个体的身份认同实质上是寻求个人怎样得到社会的认可，这种认同思考的是个体在社会中处于何种层面、地位或角色，希求的是个体得到社会某种层面或某种群体的认可与接受。网络社会中的认同发生了根本变化，甚至是颠覆性的变化，因为网络社会中的认同不再是个体被社会认同，而是被网络联系起来的个体怎样评价、认可和接受社会！<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在网络中联系起来的个体，已经不是分散的孤立的个体，他们是通过社会认同联结为一种网络化时代的新型群体，或称之为网络群体。网络群体既没有明确的边界，也没有明确的规则和制度，它是靠网络沟通、信息交流和价值共识而结成的开放的、动态的且十分活跃的缺场群体。借助网络沟通的快捷性和广阔性，网络群体可以在很短的时间内迅速放大，不仅在人数规模和存在空间上可以快速膨胀，而且在沟通效率和传播效应上也会成倍放大。因此，网络群体表达出来的社会认同是一种潜力无限的强大的社会力量或社会权力。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三、权力结构变迁的挑战与机遇<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;权力结构是社会结构的核心，是经济结构、政治结构和思想文化结构的集中表现，因此，权力结构的变迁必将引起社会结构其他方面的变化。特别是在中国这样一个具有几千年官本位传统的国家，权力结构变迁引起的变化就更加复杂。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虽然权力结构从来就不是静态构成，但任何时代权力结构的变化，也没有网络化时代权力结构变化得这样深刻、这样广泛、这样迅速。其根本原因在于，网络社会是一种崭新的社会形态，人们的交流方式、工作方式和生活方式都因为这种新社会形态的来临而发生了变化。一方面，人们的交往频率和沟通效率越来越高，社会联系更加广泛、更加紧密，以致全球化成为不可阻挡的历史潮流；另一方面，与全球化趋势相反，人们在网络化空间中获得了越来越大的相对独立性，在全球化展开的社会生活整体化同时，又出现了与之向背的另一种趋势——个体化。这两种相悖共存的趋势对传统社会体制提出了尖锐挑战，面对这种挑战，福山忧心忡忡地指出：“因特网上相聚，选择自由已呈爆炸之势。一切等级制度，不论是政治的还是法人的，都遇到了压力，并开始走向崩溃。”[7]尤其严重的是，“这些变化本身使20世纪中叶工业社会中盛行的社会价值观念形成了大分裂”。[7]<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;卡斯特对网络社会来临抱有乐观态度，他为网络社会崛起和社会认同成为一种强大的社会权力而兴奋。卡斯特指出：“我们的世界，我们的生活，正在被全球化和认同的对立趋势所塑造。信息技术革命和资本主义的重构，已经诱发了一种新的社会形式——网络社会。”[5]416“这个新的社会组织形式以及普遍的全球性，扩散到了全世界，一如工业资本主义及其孪生敌人——工业国家主义在20世纪所做的那样，它撼动了各种制度，转变了各种文化，创造了财富又引发了贫穷，激发了贪婪、创新，同时又强加了苦难、输入了绝望。不管你是否有勇气面对，它的确是一个新世界。”[5]416-417<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更为重要的是，网络社会权力结构的变化，不仅是原有权力结构中力量对比关系发生了变化，而且更重要的在于信息权力的成长壮大，传统权力结构由此而注入了一种导致内部持续紧张的新权力构成。因为信息权力是基层社会成员通过网络关系可以向传统权力结构发出批评、否定甚至颠覆的权力，并且，信息权力不仅能以灵活多变的形式向传统的实体权力发出各种冲击，而且还能表现出网络助燃的“蝴蝶效应”，信息权力可以瞬间成倍放大。“权力不再集中于机构(如国家)、组织(资本主义企业)和符号的控制者(公司制媒体、教会)之手。它散布在财富、权力、信息与图像的全球网络中，在可变的几何学和非物质化的地理学系统中传播和嬗变。”[5]416<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不过，信息权力的生成与扩展，对于控制权力的机构也并非仅是负面因素。当执政党能够明确认识信息权力，甚至能够正确对待社会认同的强大力量时，变迁了的权力结构可能会形成有利于国家或政府行使权力的效应，进而有利于执政党避免一些政治危险。胡锦涛在建党90周年庆祝大会上指出，在“世情、国情、党情发生深刻变化的新形势下……精神懈怠的危险，能力不足的危险，脱离群众的危险，消极腐败的危险，更加尖锐地摆在全党面前”。[8]这四种危险确实是执政党严重而普遍存在的现象，必须努力结合世情、国情和党情变化的新形势，积极有效地化解这四种危险。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;很多人认为四种危险中最重要的是脱离群众的危险，因为联系群众、依靠群众，是中国共产党在长期斗争中总结出来的根本路线，而这条根本路线在新形势下已经被一些人淡忘甚至遭到背叛，因此它是执政党面临一种最为严重的危险。网络社会的崛起，虽然使执政党面临一些新问题，但也给执政党联系群众、依靠群众提供了新的机遇。4.85亿宽带网民和3亿多手机网民，不仅通过互联网和手机通信能够及时了解中央的一些重大战略决策，而且通过微博和网上跟帖随时发表自己对政治、经济、文化和社会各种重大事件的看法。虽然其中不乏一些粗浅言论，甚至还有一些不负责任的谩骂指责，但大部分网民还是真实地表达了自己的观点、意愿和评价。所以，各种网络设置或网络形式，成为执政党了解民情民意一个广阔而便捷的平台。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正是因为认识到了网络设置或网络形式联系群众的便捷性和广阔性，中央和地方很多领导高度重视网络交流，不仅得到了广大网民的欢迎与好评，而且也能从中及时倾听民众心声，清楚理解百姓意愿，为克服脱离群众的危险做出了表率。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络行为和网络社会，还是监督和抵制消极腐败的有效途径。近两年一些官员腐化堕落的行为遭到网民“围观”和“搜索”，其腐败行为被曝光于世，起到一种对腐败现象开展群众监督和群众抵制的积极作用。广西来宾烟草局长韩峰，被网民称作“最牛房产局长”的周久耕，常州溧阳卫生系统一位约情妇开房的局长，这些贪官相继被网民拉下马。在“我爸是李刚”、药家鑫杀人案、郭美美炫富和温州动车事故等事件中，网民们充分发挥了信息权力的批评监督作用，积极伸张和维护了公平正义。还有温州的703.804网站，安徽的中国舆论监督网站，都是在抵制贪污腐败中发挥了重要作用的民间网站。<p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果中国网络社会能健康持续地发展下去，如果党的各级领导或政府官员能够坚持关注网络行为、参与网络交流，党和政府不仅能增强同群众的联系，抵制消极腐败现象，而且还能在网络中获得很多直接源自现实生活的新思想。尽管在微博和贴子中看到的主要是网民们对社会问题的感性认识和简单表达，但这些感性层面上的认识却植根于实际，它们以朴素的形式展示着广大社会成员对社会问题的理解和评价。如果各级领导或政府官员能够认真面对和深入思考网民们的网络表达，他们会从中得到新的启示、增加新的活力，进而克服精神懈怠、能力不足的危险。
+</div>
+<div class="page-list">
+    <div class="pageNav" id="pageList"></div>
+</div>
+</div>
+			<h3 id="OrgReferHeader" class="t_artiInfo">原文参考文献：</h3>
+			<div id="OrgReferBody" class="li_artiInfo">
+					<ul id="ckList">
+							<li>
+								<div>43</div>
+							</li> 
+					</ul>
+
+			</div>
+			<br class="cls">
+		</div></body></html>

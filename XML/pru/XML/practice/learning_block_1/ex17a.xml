@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personen  xmlns="http://www.w3school.com.cn" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex17.xsd">
+  <person>
+    <firstName>Andreas</firstName>
+    <familyName>Leuter</familyName>
+    <assessment verbal="good">2</assessment>
+  </person>
+  <person>
+    <firstName>Reiner</firstName>
+    <familyName>Luthard</familyName>
+    <assessment verbal="insufficient">5</assessment>
+  </person>
+</personen>

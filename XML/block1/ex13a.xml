@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course-registration xmlns="urn:vsr:xml-werkzeuge:aufgabe15">
+  <course>XML</course>
+  <student matrikelnr="123456"/>
+  <tutorial-day>Tue</tutorial-day>
+</course-registration>

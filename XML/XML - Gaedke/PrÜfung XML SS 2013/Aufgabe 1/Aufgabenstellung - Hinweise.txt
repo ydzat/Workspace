@@ -1,0 +1,7 @@
+1.) Welche Files sind valid?             (6 Punkte)
+
+
+
+
+Hinweis: Files sind gleich mit denen aus der Übung (-> http://vsr.informatik.tu-chemnitz.de/edu/2012/xw/exercises/1/index.html )
+         ex7a.xml , ex7b.xml , ex7c.xml

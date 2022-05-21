@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meeting xmlns="http://www.w3school.com.cn" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex10.xsd">
+  <place>Leipzig</place><date>2007-12-03</date>
+    <partner>Vorstand</partner>
+  <place>Dresden</place><date>2007-08-02</date>
+    <partner>representative</partner>  
+  <place>Erfurt</place><date>2007-09-01</date>
+    <partner>Chef</partner>
+  <place>Hamburg</place><date>2007-03-08</date>
+    <partner>Student</partner>
+</meeting>

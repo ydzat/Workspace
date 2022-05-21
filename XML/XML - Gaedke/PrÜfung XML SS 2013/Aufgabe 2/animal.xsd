@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+  
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+
+  elementFormDefault="qualified">
+
+  <xs:element name="animals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="animal" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="ct_animal">
+    <xs:sequence>
+      <xs:element name="speed" type="xs:double"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+  
+  <xs:complexType name="ct_bird">
+    <xs:complexContent>
+      <xs:extension base="ct_animal">
+        <xs:sequence>
+          <xs:element name="flughöhe_oder_so" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="animal" type="ct_animal"/>
+  
+</xs:schema>

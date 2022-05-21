@@ -1,0 +1,54 @@
+@prefix staff: <http://example.org/staff#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+
+staff:phoover a foaf:Person ;
+  foaf:givenName "Patrick" ;
+  foaf:familyName "Hoover" ;
+  foaf:age "57" ;
+  schema:address [
+    schema:postalCode "24606" ;
+    schema:streetAddress "Budapester Strasse 5" ;
+    schema:addressLocality "Trappenkamp" ] ;
+  foaf:mbox <mailto:PatrickHoover@example.org> ;
+  schema:jobTitle "International Marketing Supervisor" .
+
+staff:khofmann a foaf:Person ;
+  foaf:givenName "Kristin" ;
+  foaf:familyName "Hofmann" ;
+  foaf:age "48" ;
+  schema:address [
+    schema:postalCode "86676" ;
+    schema:streetAddress "Paderborner Strasse 66" ;
+    schema:addressLocality "Ehekirchen" ] ;
+  foaf:mbox <mailto:KristinHofmann@example.org> ;
+  schema:jobTitle "Relational Intranet Developer" .
+
+staff:ttheissen a foaf:Person ;
+  foaf:givenName "Tobias" ;
+  foaf:familyName "Theissen" ;
+  foaf:age "43" ;
+  schema:address [
+    schema:postalCode "93337" ;
+    schema:streetAddress "Paul-Nevermann-Platz 34" ;
+    schema:addressLocality "Riedenburg" ] ;
+  foaf:mbox <mailto:TobiasTheissen@example.com> ;
+  schema:jobTitle "Product Research Analyst" .
+
+staff:swexler a foaf:Person ;
+  foaf:givenName "Sarah" ;
+  foaf:familyName "Wexler" ;
+  foaf:age "38" ;
+  schema:address [
+    schema:postalCode "07765" ;
+    schema:streetAddress "Koenigstrasse 5" ;
+    schema:addressLocality "Kahla" ] ;
+  foaf:mbox <mailto:SarahWexler@example.org> ;
+  schema:jobTitle "Lead Security Director" .
+
+<http://example.org/company123> a foaf:Organization ;
+  foaf:name "Enviro Architectural Designs" ;
+  foaf:member staff:phoover,
+              staff:khofmann,
+              staff:ttheissen,
+              staff:swexler .

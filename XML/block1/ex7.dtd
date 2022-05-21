@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE remarks [
+  <!ELEMENT remarks (remark*,footnote)>
+  <!ELEMENT remark EMPTY>
+  <!ELEMENT footnote  EMPTY>
+  <!ATTLIST remark id ID #IMPLIED>
+  <!ATTLIST footnote ref IDREF #REQUIRED>
+]>

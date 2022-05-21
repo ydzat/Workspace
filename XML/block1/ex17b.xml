@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personen xmlns="urn:vsr:xml-werkzeuge:aufgabe2.7"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:vsr:xml-werkzeuge:aufgabe2.7
+http://vsr.informatik.tu-chemnitz.de/edu/2011/xw/public_resources/schema7.xsd">
+  <person>
+    <firstName>Andreas</firstName>
+    <familyName>Leuter</familyName>
+    <assessment verbal="bad">crazy</assessment>
+  </person>
+  <person>
+    <firstName>Reiner</firstName>
+    <familyName>Luthard</familyName>
+    <assessment verbal="insufficient">5</assessment>
+  </person>
+</personen>

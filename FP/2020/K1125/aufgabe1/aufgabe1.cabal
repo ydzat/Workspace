@@ -1,0 +1,62 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 8f37fe3b80f665c6d5efd36a0526c4d93ba128b576fa9230941876839d3007a0
+
+name:           aufgabe1
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/aufgabe1#readme>
+homepage:       https://github.com/githubuser/aufgabe1#readme
+bug-reports:    https://github.com/githubuser/aufgabe1/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/aufgabe1
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_aufgabe1
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable aufgabe1-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_aufgabe1
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aufgabe1
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite aufgabe1-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_aufgabe1
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aufgabe1
+    , base >=4.7 && <5
+  default-language: Haskell2010

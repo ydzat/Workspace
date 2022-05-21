@@ -1,0 +1,70 @@
+// 1
+
+Es sollen 2^22 Datensätze der Größe 225 Bytes (16 Bytes davon Schlüssel)
+mittels ISAM auf einer Festplatte gespeichert werden.
+
+(Nutz-)Datensätze und Indexdatensätze sollen nicht auf gemeinsamen Zylindern gespeichert werden.
+Indexdatensätze sind auf volle Bytes zu dimensionieren.
+Ein Datensatz darf nicht über mehrere Sektoren verteilt werden.
+
+Welche der fiktiven Festplatten sind dafür geeignet?
+[] HDD 1: 2048/16/64 mit 512 Bytes/Sektor
+[x] HDD 2: 4096/10/64 mit 512 Bytes/Sektor
+[] HDD 3: 8192/5/64 mit 512 Bytes/Sektor
+
+// 2
+
+Welchen Aussagen zu einem Zylinderindexdatensatz können Sie zustimmen?
+[] Der Speicherplatz für einen Datensatz setzt sich zusammen aus:
+	- Anzahl der Bits für Indexierung der Zylinder
+	- Anzahl der Bits für Indexierung der Spuren
+	- Anzahl der Bits für den Schlüsselwert                   #Das war Masterindex
+[] Der Speicherplatz für einen Datensatz setzt sich zusammen aus:
+	- Anzahl der Bits für Indexierung der Zylinder
+	- Anzahl der Bits für Indexierung der Sektoren
+	- Anzahl der Bits für den Schlüsselwert
+[x] HDD 1 benötigt 11 Bits für die Speicherung der Zylinderinformationen.
+[x] HDD 2 benötigt 128 Bits für die Speicherung der Schlüsselinformationen. #welche ein schlüssel alle oder nur einer bestimmten stufe ....
+[] Ein Zylinderdatensatz benötigt auf HDD 3 insgesamt 77 Bits.
+[x] Man benötigt für HDD 1 und 2 18 Bytes für einen vollständigen Zylinderindexdatensatz.
+[] Keine der Antwortmöglichkeiten ist richtig.
+
+// 3
+
+Welchen Aussagen über einen Masterindexdatensatz können Sie zustimmen?
+[x] Der Speicherplatz für einen Datensatz setzt sich zusammen aus:
+	- Anzahl der Bits für Indexierung der Zylinder
+	- Anzahl der Bits für Indexierung der Spuren
+	- Anzahl der Bits für den Schlüsselwert
+[] Der Speicherplatz für einen Datensatz setzt sich zusammen aus:
+	- Anzahl der Bits für Indexierung der Zylinder
+	- Anzahl der Bits für Indexierung der Sektoren
+	- Anzahl der Bits für den Schlüsselwert
+[x] Für HDD 2 und HDD 3 werden jeweils 144 Bits für einen Datensatz benötigt.
+[] Für HDD 1 werden 143, für HDD 2 144 und HDD 3 145 Bits benötigt.          #für WAS????
+[nein] Man benötigt bei HDD 3 19 Bytes für einen Datensatz. #wenn es gehen würde ja aber festplatte hat nur 18 Bytes Zylinder
+[x] Man benötigt für alle HDDs 18 Bytes zum Abspeichern eines Datensatzes.
+[] Keine der Antwortmöglichkeiten ist richtig.
+
+// 4
+
+Welche Aussagen über die (Nutz-)Datensätze können Sie zustimmen?
+Hinweis: Anzahl der Spuren noch einmal prüfen.
+[x] Je Sektor kann man 2 vollständige Datensätze abspeichern.
+[] In 4 Sektoren kann man 9 vollständige Datensätze speichern.
+[] Je Spur können 144 Datensätze gespeichert werden.
+[x] Auf eine Spur der HDD 3 passen 128 Datensätze.
+[] Auf allen HDD's können je Zylinder 1920 Datensätze gespeichert werden.
+[x] Die HDD 2 benötigt mindestens 3641 Zylinder, um alle Datensätze abspeichern zu können.
+[] Keine der Antwortmöglichkeiten ist richtig.
+
+// 5
+
+Welchen Aussagen bezüglich Speicherplatz stimmen Sie zu?
+[] Bei HDD 2 passen genau 3641 Zylinderindexdatensätze auf eine Spur.
+[x] Für den Zylinderindex benötigt man bei HDD 1 2 Spuren.
+[] Es werden 5 Zylinder für alle Datensätze des Zylinderindexes auf HDD 3 benötigt.
+[x] Für den Masterindex wird auf jeder HDD eine Spur benötigt.
+[x] HDD 2 kann auf maximal 4 Spuren den gesamten Index der 1. und 2. Stufe speichern.
+[] Die HDD 1 braucht mindestens 3 Zylinder um alle Indexierungen 1. und 2. Stufe zu speichern.
+[] Keine der Antwortmöglichkeiten ist richtig.

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE city [
+  <!ELEMENT city     (name, district+)>
+  <!ELEMENT district (name, street+)>
+  <!ELEMENT street   (name, (house|store)*)>
+  <!ELEMENT name     (#PCDATA)>
+  <!ELEMENT house    (number, remark?)>
+  <!ELEMENT number   (#PCDATA)>
+  <!ELEMENT remark   (#PCDATA)>
+  <!ELEMENT store    (name, remark?)>
+]>
+<city>
+  <name>Stonetown</name>
+  <district>
+    <name>Center</name>
+    <street>
+      <name>Orchard Avenue</name>
+      <house>
+        <number>1</number>
+        <remark>For sale</remark>
+      </house>
+      <store>
+        <name>Stonetown Bakery</name>
+        <remark>Bread is actually hard as stone</remark>
+      </store>
+      <house>
+        <number>3</number>
+      </house>
+    </street>
+    <street>
+      <name>Poplar Drive</name>
+    </street>
+    <street>
+      <name>Willow Lane</name>
+      <house>
+        <number>13</number>
+        <remark>Rumored to be haunted</remark>
+      </house>
+    </street>
+  </district>
+</city>

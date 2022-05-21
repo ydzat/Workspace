@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="emails.xsl"?>
+<emails>
+    <inbox type="sent">
+        <mail prioritaet="1">
+            <absender>Dr.xy</absender>
+            <datum>23-05-2000</datum>
+            <betreff>xyxcyxc</betreff>
+        </mail>
+        <mail prioritaet="2">
+            <absender>Dr.w</absender>
+            <datum>21-05-2000</datum>
+            <betreff>xyxcyxc</betreff>
+        </mail>
+    </inbox>
+    <inbox type="received">
+        <mail prioritaet="1">
+            <absender>Dr.z</absender>
+            <datum>25-05-2000</datum>
+            <betreff>xyxcyxc</betreff>
+        </mail>
+        <mail prioritaet="2">
+            <absender>Horst</absender>
+            <datum>23-05-2000</datum>
+            <betreff>xyxcyxc</betreff>
+        </mail>        
+    </inbox>
+</emails>

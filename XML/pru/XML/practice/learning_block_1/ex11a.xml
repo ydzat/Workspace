@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc3:form xmlns:sc3="http://www.w3school.com.cn"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex11.xsd">
+  <sc3:firstName>Paul</sc3:firstName>
+  <sc3:psnr>6372</sc3:psnr>
+  <sc3:familyName>Koeber</sc3:familyName>
+</sc3:form>

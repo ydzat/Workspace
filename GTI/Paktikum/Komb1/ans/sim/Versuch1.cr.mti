@@ -1,0 +1,83 @@
+C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn74260.VHD {1 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn74260.VHD
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package pack_2
+-- Compiling entity sn74260
+-- Compiling architecture dataflow of sn74260
+
+} {} {}} C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7400.VHD {1 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7400.VHD
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package pack_2
+-- Compiling entity sn7400
+-- Compiling architecture dataflow of sn7400
+
+} {} {}} C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Aufgabe.3.3.vhdl {1 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Aufgabe.3.3.vhdl
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package pack_2
+-- Compiling entity uut
+-- Compiling architecture structure of uut
+
+} {} {}} C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7427.VHD {1 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7427.VHD
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package pack_2
+-- Compiling entity sn7427
+-- Compiling architecture dataflow of sn7427
+
+} {} {}} C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7410.VHD {1 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7410.VHD
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package pack_2
+-- Compiling entity sn7410
+-- Compiling architecture dataflow of sn7410
+
+} {} {}} C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn.VHD {1 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn.VHD
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package pack_2
+-- Compiling entity sn7420
+-- Compiling architecture dataflow of sn7420
+
+} {} {}} C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD {2 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package pack_2
+-- Compiling package body pack_2
+-- Loading package pack_2
+-- Loading package pack_2
+-- Compiling entity uut
+-- Compiling entity dbb2_08
+-- Compiling architecture behavior of dbb2_08
+** Warning: C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD(60): (vcom-1194) FILE declaration was written using VHDL 1987 syntax.
+
+** Warning: C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD(61): (vcom-1194) FILE declaration was written using VHDL 1987 syntax.
+
+-- Compiling entity test
+-- Compiling architecture test of test
+
+} {} {}} C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/UUT.VHD {1 {vcom -work work -2002 -explicit -stats=none C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/UUT.VHD
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package pack_2
+-- Compiling entity uut
+-- Compiling architecture structure of uut
+
+} {} {}}

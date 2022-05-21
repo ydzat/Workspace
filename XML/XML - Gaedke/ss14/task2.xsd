@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<xs:schema xmlns="urn:vsr:xml-pruefung:pflanzen" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="urn:vsr:xml-pruefung:pflanzen" 
+elementFormDefault="qualified"> 
+
+	<xs:element name="offers"> 
+		<xs:complexType> 
+			<xs:sequence maxOccurs="unbounded"> 
+				<xs:element ref="product"/>
+			</xs:sequence> 
+		</xs:complexType>
+	</xs:element> 
+
+	<xs:complexType name="ct_planttype"> 
+		<xs:sequence> 
+			<xs:element name="harvest" type="xs:string"/> 
+			<xs:element name="price" type="xs:double"/> 
+			<xs:element name="supplier" type="xs:string"/>
+		</xs:sequence> 
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType> 
+
+	<xs:element name="product" type="ct_planttype"/> 
+	<xs:complexType name="ct_fruit_planttype"> 
+		<xs:complexContent> 
+			<xs:extension base="ct_planttype"> 
+				<xs:choice> 
+					<xs:element name="stone" type="xs:boolean"/>
+				</xs:choice> 
+			</xs:extension> 
+		</xs:complexContent>
+	</xs:complexType> 
+
+	<xs:complexType name="ct_vegtype"> 
+		<xs:complexContent> 
+			<xs:extension base="ct_planttype"> 
+				<xs:choice> 
+					<xs:element name="root" type="xs:boolean"/>
+				</xs:choice> 
+			</xs:extension> 
+		</xs:complexContent> 
+	</xs:complexType>
+	
+</xs:schema>

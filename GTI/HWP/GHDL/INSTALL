@@ -1,0 +1,64 @@
+ghdl-0.31-mcode-win32 Installation Instructions
+
+-----------------------------
+Installation:
+
+ - Create a ghdl directory where desired, e.g. C:\ghdl  
+
+ - Unzip ghdl-0.31-mcode-win32.zip into C:\ghdl
+
+ - Open a command shell and cd into the resulting installation directory, C:\ghdl\ghdl-0.31-mcode-win32
+
+ - Run these batch files:
+    set_ghdl_path.bat 
+    reanalyze_libraries.bat
+
+ - Check the installation (see below)
+
+-----------------------------
+Command Prompt PATH setup
+
+GHDL is a command line tool.
+
+For each new command shell opened, run set_ghdl_path.bat to configure the PATH and GHDL library prefix.
+
+
+You can instead set PATH and GHDL_PREFIX in the Windows SYSTEM or USER environment variables; see the comments in set_ghdl_path.bat for more information.
+
+
+-----------------------------
+To Uninstall:
+
+ - delete the installation directory, e.g. C:\ghdl\ghdl-0.31-mcode-win32 
+
+ Also, if you have manually set the GHDL environment variables for PATH and GHDL_PREFIX, remove these changes.
+
+-----------------------------
+Installation check
+
+Once GHDL is set up, issuing the following commands should print the version and configuration information shown below (line breaks added for clarity):
+
+
+    C:\Ghdl\ghdl-0.31-mcode-win32>ghdl -v
+
+    GHDL 0.31 (20140108) [Dunoon edition] + ghdl-0.31-mcode-win32.patch
+    Compiled with GNAT Version: GPL 2013 (20130314)
+    mcode code generator
+    Written by Tristan Gingold.
+
+    Copyright (C) 2003 - 2014 Tristan Gingold.
+    GHDL is free software, covered by the GNU General Public License.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+
+    C:\Ghdl\ghdl-0.31-mcode-win32>ghdl --dispconfig
+
+    command line prefix (--PREFIX): (not set)
+    environment prefix (GHDL_PREFIX): C:\Ghdl\ghdl-0.31-mcode-win32\lib
+    default prefix: C:\Ghdl\ghdl-0.31-mcode-win32\lib
+    actual prefix: C:\Ghdl\ghdl-0.31-mcode-win32\lib
+    command_name: C:\Ghdl\ghdl-0.31-mcode-win32\bin\ghdl.exe
+    default library pathes:
+     C:\Ghdl\ghdl-0.31-mcode-win32\lib\v93\std\
+     C:\Ghdl\ghdl-0.31-mcode-win32\lib\v93\ieee\

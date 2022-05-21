@@ -1,0 +1,171 @@
+\documentclass[fleqn]{article}
+
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\begin{document}
+
+\newpagestyle{main}{
+    \sethead{Matrikel-Nr.: 574145 Dongze Yang}{}{Grupe: Mi. Dozent: Julian Pape-Lange}
+    \setfoot{}{\thepage}{}
+    \headrule
+    \footrule
+}
+\pagestyle{main}
+\section{Aufgabe}
+
+
+Begin:
+$$A_{-1}=\begin{bmatrix}
+    0 & 4 & 2 & \infty \\
+    \infty & 0 & 5 & -3 \\
+    \infty & \infty & 0 & 1 \\
+    \infty & \infty & \infty & 0
+\end{bmatrix} \ \ \ \ \
+Path_{-1}=\begin{bmatrix}
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1
+\end{bmatrix}
+$$  
+
+(1,1),(1,2),(1,3),(1,4),(2,1),(2,3),(2,4),(3,1),(3,2),(3,4),(4,1),(4,2),(4,3)  
+
+if( \ A[i][k] \ + \ A[k][j] \ < \ A[i][j] \ ) $\{$
+
+\qquad A[i][j] \ = \ A[i][k] \ + \ A[k][j];
+
+$\}$
+else continue;  
+
+wobei zeigen i und j auf zwei Elemente im Tupel, z.B für (0,1), i $\rightarrow$ 0, j $\rightarrow$ 1. 
+k zeigt auf einen Zwischenknoten.  
+
+Laß k = 1. Gibt es keine \ A[i][k] \ + \ A[k][j] \ < \ A[i][j] \ . Deswegen sieht $A_{1}$ und $Path_{1}$ so aus:
+
+$$A_{1}=\begin{bmatrix}
+    0 & 4 & 2 & \infty \\
+    \infty & 0 & 5 & -3 \\
+    \infty & \infty & 0 & 1 \\
+    \infty & \infty & \infty & 0
+\end{bmatrix} \ \ \ \ \
+Path_{1}=\begin{bmatrix}
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1
+\end{bmatrix}
+$$
+k = 1 ist nicht als Zwischenknoten geeignet.  
+\\  
+
+Laß k = 2.
+
+Gibt es A[1][2] \ + \ A[2][4] \ < \ A[1][4].
+Deswegen sieht $A_{2}$ und $Path_{2}$ so aus:
+
+$$A_{2}=\begin{bmatrix}
+    0 & 4 & 2 & -1 \\
+    \infty & 0 & 5 & -3 \\
+    \infty & \infty & 0 & 1 \\
+    \infty & \infty & \infty & 0
+\end{bmatrix} \ \ \ \ \
+Path_{2}=\begin{bmatrix}
+    -1 & -1 & -1 & 2 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1
+\end{bmatrix}
+$$
+\\  
+
+Laß k = 3.
+
+Gibt es keine A[i][3] \ + \ A[3][j] \ < \ A[i][j].
+Deswegen sieht $A_{3} = A_{2}$ und $Path_{3} = Path_{2}$  so aus:
+
+$$A_{3}=\begin{bmatrix}
+    0 & 4 & 2 & -1 \\
+    \infty & 0 & 5 & -3 \\
+    \infty & \infty & 0 & 1 \\
+    \infty & \infty & \infty & 0
+\end{bmatrix} \ \ \ \ \
+Path_{3}=\begin{bmatrix}
+    -1 & -1 & -1 & 2 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1
+\end{bmatrix}
+$$
+\\
+
+Laß k = 4.
+
+Gibt es keine A[i][4] \ + \ A[4][j] \ < \ A[i][j].
+Deswegen sieht $A_{4} = A_{3}$ und $Path_{4} = Path_{3}$  so aus:
+
+$$A_{4}=\begin{bmatrix}
+    0 & 4 & 2 & -1 \\
+    \infty & 0 & 5 & -3 \\
+    \infty & \infty & 0 & 1 \\
+    \infty & \infty & \infty & 0
+\end{bmatrix} \ \ \ \ \
+Path_{4}=\begin{bmatrix}
+    -1 & -1 & -1 & 2 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1
+\end{bmatrix}
+$$
+
+\section{Aufgabe}
+(a)  
+
+Begin:
+$$A_{-1}=\begin{bmatrix}
+    0 & 1 & \infty & \infty \\
+    \infty & 0 & 1 & 1 \\
+    \infty & -1 & 0 & \infty \\
+    \infty & \infty & \infty & 0
+\end{bmatrix} \ \ \ \ \
+Path_{-1}=\begin{bmatrix}
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1
+\end{bmatrix}
+$$
+\\
+
+k = 1:
+$$A_{1}=\begin{bmatrix}
+    0 & 1 & \infty & \infty \\
+    \infty & 0 & 1 & 1 \\
+    \infty & -1 & 0 & \infty \\
+    \infty & \infty & \infty & 0
+\end{bmatrix} \ \ \ \ \
+Path_{1}=\begin{bmatrix}
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1 \\
+    -1 & -1 & -1 & -1
+\end{bmatrix}
+$$
+\\
+
+k = 2:
+
+Weil es eine negative Gewichtsschleife (2 $\rightarrow$ 3 $\rightarrow$ 2) gibt, bei jeder Lauf entlang dieses Rings wird der kürzeste Pfad(a $\rightarrow$ ... $\rightarrow$ c und b $\rightarrow$ ... $\rightarrow$ c und c $\rightarrow$ ... $\rightarrow$ b) um 1 verringert, dann der kürzeste Pfad wird nie gefunden.
+
+Der Algorithmus sollte zu diesem Zeitpunkt beendet werden.
+
+
+\end{document}

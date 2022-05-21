@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE storage [
+  <!ELEMENT storage     (house, responsible, table)>
+  <!ELEMENT house       (#PCDATA)>
+  <!ELEMENT responsible (#PCDATA)>
+  <!ELEMENT table       (row+)>
+  <!ELEMENT row         (description, number, remark)>
+  <!ELEMENT description (#PCDATA)>
+  <!ELEMENT number      (#PCDATA)>
+  <!ELEMENT remark      (#PCDATA)>
+]>
+<storage>
+   <house>
+   </house>
+   <responsible>
+   </responsible>
+   <table>
+     <row>
+        <description>hammer</description>
+        <number>1234</number>
+        <remark>mighty</remark>
+     </row>
+     <row>
+        <number>6737</number>
+        <remark>meek</remark>
+        <description>pliers</description>
+     </row>
+   </table>
+</storage>

@@ -1,0 +1,379 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/sim
+Edbb2_08
+Z1 w1588079014
+Z2 DPx4 work 6 pack_2 0 22 EnFaB@S9@iY9zP8:@M8?V1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD
+Z6 FC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD
+l0
+L54
+VddKaOUJB`WLKKPKaX66j61
+!s100 ]HOFc=<>1HYzY^]mK8BfQ2
+Z7 OP;C;10.4a;61
+32
+Z8 !s110 1588088656
+!i10b 1
+Z9 !s108 1588088656.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD|
+Z11 !s107 C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/DBB2_08.VHD|
+!i113 1
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1
+Abehavior
+R2
+R3
+R4
+DEx4 work 7 dbb2_08 0 22 ddKaOUJB`WLKKPKaX66j61
+l69
+L59
+VRJ:MT@J8dDf9zD^]0Gk7b3
+!s100 iFOc]hz_E;V654OTHLNEQ1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ppack_2
+R3
+R4
+R1
+R0
+R5
+R6
+l0
+L4
+VEnFaB@S9@iY9zP8:@M8?V1
+!s100 7H6h5Gj3[B@XJDSjanf]S0
+R7
+32
+b1
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Bbody
+R2
+R3
+R4
+l0
+L10
+VCcF28HKIbzENl^2XIm@Rh0
+!s100 ];RC`31Xb=aZAFSOO21PJ3
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+nbody
+Esn7400
+Z14 w1588079058
+R2
+R3
+R4
+R0
+Z15 8C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7400.VHD
+Z16 FC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7400.VHD
+l0
+L5
+VLY;7hBYaJ@942C]gl?o363
+!s100 lg`a<MH2X991Y;>@zmFA92
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7400.VHD|
+Z18 !s107 C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7400.VHD|
+!i113 1
+R12
+R13
+Adataflow
+R2
+R3
+R4
+DEx4 work 6 sn7400 0 22 LY;7hBYaJ@942C]gl?o363
+l10
+L9
+V7`]]chBlhoT_BYEbFhhQR1
+!s100 PU25g>YcNb7JFU05Lj=mf3
+R7
+32
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Esn7410
+Z19 w1588079082
+R2
+R3
+R4
+R0
+Z20 8C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7410.VHD
+Z21 FC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7410.VHD
+l0
+L5
+V:enZefZFboiP1Sa?9dfDP3
+!s100 2F^k0cBiB;nnZUAU7m_V[3
+R7
+32
+R8
+!i10b 1
+R9
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7410.VHD|
+Z23 !s107 C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7410.VHD|
+!i113 1
+R12
+R13
+Adataflow
+R2
+R3
+R4
+DEx4 work 6 sn7410 0 22 :enZefZFboiP1Sa?9dfDP3
+l10
+L9
+V`K4SJmY5SDnlEEIi058@00
+!s100 OECe4>3T7lRE94D`N^Pij1
+R7
+32
+R8
+!i10b 1
+R9
+R22
+R23
+!i113 1
+R12
+R13
+Esn7420
+Z24 w1588079102
+R2
+R3
+R4
+R0
+Z25 8C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn.VHD
+Z26 FC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn.VHD
+l0
+L5
+VBDcU3JjHVcIjjS;V[Pe5l0
+!s100 hj9fmaBLSLI<IZTc88h@@2
+R7
+32
+R8
+!i10b 1
+R9
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn.VHD|
+Z28 !s107 C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn.VHD|
+!i113 1
+R12
+R13
+Adataflow
+R2
+R3
+R4
+DEx4 work 6 sn7420 0 22 BDcU3JjHVcIjjS;V[Pe5l0
+l10
+L9
+Vke]=Xd?m767L<_65P7JLZ0
+!s100 hX^[z`zHY<;i0J]bo]^AB3
+R7
+32
+R8
+!i10b 1
+R9
+R27
+R28
+!i113 1
+R12
+R13
+Esn74260
+Z29 w1588079122
+R2
+R3
+R4
+R0
+Z30 8C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn74260.VHD
+Z31 FC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn74260.VHD
+l0
+L5
+V_bE6jGC5;G<Vo9EO6jBQo0
+!s100 _`Qj4FcUW^011^<TW538R1
+R7
+32
+R8
+!i10b 1
+R9
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn74260.VHD|
+Z33 !s107 C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn74260.VHD|
+!i113 1
+R12
+R13
+Adataflow
+R2
+R3
+R4
+DEx4 work 7 sn74260 0 22 _bE6jGC5;G<Vo9EO6jBQo0
+l10
+L9
+VGHl?8CZO8MRPefKE_0KaU3
+!s100 Q@:>FC:]>cI;Y@0>d[:^h2
+R7
+32
+R8
+!i10b 1
+R9
+R32
+R33
+!i113 1
+R12
+R13
+Esn7427
+Z34 w1588079140
+R2
+R3
+R4
+R0
+Z35 8C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7427.VHD
+Z36 FC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7427.VHD
+l0
+L5
+Vz[RRSTlLeeWP@4=G_QYDV1
+!s100 8z_doIc@8nK_a1PjPS_EU2
+R7
+32
+R8
+!i10b 1
+R9
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7427.VHD|
+Z38 !s107 C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/sn7427.VHD|
+!i113 1
+R12
+R13
+Adataflow
+R2
+R3
+R4
+DEx4 work 6 sn7427 0 22 z[RRSTlLeeWP@4=G_QYDV1
+l10
+L9
+V7Cj?eCm]gC`z];nJXI8^21
+!s100 obEzPX]0QlS0g3BeJ2nF23
+R7
+32
+R8
+!i10b 1
+R9
+R37
+R38
+!i113 1
+R12
+R13
+Etest
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L127
+VTVFFE2;k4mR`?NJioz_9A3
+!s100 4JmhS74:^aT:Xzb<J@J]Z3
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Atest
+R2
+R3
+R4
+DEx4 work 4 test 0 22 TVFFE2;k4mR`?NJioz_9A3
+l141
+L130
+VjJJk;d6KYKX42ILGcNQjc2
+!s100 U2DUD0UKObH3CQ9542MoW0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Euut
+Z39 w1588079196
+R2
+R3
+R4
+R0
+Z40 8C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/UUT.VHD
+Z41 FC:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/UUT.VHD
+l0
+L5
+V5h?cR6]mo>n:WT4^KKmEX2
+!s100 B4jT7j?dfGW5^>VU:;bJX3
+R7
+32
+Z42 !s110 1588088657
+!i10b 1
+Z43 !s108 1588088657.000000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/UUT.VHD|
+Z45 !s107 C:/Users/ydzat/OneDrive/Workspace/GTI/Paktikum/Komb1/ans/Quellcode/UUT.VHD|
+!i113 1
+R12
+R13
+Astructure
+R2
+R3
+R4
+DEx4 work 3 uut 0 22 5h?cR6]mo>n:WT4^KKmEX2
+l19
+L10
+V;bEKd[fWETA5;7;Q[hzkm0
+!s100 7?^VO3__zC:MGlkX:TU`h3
+R7
+32
+R42
+!i10b 1
+R43
+R44
+R45
+!i113 1
+R12
+R13

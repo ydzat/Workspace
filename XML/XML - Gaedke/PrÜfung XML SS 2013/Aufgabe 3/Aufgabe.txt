@@ -1,0 +1,22 @@
+3.a) Für jedes mögliche bezüglich 'warehouses.xsd' validen XML-Files soll ein XML-Stylesheet geschrieben werden was (in etwa)
+     die folgende Ausgabe erzeugt:
+
+<table border="1">
+	<tr> <th> Name </th> <th> price </th> <th> warehouse </th> </tr>
+	<tr> <td> Bla1 </td>  <td> 1000.0</td> <td> Warehouse1 </td></tr>
+	<tr> <td> Bla2 </td>  <td> 3000.0</td> <td> Warehouse1 </td></tr>
+	<tr> <td> Bla3 </td>  <td> 4000.0</td> <td> Warehouse1 </td></tr>
+	<tr> <td> Bla4 </td>  <td> 5000.0</td> <td> Warehouse2 </td></tr>
+	<tr> <td> Bla5 </td>  <td> 6000.0</td> <td> Warehouse2 </td></tr>
+	<tr> <td> Bla6 </td>  <td> 7000.0</td> <td> Warehouse3 </td></tr>
+	(...)
+</table>
+
+und dabei zu jedem Item seinen Namen, den Preis und den Namen seines Warenhauses ausgibt.        (10 Punkte)
+
+
+3.b) Geben Sie die Namen aller Items aus, die es in mehreren Warenhäusern gibt.
+
+     Hinweis!: Die Aufgabe wird auch dann als gelößt betrachtet, wenn die Items mehrfach ausgegeben werden.
+
+     (10 Punkte)

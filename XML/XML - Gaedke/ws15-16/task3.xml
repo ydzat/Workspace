@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="task3.xsl"?>
+
+<elem>
+
+    <EinElement gruppe="GRUPPENNAME2">
+        <mensch>
+            <name>asdasd</name>
+            <alter>21</alter>
+            <info>AAAAA</info>
+        </mensch>
+    </EinElement>
+    
+    
+    <EinElement gruppe="GRUPPENNAME1">
+        <mensch>
+            <name>Muster</name>
+            <alter>25</alter>
+            <info>BlaBla</info>
+        </mensch>
+        <mensch>
+            <name>Aklu</name>
+            <alter>22</alter>
+            <info>BBBB</info>
+        </mensch>
+    </EinElement>
+    
+</elem>

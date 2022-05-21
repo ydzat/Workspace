@@ -1,0 +1,59 @@
+Modul:		XML
+Dozent:		Gaedke
+Semester:	WS2015-2016
+Prüfungsart:	schriftlich
+
+Prüfungsbericht:
+
+XML-Werkzeuge Gaedke WS15/16
+
+1.DTD -6P
+3 XML-Files mit unterschiedlichen DTDs auf Validität überprüfen, Fehler angeben.
+
+2.XML-Schema -10P
+Für ein gegebenes XML-File ein passendes Schema schreiben. Bestimmte Anforderungen gegeben wie: ID muss natürliche Zahl sein, ein Element darf nur bestimmte Strings enthalten, bestimmte Attribute und deren Typen oder auch mögliche Werte sollen vorgeschrieben sein...
+
+3.XSLT -10P
+Aus der gegebenen XML-Datei sollen (geordnet nach einem Attribut "gruppe") mehrere Tabellen in XHTML ausgegeben werden.
+Das Ergebnis sollte in etwa wie folgt aussehen:
+
+   Werte innerhalb der Gruppe: GRUPPENNAME1
+   +----+----------+----------+--------+
+   | ID |   Name   |   Info   | usw.   |
+   +----+----------+----------+--------+
+   |  1 | Muster   | BlaBla   | 0815   |
+   +----+----------+----------+--------+
+   |  2 | Testmann | Etwas    | 42     |
+   +----+----------+----------+--------+
+
+   Werte innerhalb der Gruppe: GRUPPENNAME2
+   +----+----------+----------+--------+
+   | ID |   Name   |   Info   | usw.   |
+   +----+----------+----------+--------+
+   |  1 | Tim      | schon alt| 02340  |
+   +----+----------+----------+--------+
+   |  2 | Tom      | Schüler  | 2251   |
+   +----+----------+----------+--------+
+   |  3 | Tina     | normal   | 0815   |
+   +----+----------+----------+--------+
+
+Hinweis: ID muss selbst gezählt werden und keine Tabelle oder Zeile darf doppelt sein.
+
+Ein Element aus der XML-Datei könnte in etwa so aussehen:
+
+   <EinElement gruppe="GRUPPENNAME1">
+     <mensch>
+       <name>Muster</name>
+       <alter>25</alter>
+     </mensch>
+     <info>BlaBla</info>
+     ...
+   </EinElement>
+
+
+
+4.SAX -6P
+Python SAX-Parser schreiben/erweitern
+
+5.SPARQL -14P
+FILTER() und UNION würden benötigt

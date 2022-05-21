@@ -1,0 +1,109 @@
+\documentclass[fleqn]{article}
+
+\usepackage{listings}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{amsmath}
+\setcounter{secnumdepth}{0}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\lstset{
+ columns=fixed,       
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=c++,                                        % 设置语言
+ breaklines,                                          % 自动换行
+}
+\begin{document}
+
+\newpagestyle{main}{
+    \sethead{Matrikel-Nr.: 574145 Dongze Yang}{}{Grupe: Mi. Dozent: Julian Pape-Lange}
+    \setfoot{}{\thepage}{}
+    \headrule
+    \footrule
+}
+\pagestyle{main}
+%\section{Aufgabe}
+
+\section{3. Aufgabe}
+
+Schulmethode:
+\\
+
+\begin{tabular}{lr}
+    &1100\\
+    *&1011\\
+    \hline\\
+    &1100\\
+    &1100 \ \! \\
+    &0000 \ \! \ \! \\
+    +&1100 \ \! \ \! \ \! \\
+    \hline\\
+    &10000100
+\end{tabular}
+\\
+\\
+Karazuba:
+
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+            1100 = x = x_h\cdot 2^{\frac{n}{2}} + x_l = 11\cdot 2^2 + 00\\
+            1011 = y = y_h\cdot 2^{\frac{n}{2}} +y_l = 10\cdot 2^2 +11\\
+            n = 4 \\
+            P = (x_h + x_l)(y_h + y_l)
+        \end{array}
+    \right.
+\end{equation}
+
+$\Rightarrow x \cdot y = x_hy_h2^n+(P-x_hy_h-x_ly_l)2^{\frac{n}{2}} +x_ly_l$
+
+
+\begin{equation}
+    \begin{split}
+        1100\times 1011 & = 11\times 10\times 2^4 + ((11+00)(10+11)-11\times 10 - 00\times 11)2^2+00\times 11 \\
+        & = (1 \times 1 \times 2^2 + (10\times 1 - 1\times 1 - 1\times 0)2^1 + 0\times 1)2^4+(11\times 101 - 11\times 10)2^2 \\
+        & = (100+(10-1)2^1)2^4 +(11\times 101 - 110)2^2 \\ 
+        & = 110\times 2^4 + (1\times 10\times 2^2 + ((1+1)(10+1)-1\times 10 - 1\times 1)2^1 + 1\times 1 - 110)2^2\\
+        & = 110\times 2^4 +1001\times 2^2\\
+        & = 1000 \ 0100
+    \end{split}
+\end{equation}
+
+\section{5. Aufgabe}
+
+$F = (\neg A \vee B \vee C) \wedge (A \vee B \vee C) \wedge (A \vee B \vee \neg C)$
+
+A = 0
+\begin{equation}
+\begin{split}
+    & \ \ \ \ (1 \vee B \vee C) \wedge (0 \vee B \vee C) \wedge (0\vee B \vee \neg C)\\
+    &= (B\vee C)\wedge (B\vee \neg C)
+\end{split}
+\end{equation}
+
+B = 0
+
+$\ \ \ \  = C \wedge \neg C$
+
+B = 1
+
+$ \ \ \ \ = (1\vee C)\wedge (1\vee \neg C)$
+
+$ \ \ \ \ = 1$
+
+return erfüllbar
+
+\end{document}

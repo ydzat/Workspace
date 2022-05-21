@@ -1,0 +1,45 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use work.pack_2.all;
+
+entity uut is
+    port (EE_X : in X01_vector (7 downto 0); 
+        EE_Y : out X01_vector (23 downto 16));
+end uut;
+
+architecture test of test is
+    component sn7404 is -- 1/6 SN7404 
+        port (x : in X01; 
+            y : out X01); 
+    end component;
+
+    component sn7450 is -- 1/2 SN7450 
+        port (x11 ,x12 ,x21 ,x22 : in X01; y : out X01); 
+    end component;
+
+  signal c,d,s11,s12,s13,s21,s22,s23,s24 : x01;
+  signal q0,q1,q2 : x01;
+  signal n1,n2    : x01;
+  
+begin
+  c <= '0','1' after 100 ns,'0' after 200 ns,'1' after 400 ns,'0' after 500 ns,
+       '1' after 700 ns,'0' after 800 ns,'1' after 1000 ns, '0' after 1100 ns,
+       '1' after 1300 ns, '0' after 1400 ns;
+  d <= '0','1' after 600 ns,'0' after 1200 ns;
+  --
+  q0 <= (c and d) or (not c and q0);
+  --
+  s11 <= not c;
+  s12 <= not s11;
+  s13 <= not s12;
+  n1  <= (q1 and s13) nor (c and d);
+  q1  <= not n1;
+  --
+  s21 <= not c;
+  s22 <= not s21;
+  s23 <= not s22;
+  s24 <= not s23;
+  n2  <= (q2 and s21) nor (s24 and d);
+  q2  <= not n2;
+  --
+end test; 

@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author ydzat
+ *
+ */
+module Datenstruktur {
+}

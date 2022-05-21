@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:vsr:xml-werkzeuge:aufgabe2.7"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="urn:vsr:xml-werkzeuge:aufgabe2.7"
+elementFormDefault="qualified">
+  <xs:element name="personen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="person" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="note_verbal">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="very good"/>
+      <xs:enumeration value="good"/>
+      <xs:enumeration value="satisfactory"/>
+      <xs:enumeration value="sufficient"/>
+      <xs:enumeration value="insufficient"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="gradeType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:pattern value="[0-6]{1}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="person">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="firstName" type="xs:string"/>
+        <xs:element name="familyName" type="xs:string"/>
+        <xs:element ref="assessment" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="assessment">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="gradeType">
+          <xs:attribute name="verbal" type="note_verbal" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

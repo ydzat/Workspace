@@ -1,0 +1,32 @@
+4.a) Geben Sie mit Hilfe einer SPARQL-Anfrage die Produzenten und zu jedem Produzent seine Produkte aus! (4 Punkte)
+
+     Es sollen nicht die URLs sondern die Namen ausgegeben werden.
+
+Meine Lösung:
+
+Prefix sup: <http://example.org/sup#>
+Select ?producer_name ?product_name
+From <Producers.rdf>
+From <Products.rdf>
+Where {
+	?producer sup:hasProduced ?product .
+	?producer sup:producerName ?producer_name .
+	?product  sup:productName  ?product_name .
+      }
+
+
+4.b) Geben Sie mit Hilfe einer SPARQL-Anfrage diejenigen Produkte aus, die sowohl von producer2 als auch von producer3 produziert wurden!
+     (8 Punkte)
+
+
+Meine Lösung:
+
+Prefix sup: <http://example.org/sup#>
+Select ?product_name
+From <Producers.rdf>
+From <Products.rdf>
+Where {
+	sup:producer2 sup:hasProduced ?product .
+	sup:producer3 sup:hasProduced ?product . 
+	?product  sup:productName  ?product_name .
+      }

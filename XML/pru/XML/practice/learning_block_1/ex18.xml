@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zoo  xmlns="http://www.w3school.com.cn" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex18.xsd">
+
+    <dwelling xsi:type="building">
+        <id>d001</id>
+        <name>dwelling1</name>
+        <area>1.1</area>
+    </dwelling>
+    <zooanimal dwelling='d001' zookeeper='zk001' xsi:type="horse">
+        <id>a001</id>
+        <name>animal1</name>
+        <age>1</age>
+        <gestationperiod>5</gestationperiod>
+        <whitehorse>true</whitehorse>
+    </zooanimal>
+    <zookeeper>
+        <id>zk001</id>
+        <name>zookeeper1</name>
+    </zookeeper>
+
+    <dwelling xsi:type="pond">
+        <id>d002</id>
+        <name>dwelling2</name>
+        <depth>1.2</depth>
+    </dwelling>
+    <zooanimal dwelling='d002' zookeeper="zk002" xsi:type="goose">
+        <id>a002</id>
+        <name>animal1</name>
+        <age>1</age>
+        <canfly>true</canfly>
+        <slaughtweight>5</slaughtweight>
+    </zooanimal>
+    <zookeeper>
+        <id>zk002</id>
+        <name>zookeeper2</name>
+    </zookeeper>
+</zoo>

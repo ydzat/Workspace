@@ -1,0 +1,136 @@
+\documentclass[fleqn]{article}
+
+\usepackage{listings}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{qtree}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{positioning}
+\geometry{top=2.5cm, bottom=2.5cm}
+\lstset{
+ columns=fixed,       
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=c++,                                        % 设置语言
+}
+\begin{document}
+
+\newpagestyle{main}{
+    \sethead{Matrikel-Nr.: 574145 Dongze Yang}{}{Grupe: Mi. Dozent: Julian Pape-Lange}
+    \setfoot{}{\thepage}{}
+    \headrule
+    \footrule
+}
+\pagestyle{main}
+\section{Aufgabe}
+
+\begin{lstlisting}
+#include<bits/stdc++.h>
+using namespace std;
+#define nn 200
+vector<int> Map[nn];
+int n, vis[nn], match[nn];
+bool dfs(int u){
+    for(int i = 0; i < Map[u].size(); i++){
+        int to = Map[u][i];
+        if(!vis[to]){
+            vis[to] = 1;
+            if(!match[to] || dfs(match[to])){
+                match[to] = u;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+int solve(){
+    memset(match, 0, sizeof(match));
+    int ans = 0;
+    for(int i = 1; i <= n; i++){
+        memset(vis, 0, sizeof(vis));
+        if(dfs(i)) ans++;
+    }
+    return ans;
+}
+void add(int u, int v){
+    Map[u].push_back(v);
+}
+int main(){
+    int T, i, m, u, v;
+    scanf("%d", &T);
+    while(T--){
+        scanf("%d %d", &n, &m);
+        for(i = 0; i <= n; i++){
+            Map[i].clear();
+        }
+        while(m--){
+            scanf("%d %d", &u, &v);
+            add(u, v);
+        }
+        printf("%d\n", n - solve());
+    }
+    return 0;
+}
+\end{lstlisting}
+
+\section{Aufgabe}
+
+\begin{tikzpicture}
+
+    \node(s) at (0,3) [circle, draw]{s};
+    \node(v1) at (2,4) [circle, draw, label={above:V1}]{v1};
+    \node(v2) at (2,3) [circle, draw]{v2};
+    \node(v3) at (2,2) [circle, draw]{v3};
+    \node(v4) at (2,1) [circle, draw]{v4};
+    \node(v5) at (4,4) [circle, draw, label={above:V2}]{v5};
+    \node(v6) at (4,3) [circle, draw]{v6};
+    \node(v7) at (4,2) [circle, draw]{v7};
+    \node(t) at (6,3) [circle, draw]{t};
+
+    \path[->] (s) edge node[above]{/1} (v1)
+              (s) edge node[above]{/1} (v2)
+              (s) edge node[above]{/1} (v3)
+              (s) edge node[below]{/1} (v4)
+              (v1) edge[ultra thick] node[above]{} (v5)
+              (v1) edge node[above]{} (v6)
+              (v2) edge node[above]{} (v7)
+              (v3) edge[ultra thick] node[above]{} (v6)
+              (v3) edge node[above]{} (v7)
+              (v4) edge[ultra thick] node[below]{/$\infty$} (v7)
+              (v5) edge node[above]{/1} (t)
+              (v6) edge node[above]{/1} (t)
+              (v7) edge node[above]{/1} (t)
+    ;
+
+\end{tikzpicture}
+
+\section{Aufgabe}
+
+Hier benutze ich KM Algorithmus (genannt auch: Ungarische Methode).
+
+Idee: Wenn ein gleiches Subgraph des Originalgraphen eine vollständige Übereinstimmung enthält, ist diese Übereinstimmung die beste zweigliedrige Übereinstimmung des Originalgraphen.
+
+Beweis: Da die Durchführbarkeit der Vertex-Beschriftung im Algorithmus beibehalten wurde, muss die Summe der Gewichte aller Übereinstimmungen kleiner oder gleich der Summe der möglicher Vertex-Beschriftung aller Knoten sein, und die vollständige Übereinstimmung im gleichen Teilgraphen muss die beste Übereinstimmung sein.
+
+Nehmen Sie den Graphe in Aufgabe 2 als Beispiel:
+
+Weil jeder Person bis zu zwei Tätigkeiten gleichzeitig zugemutet werden können, sind die Vertex-Beschriftungen von $v_1, v_2, v_3, v_4$ 2, sind die die Vertex-Beschriftungen von $v_5, v_6, v_7$ 1.
+
+dann gilt: $weight(v_1,v_5) = weight(v_1,v_6) = weight(v_2,v_7) = weight(v_3,v_6) = weight(v_3,v_7) = weight(v_4,v_7) = 1$.
+Das aktuelle Match befriedigt $lv1(u) + lv2(v) \geq weight(u,v)$, wobei $lv1(u)$ besitzt sich auf der Vertex-Beschriftung der Knote in der Menge $V_1$, $lv2(v)$-> $V_2$.
+
+so: $\sum_{i=1}^{u_i \in V1}lv1(u_i) + \sum_{i=1}^{v_i \in V2}lv2(v_i) = K \geq \sum weright(u_i,v_i)$
+
+
+\end{document}

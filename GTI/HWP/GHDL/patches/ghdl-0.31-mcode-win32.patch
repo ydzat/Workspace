@@ -1,0 +1,96 @@
+diff -r dab8e8a74946 translate/ghdldrv/Makefile
+--- a/translate/ghdldrv/Makefile	Wed Jan 08 21:15:07 2014 +0100
++++ b/translate/ghdldrv/Makefile	Sat Feb 08 19:48:06 2014 -0500
+@@ -43,6 +43,7 @@
+ #target=x86_64-pc-linux-gnu
+ #target=i686-apple-darwin
+ #target=x86_64-apple-darwin
++#target=i386-pc-mingw32
+ GRTSRCDIR=../grt
+ include $(GRTSRCDIR)/Makefile.inc
+ 
+@@ -52,6 +53,9 @@
+ ifeq ($(filter-out i%86 darwin%,$(arch) $(osys)),)
+   ORTHO_X86_FLAGS=Flags_Macosx
+ endif
++ifeq ($(filter-out i%86 mingw32%,$(arch) $(osys)),)
++  ORTHO_X86_FLAGS=Flags_Windows
++endif
+ ifdef ORTHO_X86_FLAGS
+   ORTHO_DEPS=ortho_code-x86-flags.ads
+ endif
+diff -r dab8e8a74946 translate/grt/grt-main.adb
+--- a/translate/grt/grt-main.adb	Wed Jan 08 21:15:07 2014 +0100
++++ b/translate/grt/grt-main.adb	Sat Feb 08 19:48:06 2014 -0500
+@@ -46,6 +46,13 @@
+    procedure Ghdl_Elaborate;
+    pragma Import (C, Ghdl_Elaborate, "__ghdl_ELABORATE");
+ 
++   --  Wrapper around elaboration just to return 0.
++   function Ghdl_Elaborate_Wrapper return Integer is
++   begin
++      Ghdl_Elaborate;
++      return 0;
++   end Ghdl_Elaborate_Wrapper;
++
+    procedure Disp_Stats_Hook (Code : Integer);
+    pragma Convention (C, Disp_Stats_Hook);
+ 
+@@ -128,8 +135,12 @@
+          Stats.Start_Elaboration;
+       end if;
+ 
+-      --  Elaboration.
+-      Ghdl_Elaborate;
++      --  Elaboration.  Run through longjump to catch errors.
++      if Grt.Processes.Run_Through_Longjump (Ghdl_Elaborate_Wrapper'Access) < 0
++      then
++         Grt.Errors.Error ("error during elaboration");
++         return;
++      end if;
+ 
+       if Flag_Stats then
+          Stats.Start_Order;
+diff -r dab8e8a74946 translate/grt/grt-processes.adb
+--- a/translate/grt/grt-processes.adb	Wed Jan 08 21:15:07 2014 +0100
++++ b/translate/grt/grt-processes.adb	Sat Feb 08 19:48:06 2014 -0500
+@@ -621,12 +621,6 @@
+ 
+    pragma Unreferenced (Disp_All_Processes);
+ 
+-   type Run_Handler is access function return Integer;
+-   --  pragma Convention (C, Run_Handler);
+-
+-   function Run_Through_Longjump (Hand : Run_Handler) return Integer;
+-   pragma Import (Ada, Run_Through_Longjump, "__ghdl_run_through_longjump");
+-
+    --  Run resumed processes.
+    --  If POSTPONED is true, resume postponed processes, else resume
+    --  non-posponed processes.
+diff -r dab8e8a74946 translate/grt/grt-processes.ads
+--- a/translate/grt/grt-processes.ads	Wed Jan 08 21:15:07 2014 +0100
++++ b/translate/grt/grt-processes.ads	Sat Feb 08 19:48:06 2014 -0500
+@@ -126,6 +126,13 @@
+    procedure Ghdl_Protected_Init (Obj : System.Address);
+    procedure Ghdl_Protected_Fini (Obj : System.Address);
+ 
++   type Run_Handler is access function return Integer;
++
++   --  Run HAND through a wrapper that catch some errors (in particular on
++   --  windows).  Returns < 0 in case of error.
++   function Run_Through_Longjump (Hand : Run_Handler) return Integer;
++   pragma Import (Ada, Run_Through_Longjump, "__ghdl_run_through_longjump");
++
+ private
+    --  State of a process.
+    type Process_State is
+diff -r dab8e8a74946 version.ads
+--- a/version.ads	Wed Jan 08 21:15:07 2014 +0100
++++ b/version.ads	Sat Feb 08 19:48:06 2014 -0500
+@@ -1,5 +1,5 @@
+ package Version is
+    Ghdl_Release : constant String :=
+-      "GHDL 0.31 (20140108) [Dunoon edition]";
++      "GHDL 0.31 (20140108) [Dunoon edition] + ghdl-0.31-mcode-win32.patch";
+    Ghdl_Ver : constant String := "0.31";
+ end Version;

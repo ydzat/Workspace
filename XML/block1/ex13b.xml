@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course-registration xmlns="urn:vsr:xml-werkzeuge:aufgabe15">
+  <course>DDS</course>
+  <student matrikelnr="234567"/>
+  <tutorial-day>Mo</tutorial-day>
+</course-registration>

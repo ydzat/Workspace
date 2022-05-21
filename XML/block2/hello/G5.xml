@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<learning-group-letter xmlns="lglt"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="lglt lglt.xsd"
+>
+  <meta>
+    <learning-block>1</learning-block>
+    <learning-group id="5">
+      <speaker></speaker>
+      <participant>Dongze Yang</participant>
+      <participant></participant>
+    </learning-group>
+  </meta>
+  <results>
+    <tasks>
+      <task id="1" difficulty="easy" solved="yes"/>
+      <task id="2" difficulty="easy" solved="yes"/>
+      <task id="3" difficulty="easy" solved="yes"/>
+      <task id="4" difficulty="easy" solved="yes"/>
+      <task id="5" difficulty="easy" solved="yes"/>
+      <task id="6" difficulty="easy" solved="yes"/>
+      <task id="7" difficulty="easy" solved="yes"/>
+      <task id="8" difficulty="easy" solved="yes"/>
+      <task id="9" difficulty="medium" solved="yes"/>
+      <task id="10" difficulty="medium" solved="yes"/>
+      <task id="11" difficulty="medium" solved="yes"/>
+      <task id="12" difficulty="medium" solved="yes"/>
+      <task id="13" difficulty="medium" solved="yes"/>
+      <task id="14" difficulty="medium" solved="yes"/>
+      <task id="15" difficulty="medium" solved="yes"/>
+      <task id="16" difficulty="medium" solved="yes"/>
+      <task id="17" difficulty="medium" solved="yes"/>
+      <task id="18" difficulty="hard" solved="no"/>
+    </tasks>
+    <issues>{we don't know the answer of task 18, so we don't know if it is right or not.}</issues>
+    <hints-or-requests>{TODO please fill if required}</hints-or-requests>
+  </results>
+</learning-group-letter>

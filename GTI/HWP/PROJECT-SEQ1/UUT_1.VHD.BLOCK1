@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;                               
+use work.pack_2.all;                                       
+                                                         
+entity uut is
+  port (EE_X : in  x01_vector(7 downto 0);
+        EE_Y : out x01_vector(23 downto 16));
+end uut;                                             
+                                                       
+architecture structure of uut is
+  alias c  : x01 is EE_X(0);
+  alias d  : x01 is EE_X(1);
+  alias q1 : x01 is EE_Y(16);
+  alias q2 : x01 is EE_Y(17);
+ 
+begin                                                     
+
+
+end structure;

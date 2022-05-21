@@ -1,0 +1,38 @@
+README for ghdl-0.31-mcode-win32.zip 
+
+This is the zip file installation of the GHDL 0.31 Windows mcode version.
+
+See INSTALL for installation instructions.
+
+See ./doc/ghdl.html for the GHDL user guide.
+
+
+Program information from the ghdl --version command:
+
+  GHDL 0.31 (20140108) [Dunoon edition] + ghdl-0.31-mcode-win32.patch
+   Compiled with GNAT Version: GPL 2013 (20130314)
+   mcode code generator
+  Written by Tristan Gingold.
+  
+  Copyright (C) 2003 - 2014 Tristan Gingold.
+  GHDL is free software, covered by the GNU General Public License.  There is NO
+  warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+See COPYING for further license information.
+
+
+This binary build was created from the sourceforge ghdl-0.31_release tag, plus 
+the ghdl-0.31-mcode-win32.patch file found in the ./patches subdirectory.
+
+
+GHDL sources are available here:
+
+  https://sourceforge.net/projects/ghdl-updates/ 
+
+
+Wiki pages regarding zip installation and source builds are currently found here:
+
+  https://sourceforge.net/p/ghdl-updates/wiki/Windows%20ghdl-0.31%20install%20from%20zip/
+
+  https://sourceforge.net/p/ghdl-updates/wiki/build%20mcode%20ghdl-0.31%20windows/

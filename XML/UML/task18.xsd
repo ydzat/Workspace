@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="bird_ct" type="bird_ct"/>
+
+	<xs:complexType name="bird_ct">
+		<xs:complexContent>
+			<xs:extension base="zoo_animal_ct">
+				<xs:sequence>
+					<xs:element name="can_fly" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="building_ct" type="building_ct"/>
+
+	<xs:complexType name="building_ct">
+		<xs:complexContent>
+			<xs:extension base="dwelling_ct">
+				<xs:sequence>
+					<xs:element name="area" type="xs:double" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="cat_ct" type="cat_ct"/>
+
+	<xs:complexType name="cat_ct">
+		<xs:complexContent>
+			<xs:extension base="mammal_ct">
+				<xs:sequence>
+					<xs:element name="fur_color" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="dwelling_ct" type="dwelling_ct"/>
+
+	<xs:complexType name="dwelling_ct">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="zoo_animal_ct" type="zoo_animal_ct" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="goose_ct" type="goose_ct"/>
+
+	<xs:complexType name="goose_ct">
+		<xs:complexContent>
+			<xs:extension base="bird_ct">
+				<xs:sequence>
+					<xs:element name="slaughter_weight" type="xs:positiveInteger" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="horse_ct" type="horse_ct"/>
+
+	<xs:complexType name="horse_ct">
+		<xs:complexContent>
+			<xs:extension base="mammal_ct">
+				<xs:sequence>
+					<xs:element name="white_horse" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="mammal_ct" type="mammal_ct"/>
+
+	<xs:complexType name="mammal_ct">
+		<xs:complexContent>
+			<xs:extension base="zoo_animal_ct">
+				<xs:sequence>
+					<xs:element name="gestation_period" type="xs:positiveInteger" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="pond_ct" type="pond_ct"/>
+
+	<xs:complexType name="pond_ct">
+		<xs:complexContent>
+			<xs:extension base="dwelling_ct">
+				<xs:sequence>
+					<xs:element name="depth" type="xs:double" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="starling_ct" type="starling_ct"/>
+
+	<xs:complexType name="starling_ct">
+		<xs:complexContent>
+			<xs:extension base="bird_ct">
+				<xs:sequence>
+					<xs:element name="ringed" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="zoo_animal_ct" type="zoo_animal_ct"/>
+
+	<xs:complexType name="zoo_animal_ct">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="age" type="xs:positiveInteger" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="zoo_ct" type="zoo_ct"/>
+
+	<xs:complexType name="zoo_ct">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dwelling_ct" type="dwelling_ct" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="zoo_animal_ct" type="zoo_animal_ct" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="zoo_keeper_ct" type="zoo_keeper_ct" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="zoo_keeper_ct" type="zoo_keeper_ct"/>
+
+	<xs:complexType name="zoo_keeper_ct">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="zoo_animal_ct" type="zoo_animal_ct" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

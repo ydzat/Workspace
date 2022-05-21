@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE food [
+  <!ELEMENT food      (fruit|vegetable|misc)+>
+  <!ELEMENT fruit    (#PCDATA)>
+  <!ELEMENT vegetable    (#PCDATA)>
+  <!ELEMENT misc    (#PCDATA|description)*>
+  <!ELEMENT description    EMPTY>
+  <!ATTLIST description 
+		articlename CDATA #REQUIRED
+		price CDATA #REQUIRED>
+]>
+<food>
+	<fruit>plum</fruit>
+	<vegetable>cabbage</vegetable>
+	<misc>cookie</misc>
+	<misc><description articlename="banana"
+			price="22.50"/></misc>
+	<vegetable>cucumber price: 22.50</vegetable>
+</food>

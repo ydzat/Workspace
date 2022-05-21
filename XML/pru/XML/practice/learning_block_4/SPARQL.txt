@@ -1,0 +1,533 @@
+Task5
+Write a SPARQL-Query which returns all the authors that have written something.
+------------------------------------
+| author                           |
+====================================
+| <http://example.org/lit#author0> |
+| <http://example.org/lit#author2> |
+|   (..................)           |
+------------------------------------
+
+解答：authors.rdf
+PREFIX lit:<http://example.org/lit#>
+SELECT DISTINCT ?author
+WHERE{
+  ?author lit:hasWritten ?book .
+}
+
+Task6
+Write a SPARQL-Query which returns all these authors by name.
+-----------------------
+| author_name             |
+==========================
+| "Donald Meier"          |
+| "Laure Castel"          |
+   ( ............)
+| "Reiner Klumpatsch"     |
+-----------------------
+
+解答：authors.rdf
+PREFIX lit:<http://example.org/lit#>
+SELECT ?author_name
+WHERE {
+  ?author lit:authorName ?author_name
+}
+
+Task7
+Write a SPARQL-Query which book has been written by which author.
+----------------------------
+| author      | book       |
+============================
+| lit:author0 | lit:book12 |
+| lit:author2 | lit:book4  |
+  ( .................... )
+| lit:author3 | lit:book2  |
+----------------------------
+
+解答：authors.rdf
+PREFIX lit:<http://example.org/lit#>
+SELECT ?author ?book
+WHERE {
+  ?author lit:hasWritten ?book
+}
+
+Task8
+Write a SPARQL-Query which book has been written by which author, but this time the real names should be returned.
+------------------------------------------
+| name            | the_book_name        |
+==========================================
+| "John Lorge"    | "About a poor man"   |
+| "Tony Cash"     | "The writer"         |
+ (...................................)
+| "Allen Weak"    | "The Castle"         |
+------------------------------------------
+
+解答：authors.rdf, books.rdf
+PREFIX lit:<http://example.org/lit#>
+SELECT ?name ?the_book_name
+WHERE {
+  ?author lit:hasWritten ?book .
+  ?author lit:authorName ?name .
+  ?book lit:bookName ?the_book_name .
+}
+
+Task9
+The query should only return the books which have "about" in their title.
+---------------------------------------
+| name           | the_book_name      |
+=======================================
+| "John Lorge"   | "About a poor man" |
+| "Lionel Hurby" | "About us"         |
+---------------------------------------
+
+解答：authors.rdf, books.rdf
+PREFIX lit:<http://example.org/lit#>
+SELECT ?name ?the_book_name
+WHERE {
+  ?author lit:hasWritten ?book .
+  ?author lit:authorName ?name .
+  ?book lit:bookName ?the_book_name .
+  FILTER regex(?the_book_name, "about", "i")
+}
+
+Task10
+The query should only return the books which have "about" in their title or were written by a author
+who lives in Magdeburg.
+---------------------------------------
+| name           | the_book_name      |
+=======================================
+| "John Lorge"   | "About a poor man" |
+| "Lionel Hurby" | "About us"         |
+| "Clara Heller" | "The dirty meal"   |
+| "Clara Heller" | "The hammer"       |
+| "Clara Heller" | "Let's Dance"      |
+---------------------------------------
+
+解答：authors.rdf, books.rdf, locations.rdf
+PREFIX lit:<http://example.org/lit#>
+SELECT ?name ?the_book_name
+WHERE {
+  {
+        ?author lit:hasWritten ?book .
+        ?author lit:authorName ?name .
+        ?book lit:bookName ?the_book_name .
+        FILTER regex(?the_book_name, "about", "i")
+  }
+  UNION
+  {
+  	   ?author lit:hasWritten ?book .
+       ?author lit:authorName ?name .
+       ?author lit:livesIn "Magdeburg" .
+       ?book lit:bookName ?the_book_name .
+  }
+}
+注意：
+UNION的部分也可以写成这样：
+          ?author lit:authorName ?name .
+          ?author lit:hasWritten ?book .
+          ?book lit:bookName ?book_name .
+          ?author lit:livesIn ?location .
+          FILTER ((contains(?book_name,"About"))|| ?location="Magdeburg")
+
+Task11
+List all the people, who wrote or translated a book. If the person wrote a book,
+then list the books names in the written_book_name column. If the person is translator,
+list the the books names in the translated_book_name column.
+---------------------------------------------------------------------
+| Autoren             | written_book_name    | translated_book_name |
+=====================================================================
+| "Donald Meier"      |                      | "The better way"     |
+| "Donald Meier"      |                      | "The wild west"      |
+| "Laure Castel"      | "Sounds good"        |                      |
+| "Laure Castel"      | "Harry, the tramp"   |                      |
+| "Laure Castel"      | "What did you do?"   |                      |
+| "Ilona Leonhadt"    |                      | "About us"           |
+| "Ilona Leonhadt"    |                      | "Oh, oh oh..."       |
+
+  (................................................................)
+| "Reiner Klumpatsch" |                      | "The daisy killer"   |
+| "Reiner Klumpatsch" |                      | "Hold on"            |
+---------------------------------------------------------------------
+
+解答: authors.rdf, books.rdf, translators.rdf
+答案1
+PREFIX lit: <http://example.org/lit#>
+SELECT  ?Author ?written_book_name ?translated_book_name
+WHERE {
+  ?author lit:authorName ?Author.
+  OPTIONAL{
+  	?author lit:hasWritten ?written_book.
+  	?written_book lit:bookName ?written_book_name.}
+  OPTIONAL{
+   ?author lit:hasTranslated ?translated_book.
+  	?translated_book lit:bookName ?translated_book_name.}
+}
+
+答案2
+PREFIX lit: <http://example.org/lit#>
+SELECT  ?Author ?written_book_name ?translated_book_name
+WHERE {
+  ?author lit:authorName ?Author
+  {
+    ?author lit:hasWritten ?book .
+    ?book lit:bookName ?written_book_name .
+  }
+  UNION
+  {
+    ?author lit:hasTranslated ?book .
+    ?book lit:bookName ?translated_book_name .
+  }
+}
+
+Task12
+Write a SPARQL-Query which returns the name of all translators.
+-----------------------
+| Translator         |
+=======================
+| "Bert Klimer"       |
+| "Anton Bubisch"     |
+ (................)
+| "Bert Klimer"       |
+-----------------------
+
+解答：authors.rdf, translator.rdf
+PREFIX lit: <http://example.org/lit#>
+SELECT DISTINCT ?Translator
+WHERE {
+	?translator lit:authorName ?Translator.
+	?translator lit:hasTranslated ?the_book_name.
+}
+
+Task13
+Write a SPARQL-Query which also returns the translators of the books, with their real names
+-----------------------------------------------------------
+| name            | the_book_name        | translator     |
+===========================================================
+| "John Lorge"    | "About a poor man"   | Renate Koller  |
+| "Tony Cash"     | "The writer"         | Anton Bubisch  |
+ (.......................................................)
+| "Allen Weak"    | "The Castle"         | Allan Liebisch |
+-----------------------------------------------------------
+
+解答：authors.rdf, books.rdf, translator.rdf
+PREFIX lit: <http://example.org/lit#>
+SELECT ?name ?the_book_name ?translator_name
+WHERE {
+   ?author lit:authorName ?name.
+   ?author lit:hasWritten ?book.
+   ?book lit:bookName ?the_book_name.
+   ?translator lit:hasTranslated ?book.
+   ?translator lit:authorName ?translator_name.
+}
+
+Task14
+Write a SPARQL-Query which also returns where the authors and translators live.
+-------------------------------------------------------------------------------------------
+| name            | the_book_name        | translator     | author_city | translator_city |
+===========================================================================================
+| "John Lorge"    | "About a poor man"   | Renate Koller  | Dresden     | Berlin          |
+| "Tony Cash"     | "The writer"         | Anton Bubisch  | Berlin      | Berlin          |
+ (.......................................................................................)
+| "Allen Weak"    | "The Castle"         | Allan Liebisch | Hamburg     | Dresden         |
+-------------------------------------------------------------------------------------------
+
+解答：authors.rdf, books.rdf, translator.rdf, location.rdf
+PREFIX lit: <http://example.org/lit#>
+SELECT ?name ?the_book_name ?translator_name ?author_city ?translator_city
+WHERE {
+   ?author lit:authorName ?name.
+   ?author lit:hasWritten ?book.
+   ?author lit:livesIn ?author_city.
+   ?book lit:bookName ?the_book_name.
+   ?translator lit:hasTranslated ?book.
+   ?translator lit:livesIn ?translator_city.
+   ?translator lit:authorName ?translator_name.
+}
+
+Task15
+Write a SPARQL-Query which returns the translators who live in the same city as the authors of the book they translated.
+------------------------------------------------------------------------------------
+| name            | the_book_name | translator     | author_city | translator_city |
+====================================================================================
+| "John Lorge"    | "The Bridge"  | Allan Liebisch | Dresden     | Dresden         |
+| "Tony Cash"     | "The writer"  | Anton Bubisch  | Berlin      | Berlin          |
+ (................................................................................)
+| "Lionel Hurby"  | "About us"    | Ilona Leonhadt | Chemnitz    | Chemnitz        |
+------------------------------------------------------------------------------------
+
+解答：
+PREFIX lit: <http://example.org/lit#>
+SELECT ?name ?the_book_name ?translator_name ?author_city ?translator_city
+WHERE {
+    ?author lit:authorName ?name.
+    ?author lit:hasWritten ?book.
+    ?author lit:livesIn ?author_city.
+    ?book lit:bookName ?the_book_name.
+    ?translator lit:hasTranslated ?book.
+  	?translator lit:livesIn ?translator_city.
+    ?translator lit:authorName ?translator_name.
+  	FILTER (?author_city=?translator_city)
+}
+
+
+DBpedia
+Graph URI: http://dbpedia.org
+
+Task16
+Write a SPARQL-Query, which returns the personalities who were born in Dresden.
+------------------------------------------------------------------------------------------------------------------------
+| who                                                                      | city                                     |
+========================================================================================================================
+| <http://dbpedia.org/resource/George_of_Saxony>                           | <http://dbpedia.org/resource/Dresden> |
+| <http://dbpedia.org/resource/Yosef_Burg>                                 | <http://dbpedia.org/resource/Dresden> |
+                                             (.....................)
+| <http://dbpedia.org/resource/Gertrude_Welcker>                           | <http://dbpedia.org/resource/Dresden> |
+| <http://dbpedia.org/resource/Ursula_Cain>                                | <http://dbpedia.org/resource/Dresden> |
+------------------------------------------------------------------------------------------------------------------------
+
+解答：
+select ?who ?city
+where {
+    ?who dbo:birthPlace ?city .
+    filter (?city= dbr:Dresden)
+}
+
+Task17
+Write a SPARQL-Query, which returns the personalities who were born in Leipzig or Dresden.
+----------------------------------------------------------------------------------------------------------------
+| who                                                                  | city                                  |
+=================================================================================================================
+| <http://dbpedia.org/resource/Max_von_Stephanitz>                     | <http://dbpedia.org/resource/Dresden> |
+| <http://dbpedia.org/resource/Wolfgang_Kapp>                          | <http://dbpedia.org/resource/Leipzig> |
+| <http://dbpedia.org/resource/Moritz_Hauptmann>                       | <http://dbpedia.org/resource/Leipzig> |
+                                         (.....................)
+| <http://dbpedia.org/resource/Christian_F%C3%BCrchtegott_Gellert>     | <http://dbpedia.org/resource/Leipzig> |
+----------------------------------------------------------------------------------------------------------------
+
+解答：
+select ?who ?city
+where {
+    ?who dbo:birthPlace ?city .
+    filter (?city= dbr:Dresden || ?city=dbr:Leipzig)
+}
+或者
+select ?who ?city
+where {
+    {
+        ?who dbo:birthPlace ?city .
+        filter (?city=dbr:Dresden) .
+    }
+UNION
+    {
+        ?who dbo:birthPlace ?city .
+        filter (?city=dbr:Leipzig) .
+    }
+}
+
+Task18
+Write a SPARQL-Query, which returns the personalities who died in Leipzig or Dresden, but this time with the city name.
+-----------------------------------------------------------------------------------------------------------------
+| who                                                                                            | labelname    |
+=================================================================================================================
+| <http://dbpedia.org/resource/Maria_Antonia_of_Bavaria>                                     | "Dresde"@es  |
+| <http://dbpedia.org/resource/Richard_Bruno_Heydrich>                                       | "Dresde"@es  |
+                          (.........)
+| <http://dbpedia.org/resource/Maria_Antonia_of_Bavaria>                                     | "Dresda"@it  |
+| <http://dbpedia.org/resource/Richard_Bruno_Heydrich>                                       | "Dresda"@it  |
+| <http://dbpedia.org/resource/Wilhelm_Adam_%28politician%29>                                | "Dresda"@it  |
+-------------------------------------------------------------------------------------------------------------
+
+解答：
+select ?who ?labelname
+where {
+    ?who dbo:deathPlace  ?place.
+    ?place dbp:name ?labelname .
+    filter (?place=dbr:Dresden|| ?place=dbr:Leipzig)
+}
+
+
+Task18b
+Write a SPARQL-Query, which returns the personalities who died in Leipzig or Dresden,
+but this time with the city name and only repeated one time.
+-----------------------------------------------------------------------------------------------------------------
+| who                                                                                            | labelname    |
+=================================================================================================================
+| <http://dbpedia.org/resource/Maria_Antonia_of_Bavaria>                                     | "Dresden"@en |
+| <http://dbpedia.org/resource/Richard_Bruno_Heydrich>                                       | "Dresden"@en |
+| <http://dbpedia.org/resource/Wilhelm_Adam_%28politician%29>                                | "Dresden"@en |
+| <http://dbpedia.org/resource/Kurt_W%C3%BCsthoff>                                           | "Dresden"@en |
+| <http://dbpedia.org/resource/Rudolf_Fischer_%28writer%29>                                  | "Dresden"@en |
+| <http://dbpedia.org/resource/Jean_Balthasar_Tricklir>                                      | "Dresden"@en |
+                        ( ........ )
+-------------------------------------------------------------------------------------------------------------
+
+解答：
+select DISTINCT ?who ?labelname
+where {
+    ?who dbo:deathPlace  ?place.
+    ?place dbp:name ?labelname .
+    filter (?place=dbr:Dresden|| ?place=dbr:Leipzig)
+}
+
+OWL
+Task19
+Find all the brothers!
+
+Brothers
+http://example.org/personal/per#andreas_hilbert is brother of http://example.org/personal/per#peter_meier
+http://example.org/personal/per#paul_linke is brother of http://example.org/personal/per#andreas_hilbert
+http://example.org/personal/per#peter_meier is brother of http://example.org/personal/per#andreas_hilbert
+http://example.org/personal/per#andreas_hilbert is brother of http://example.org/personal/per#paul_linke
+http://example.org/personal/per#paul_linke is brother of http://example.org/personal/per#peter_meier
+http://example.org/personal/per#peter_meier is brother of http://example.org/personal/per#paul_linke
+ (...)
+
+import rdflib
+import owlrl
+
+graph = rdflib.Graph()
+graph.parse("./rdfFiles/Schulpersonal.rdf")
+graph.parse("./rdfFiles/Schulpers.owl")
+per = rdflib.Namespace("http://example.org/personal/per#")
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(graph)
+print("Brothers")
+for s, o in graph.subject_objects(per.isBrother):
+    if not (s == o):
+        print(s, "is brother of", o)
+
+
+
+Task21
+Determine all children and their fathers. Do not use the predicate isFather!
+
+Children
+http://example.org/personal/per#alfred_lober is child of http://example.org/personal/per#hans_breuer
+http://example.org/personal/per#alfred_lober is child of http://example.org/personal/per#caretaker
+http://example.org/personal/per#heiner_lederer is child of http://example.org/personal/per#paul_linke
+ (...)
+
+import rdflib
+import owlrl
+
+graph = rdflib.Graph()
+graph.parse("./rdfFiles/Schulpersonal.rdf")
+graph.parse("./rdfFiles/Schulpers.owl")
+per = rdflib.Namespace("http://example.org/personal/per#")
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(graph)
+print("Brothers")
+for s, o in graph.subject_objects(per.isFather):
+    if not (s == o):
+        print(o, "is father of", s)
+
+Task22
+Find all relatives!
+
+Relatives
+http://example.org/personal/per#paul_linke is relative of http://example.org/personal/per#heiner_lederer
+http://example.org/personal/per#andreas_hilbert is relative of http://example.org/personal/per#peter_meier
+http://example.org/personal/per#paul_linke is relative of http://example.org/personal/per#peter_meier
+http://example.org/personal/per#peter_meier is relative of http://example.org/personal/per#peter_meier
+http://example.org/personal/per#paul_linke is relative of http://example.org/personal/per#andreas_hilbert
+http://example.org/personal/per#peter_meier is relative of http://example.org/personal/per#andreas_hilbert
+ (...)
+
+import rdflib
+import owlrl
+
+graph = rdflib.Graph()
+graph.parse("Schulpersonal.rdf")
+graph.parse("Schulpers.owl")
+per = rdflib.Namespace("http://example.org/personal/per#")
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(graph)
+print("Brothers")
+for s, o in graph.subject_objects(per.isRelative):
+    print(o, "is relative of", s)
+
+Task23
+Find all the brothers among the students (but not the teachers)!
+
+There are no brothers among students
+
+import rdflib
+import owlrl
+
+graph = rdflib.Graph()
+graph.parse("./rdfFiles/Schulpersonal.rdf")
+graph.parse("./rdfFiles/Schulpers.owl")
+per = rdflib.Namespace("http://example.org/personal/per#")
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(graph)
+count = 0
+for student in graph.subjects(rdflib.RDF.type, per.student):
+    for brother in graph.objects(student, per.isBrother):
+        if not (student == brother):
+            count += 1
+            print("student ", str(student), "has brother", str(brother))
+
+if count == 0:
+    print("There are no brothers among students")
+
+Task24
+Find all the brothers among the teachers (but not the students)!
+
+teacher per:andreas_hilbert has brother: per:peter_meier
+teacher per:paul_linke has brother: per:andreas_hilbert
+teacher per:peter_meier has brother: per:andreas_hilbert
+teacher per:andreas_hilbert has brother: per:paul_linke
+teacher per:paul_linke has brother: per:peter_meier
+teacher per:peter_meier has brother: per:paul_linke
+ (...)
+
+import rdflib
+import owlrl
+
+graph = rdflib.Graph()
+graph.parse("./rdfFiles/Schulpersonal.rdf")
+graph.parse("./rdfFiles/Schulpers.owl")
+per = rdflib.Namespace("http://example.org/personal/per#")
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(graph)
+count = 0
+for teacher in graph.subjects(rdflib.RDF.type, per.teacher):
+    for brother in graph.objects(teacher, per.isBrother):
+        if not (teacher == brother):
+            count += 1
+            print("teacher ", str(teacher), "has brother", str(brother))
+
+if count == 0:
+    print("There are no brothers among teachers")
+
+Task25
+Find all brothers among the employees!
+
+teacher per:andreas_hilbert has brother: per:peter_meier
+teacher per:paul_linke has brother: per:andreas_hilbert
+teacher per:peter_meier has brother: per:andreas_hilbert
+teacher per:andreas_hilbert has brother: per:paul_linke
+teacher per:paul_linke has brother: per:peter_meier
+teacher per:peter_meier has brother: per:paul_linke
+ (...)
+
+import rdflib
+import owlrl
+
+graph = rdflib.Graph()
+graph.parse("./rdfFiles/Schulpersonal.rdf")
+graph.parse("./rdfFiles/Schulpers.owl")
+per = rdflib.Namespace("http://example.org/personal/per#")
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(graph)
+count = 0
+for employee in graph.subjects(rdflib.RDF.type, per.employee):
+    for brother in graph.objects(employee, per.isBrother):
+        if not (employee == brother):
+            count += 1
+            print("teacher ", str(employee), "has brother", str(brother))
+if count == 0:
+    print("There are no brothers among employees")
+
+Task26
+Find out if the caretaker is a Teacher and/or a student and/or an Empoloyee and/or a Person.
+
+The caretaker is no teacher
+The caretaker is no student
+The caretaker is an employee
+The caretaker is a person
+

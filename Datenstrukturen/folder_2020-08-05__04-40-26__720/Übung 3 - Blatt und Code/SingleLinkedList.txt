@@ -1,0 +1,159 @@
+
+/**
+ * @brief An Implementation of a SingleLinkedList, which is always sorted
+ */
+public class SingleLinkedList {
+
+    /**
+     * @brief An Implementation of a node, used for the SingleLinkedList
+     */
+    private class node{
+        public int data;
+        public node next;
+
+        /**
+         * @param element   - The data, which will be stored in the node
+         */
+        public node(int element){
+            this.data = element;
+            this.next = null;
+        }
+    }
+
+    private node head = null;
+
+    /**
+     * @brief Inserts the element to the List, sorted
+     *
+     * @param element   - The data, which will be inserted
+     */
+    public void insert(int element){
+        if(head == null){
+            head = new node(element);
+            return;
+        }
+        if(element<head.data){
+            node tmp = new node(element);
+            tmp.next = head;
+            head = tmp;
+            return;
+        }
+        insert(element, head);
+    }
+
+    /**
+     * @brief A Helper function for insert(int element) to insert recursively
+     *
+     * @param element   - The data, which will be inserted
+     * @param current   - The current node, which is processed
+     */
+    private void insert(int element, node current){
+        if(current.next==null){
+            current.next = new node(element);
+            return;
+        }
+        else if(element < current.next.data){
+            node tmp = new node(element);
+            tmp.next = current.next;
+            current.next = tmp;
+            return;
+        }
+        insert(element, current.next);
+    }
+
+
+    /**
+     * @brief traverses through the list, and returns the length
+     *
+     * @return the length of the list
+     */
+    public int length(){
+        return length(head);
+    }
+
+    /**
+     * @brief A Helper function for length() to calculate the length recursively
+     *
+     * @param current   - The current node, which is processed
+     * @return the length with this and all further nodes
+     */
+    public int length(node current){
+        if(current==null){
+            return 0;
+        }
+        return 1+ length(current.next);
+    }
+
+    /**
+     * @brief traverses through the list, and returns the element at the given index
+     *
+     * @param index - The index, for the searched element
+     * @return the element at the given index, -1 if there is no element at the given index
+     */
+    public int at(int index){
+        if(index<0){
+            return -1;
+        }
+        if(head == null){
+            return  -1;
+        }
+        return at(index, head);
+    }
+
+    /**
+     * @brief A Helper function for at(int index) to get the element recursively
+     *
+     * @param index     - The index, for the searches element after the current node
+     * @param current   - The current node, which is processed
+     * @return the element at the given index, -1 if there is no element at the given index
+     */
+    private int at(int index, node current){
+        if(index == 0){
+            return current.data;
+        }
+        if(current.next == null){
+            return -1;
+        }
+        return at(index-1, current.next);
+    }
+
+    /**
+     * @brief traverses through the list, and prints all elements
+     */
+    public void print_all(){
+        print_all(head);
+    }
+
+    /**
+     * @brief A Helper function for print_all() to print all the elements recursively
+     *
+     * @param current   - The current node, which is processed
+     */
+    public void print_all(node current){
+        if(current == null){
+            return;
+        }
+        System.out.print(current.data + " ");
+        print_all(current.next);
+    }
+
+    /**
+     * @brief Initializes all needed Things for the SingleLinkedList
+     */
+    public SingleLinkedList(){
+        head = null;
+    }
+
+
+
+    public static void main(String[] args){
+        SingleLinkedList liste = new SingleLinkedList();
+        liste.insert(3);
+        liste.insert(5);
+        liste.insert(10);
+        liste.insert(3);
+        liste.insert(1);
+        liste.print_all();
+        System.out.println("\n" + liste.contains(9));
+    }
+}

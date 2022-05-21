@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE city [
+  <!ELEMENT city     (name, district+)>
+  <!ELEMENT district (name, street+)>
+  <!ELEMENT street   (name, (house|store)*)>
+  <!ELEMENT name     (#PCDATA)>
+  <!ELEMENT house    (number, remark?)>
+  <!ELEMENT number   (#PCDATA)>
+  <!ELEMENT remark   (#PCDATA)>
+  <!ELEMENT store    (name, remark?)>
+]>
+<city>
+  <name>Rockville</name>
+  <district>
+    <name>North</name>
+    <street>
+      <name>Cherry Street</name>
+      <house>     
+        <number>1</number>
+      </house>
+      <store>
+        <name>Steve's Retail Shop</name>
+      </store>
+    </street>
+    <street>
+      <name>Elmwood Avenue</name>
+      <house>
+        <number>1</number>
+      </house>
+      <house>
+        <number>2</number>
+        <remark>Needs renovation</remark>
+        <remark>Looks abondend</remark>
+      </house>
+      <house>
+        <number>3</number>
+      </house>
+    </street>
+  </district>
+  <district>
+    <name>East</name>
+  </district>
+  <district>
+    <name>South</name>
+    <street>
+      <name>Maple Road</name>
+      <store>
+        <name>General Store</name>
+      </store>
+      <store>
+        <name>Hardware Store</name>
+      </store>
+    </street>
+  </district>
+</city>

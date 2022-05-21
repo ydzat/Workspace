@@ -1,0 +1,35 @@
+gesamt 88P
+
+Aufgabe 1 ~9P
+a) Nennen und erklaren Sie die Ebenen der 3-Ebenenarchitektur
+b) ordnen Sie folgende Operationen den Ebenen zu!
+- Relationen erzeugen
+- Sichten erzeugen
+- Fremdschlussel und Primarschlussel festlegen
+- Indexe zur Optimierung anlegen
+- das verschmelzen von 2 Unternehmen, wobei dies eine neue Strucktur erzeugt
+-
+
+Aufgabe 2 ~14P
+ERM
+
+Aufgabe 3 ~9P
+a) Nennen Sie die Grundoperationen der Relationalen Algebra!
+b) Was bedeuten Abgeschlossenheit und Vollstandigkeit der Relationalen Algebra?
+
+Aufgabe 4 ~22P
+ca. 10 SQL Anfragen erstellen
+Relationsschema so wie in der Probeklausur 2013
+einige Anfragen wie in den Altklausuren
+eine Anfrage fur DELETE und eine fur UPDATE
+
+Aufgabe 5 ~14P
+a) Was sind Anomalien? Nennen und erklaren sie 2 Anomalien. Wie lassen sich Anomalien vermeiden?
+b) Eine Relation war gegeben
+Ist die Relation in 1NF/2NF/3NF, begrunden sie ihre Antwort und uberfuhren sie gegebenfalls die Relation in die entsprechende NF
+
+Aufgabe 6 ~17P
+a) ACID erklaren
+b) erklaren unter welchen Umstanden es zu Konflikten kommen kann
+c) 2 Ausfuhrungsplane waren gegeben.
+Den Prazedenzgraph aufmalen und begrunden ob die Plane serialisierbar sind oder nicht.

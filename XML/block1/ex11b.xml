@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc3:form xmlns:sc3="urn:vsr:xml-werkzeuge:aufgabe2.3"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:vsr:xml-werkzeuge:aufgabe2.3
+http://vsr.informatik.tu-chemnitz.de/edu/2011/xw/public_resources/schema3.xsd">
+  <sc3:firstName>Paul</sc3:firstName>
+  <sc3:familyName>Koeber</sc3:familyName>
+  <sc3:firstName>Paul</sc3:firstName>
+</sc3:form>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<staffFile xmlns="http://www.w3school.com.cn" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3school.com.cn ex15.xsd">
+  <person>
+    <firstName>Martin</firstName>
+    <familyName>Immhofer</familyName>
+    <gender>male</gender>
+    <psnr>2463</psnr>
+  </person>
+  <person>
+    <firstName>Herbert</firstName>
+    <familyName>Leisnig</familyName>
+    <psnr>5678</psnr>
+    <gender>male</gender>
+    <grade>4</grade>
+  </person>
+</staffFile>
