@@ -1,5 +1,5 @@
 
-下载链接 download link：
+下载链接(已构建好，可以直接游玩) download link (It has been constructed and can be played directly)：
 
 https://1drv.ms/u/s!AlVqx8bJ2Muxo4xgs3dHCpgJQ8MhQQ?e=ULNQFF
 
