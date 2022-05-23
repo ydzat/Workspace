@@ -7,4 +7,8 @@ Most are the learning content of university courses。
 真正值得看的代码在：
 The code that is really worth looking at is:
 
-Unity试做游戏，Flappy Chopter: /unity/demo02
+Unity试做游戏：
+
+Flappy Chopter: /unity/demo02
+
+PopStar: /unity/PopStar
